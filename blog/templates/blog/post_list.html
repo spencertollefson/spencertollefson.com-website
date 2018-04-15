@@ -1,85 +1,13 @@
-{% load staticfiles %}
+{% extends 'blog/base.html' %}
 
-<html>
-    <head>
-        <title>Spencer's Blog</title>
-
-        <!imports css files found elsewhere on internet (bootstrap)>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
-
-        <!imports a font from elsewhere on the web>
-        <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
-
-        <! Leads to blog.css file for CSS styling>
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-
-
-
-
-    </head>
-    <body>
-        <div class="page-header">
-            <h1><a href="/">Spencer's Blog</a></h1>
+{% block content %}
+{% for post in posts %}
+    <div class="post">
+        <div class="date">
+            {{ post.published_date }}
         </div>
-
-        <br>
-        <br>
-        <br>
-
-
-        {% for post in posts %}
-        <ul>
-            <li>
-                <div class="normal-post">
-                    <p>published: {{ post.published_date }}</p>
-                    <h1><a href="">{{ post.title }}</a></h1>
-                    <p>{{ post.text|linebreaksbr }}</p>
-                    <br><br>
-                </div>
-            </li>
-        </ul>
-        {% endfor %}
-
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                    {% for post in posts %}
-                    <ul>
-                        <li>
-                            <div class="post">
-                                <div class="date">
-                                    <p>published: {{ post.published_date }}</p>
-                                </div>
-                                <h1><a href="">{{ post.title }}</a></h1>
-                                <p>{{ post.text|linebreaksbr }}</p>
-                            </div>
-                        </li>
-                    </ul>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-
-
-        <br>
-        <br>
-        <br>
-        <br>
-
-
-
-        <div class="separate-post">
-            <p>published: 15.04.2018, 12:00</p>
-            <h2><a href="">Setting up my blog with an initial post here</a></h2>
-            <p>What do you all think of my first blog???? Lemme know. This post is done!</p>
-
-        <br> <br>
-
-            <p>published: 15.04.2018, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Habla español usted?!?!?</p>
-        </div>
-    </body>
-</html>
+        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
