@@ -9,6 +9,29 @@
 
         <br>
         <br>
+        <br>
+
+
+        {% for post in posts %}
+        <ul>
+            <li>
+                <div>
+                    <p>published: {{ post.published_date }}</p>
+                    <h1><a href="">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                    <br><br>
+                </div>
+            </li>
+        </ul>
+        {% endfor %}
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+
 
         <div>
             <p>published: 15.04.2018, 12:00</p>
