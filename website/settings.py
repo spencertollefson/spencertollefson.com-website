@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+import dj_database_url
 import os
 from .secret_settings import *
 
@@ -24,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = SPENCER_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'herokuapp.com',]
 
 
 # Application definition
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE':   'django.db.backends.postgresql_psycopg2',
+        'NAME':     'website',
+        'USER':     'postgres',
+        'PASSWORD': SPENCER_DB_PASS,
+        'HOST':     'localhost',
+        'PORT':     '',
     }
 }
 
@@ -124,3 +129,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # When a correct login is completed, users are redirected to base page of website
 LOGIN_REDIRECT_URL = '/'
+
+# Heroku: Update database configuration from $DATABASE_URL.
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
