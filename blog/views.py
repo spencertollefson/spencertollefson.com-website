@@ -89,5 +89,5 @@ def comment_remove(request, pk):
 def about(request):
     return render(request, 'blog/about.html')
 
-def contact(request):
-    return render(request, 'blog/contact.html')
+def resume(request):
+    return render(request, 'blog/resume.html')
