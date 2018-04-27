@@ -1,11 +1,11 @@
 h1 a {
-    color: #169E5F;
+    color: #000000;
     font-family: 'Gugi', cursive;
 
 }
 
 h2 a {
-    color: #9E1655;
+    color: #ffffff;
 }
 
 
@@ -14,7 +14,7 @@ body {
 }
 
 .page-header {
-    background-color: #169E5F;
+    background-color: #000000;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -34,7 +34,7 @@ h1, h2, h3, h4 {
 }
 
 .date {
-    color: #f81812;
+    color: #209578;
 }
 
 .save {
@@ -62,4 +62,4 @@ h1, h2, h3, h4 {
 
 .comment {
     margin: 20px 0px 20px 20px;
-}
+}z
