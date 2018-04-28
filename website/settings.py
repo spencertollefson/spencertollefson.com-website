@@ -139,7 +139,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+### STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #<--- causing a server error
 
 
 # When a correct login is completed, users are redirected to base page of website
