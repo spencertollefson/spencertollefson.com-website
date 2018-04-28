@@ -163,3 +163,7 @@ MARKDOWNX_UPLOAD_MAX_SIZE = 50 * 1024 * 1024 # 50 MB in bytes
 MARKDOWNX_UPLOAD_CONTENT_TYPES = ['image/jpeg', 'image/png', 'image/svg+xml']
 
 
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
+
