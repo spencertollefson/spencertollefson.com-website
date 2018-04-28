@@ -54,7 +54,7 @@ MIDDLEWARE = [
 
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
-    # 'whitenoise.middleware.WhiteNoiseMiddleware', --> comment out to see if problem
+    'whitenoise.middleware.WhiteNoiseMiddleware', #--> comment out to see if problem
 ]
 
 ROOT_URLCONF = 'website.urls'
@@ -129,8 +129,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # Extra places for collectstatic to find static files.
@@ -140,8 +140,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
-### STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #<--- causing a server error
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # When a correct login is completed, users are redirected to base page of website
 LOGIN_REDIRECT_URL = '/'
