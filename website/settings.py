@@ -134,7 +134,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # Extra places for collectstatic to find static files.
-### STATICFILES_DIRS = (os.path.join(BASE_DIR, 'staticfiles'),) #<-- removing until needed later in prod
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 
 # Simplified static file serving.
