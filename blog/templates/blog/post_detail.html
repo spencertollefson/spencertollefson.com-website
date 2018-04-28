@@ -13,6 +13,7 @@
         <h1>{{ post.title }}</h1>
         <p>{{ post.formatted_markdown|safe|linebreaksbr }}</p>
         <h4>Author: {{ post.author }}</h4>
+        <h5>Post #{{ post.pk }}</h5>
     </div>
     <hr>
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
