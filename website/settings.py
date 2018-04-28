@@ -133,3 +133,18 @@ LOGIN_REDIRECT_URL = '/'
 # Heroku: Update database configuration from $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+
+#Markdownx Settings
+
+from datetime import datetime
+
+MARKDOWNX_MEDIA_PATH = datetime.now().strftime('markdownx/%Y/%m/%d')
+
+MARKDOWNX_UPLOAD_URLS_PATH = '/markdownx/upload/'
+
+MARKDOWNX_UPLOAD_MAX_SIZE = 50 * 1024 * 1024 # 50 MB in bytes
+
+MARKDOWNX_UPLOAD_CONTENT_TYPES = ['image/jpeg', 'image/png', 'image/svg+xml']
+
+
