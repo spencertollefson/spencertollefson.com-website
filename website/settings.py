@@ -54,7 +54,7 @@ MIDDLEWARE = [
 
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware', --> comment out to see if problem
 ]
 
 ROOT_URLCONF = 'website.urls'
