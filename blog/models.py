@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from markdownx.models import MarkdownxField
+
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -28,9 +30,9 @@ class Comment(models.Model):
     approved_comment = models.BooleanField(default=False)
 
 
-    def approve(self):
-        self.approved_comment = True
-        self.save()
-
     def __str__(self):
         return self.author + ' - ' + self.text[:60] + '...'
+
+
+class MyModel(models.Model):
+    myfield = MarkdownxField()
