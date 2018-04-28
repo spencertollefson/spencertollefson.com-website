@@ -1,14 +1,6 @@
 from django.contrib import admin
-from .models import Post, Comment
-from .models import MyModel
-from django.db import models
-from markdownx.widgets import AdminMarkdownxWidget
+from markdownx.admin import MarkdownxModelAdmin
+from .models import Comment, Post
 
-class MyModelAdmin(admin.ModelAdmin):
-    formfield_overrides = {
-        models.TextField: {'widget': AdminMarkdownxWidget},
-    }
-
-admin.site.register(Post)
 admin.site.register(Comment)
-admin.site.register(MyModel, MyModelAdmin)
+admin.site.register(Post, MarkdownxModelAdmin)

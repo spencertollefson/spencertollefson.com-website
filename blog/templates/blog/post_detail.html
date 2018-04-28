@@ -11,8 +11,8 @@
         {% endif %}
 
         <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
-        <h4>Written by {{ post.author }}</h4>
+        <p>{{ post.formatted_markdown|safe|linebreaksbr }}</p>
+        <h4>Author: {{ post.author }}</h4>
     </div>
     <hr>
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
@@ -25,6 +25,6 @@
             <p>{{ comment.text|linebreaks }}</p>
         </div>
     {% empty %}
-        <p>No comments here yet :(</p>
+        <p>No comments here yet - be the first!</p>
     {% endfor %}
 {% endblock %}
