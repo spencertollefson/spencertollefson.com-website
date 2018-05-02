@@ -1,0 +1,94 @@
+#MyName h1 {
+    font-size: xx-large;
+    white-space: nowrap;
+}
+h1 a {
+    color: mediumvioletred;
+    font-family: 'Roboto', sans-serif;
+
+}
+h2 a {
+    color: #f81812;
+}
+
+h3 a {
+    color: #23aecd;
+}
+
+h4 a {
+    color: #f81812;
+}
+
+h5 a {
+    color: #f81812;
+}
+
+
+body {
+    padding-left: 0px;
+    font-size: medium;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    color: #d1612c;
+}
+
+
+.page-header {
+    background-color: #6f3717;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #8c9292;
+    /*font-size: 36pt;*/
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 10px;
+}
+
+
+.date {
+    color: #95378d;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #000000;
+    float: right;
+    /*font-size: 26pt;*/
+    margin-right: 20px;
+}
+
+.post {
+    margin-bottom: 70px;
+}
+
+.post h1 a, .post h1 a:visited {
+    color: #000000;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
+.active {
+    text-decoration: underline;
+    color: darkgray;
+}
+.rounded-circle {
+    /*overflow: hidden;*/
+    width: 40%;
+}
+
