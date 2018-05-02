@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
 
+{% block title %} Post List {% endblock %}
+
 {% block content %}
 {% for post in posts %}
     <div class="post">
@@ -7,7 +9,7 @@
             {{ post.published_date }}
         </div>
         <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
-        <p>{{ post.formatted_markdown|safe|linebreaksbr|truncatewords:15 }}</p>
+        <p>{{ post.formatted_markdown|safe|truncatewords:15 }}</p>
         <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
     </div>
 {% endfor %}

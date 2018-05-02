@@ -5,12 +5,16 @@ h1 a {
 }
 
 h2 a {
-    color: #ffffff;
+    color: #f81812;
+}
+
+h3 a {
+    color: #f81812;
 }
 
 
 body {
-    padding-left: 15px;
+    padding-left: 5px;
 }
 
 .page-header {
@@ -26,7 +30,7 @@ body {
 }
 
 .content {
-    margin-left: 40px;
+    margin-left: 10px;
 }
 
 h1, h2, h3, h4 {
@@ -34,7 +38,7 @@ h1, h2, h3, h4 {
 }
 
 .date {
-    color: #209578;
+    color: #95378d;
 }
 
 .save {
@@ -46,7 +50,7 @@ h1, h2, h3, h4 {
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
+    color: #000000;
     float: right;
     font-size: 26pt;
     margin-right: 20px;
@@ -62,4 +66,9 @@ h1, h2, h3, h4 {
 
 .comment {
     margin: 20px 0px 20px 20px;
-}z
+}
+
+.active {
+    background-color:greenyellow;
+    font-style: oblique;
+}

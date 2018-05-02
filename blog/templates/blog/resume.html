@@ -9,10 +9,18 @@
 
 <body>
 
+    {% block navhighlights %}
+        <li><a href="{% url 'post_list' %}" class="top-menu">Blog</a></li>
+        <li><a href="{% url 'about' %}" class="top-menu">About</a></li>
+        <li class="active"><a href="{% url 'resume' %}" class="top-menu">Resume</a></li>
+    {% endblock navhighlights %}
+
     {% block content %}
         <h3>Resume</h3>
         <br>
         <p>This page is under construction. Come back later to see how qualified I am in everything!</p>
+
+        {% lorem 3 p %}
     {% endblock %}
 
 </body>

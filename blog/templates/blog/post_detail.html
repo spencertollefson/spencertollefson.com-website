@@ -11,7 +11,7 @@
         {% endif %}
 
         <h1>{{ post.title }}</h1>
-        <p>{{ post.formatted_markdown|safe|linebreaksbr }}</p>
+        <p>{{ post.formatted_markdown|safe }}</p>
         <h4>Author: {{ post.author }}</h4>
         <h5>Post #{{ post.pk }}</h5>
     </div>
