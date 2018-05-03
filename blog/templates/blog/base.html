@@ -27,22 +27,22 @@
 
         {% block navbar %}
             <div class="container-fluid" name="navHeader">
-                <div class="row align-items-center" style="background-color: lightgray">
-                    <div class="col-sm-1 offset-sm-5">
+                <div class="row align-items-center py-5" style="background-color: lightgray">
+                    <div class="col-sm-1 offset-sm-4">
                         <a href="{% url 'post_list' %}">
                             <img src="{% static "blog/images/spencer-ham.jpg" %}"  class="rounded-circle" alt="Picture Not Loading!!!" title="That's Me!"></a>
                     </div>
                     <div class="col-sm-3">
-                        <div class="row justify-content-center">
+                        <div class="row align-items-center">
                             <div class="col" id="MyName">
                                 <a href="{% url 'post_list' %}"><h1>Spencer Tollefson</h1></a>
                             </div>
                         </div>
-                        <div class="row justify-content-center">
+                        <div class="row align-items-center">
                             {% block navhighlights %}
-                                <div class="col active" id="thispage"><a href="{% url 'post_list' %}">Blog</a></div>
-                                <div class="col top-menu"><a href="{% url 'about' %}">About</a></div>
-                                <div class="col top-menu"><a href="{% url 'resume' %}">Resume</a></div>
+                                <div class="col"><a href="{% url 'post_list' %}" id="current-section">Blog</a></div>
+                                <div class="col"><a href="{% url 'about' %}" id="other-section">About</a></div>
+                                <div class="col"><a href="{% url 'resume' %}" id="other-section">Resume</a></div>
                             {% endblock navhighlights %}
                         </div>
                     </div>

@@ -88,9 +88,15 @@ h1, h2, h3, h4, h5, h6 {
     margin: 20px 0px 20px 20px;
 }
 
-.col .active #thispage {
+#current-section {
     text-decoration: underline;
-    color: darkgray;
+    color: darkslategrey !important;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+#other-section {
+    color: black !important;
 }
 .rounded-circle {
     /*overflow: hidden;*/
