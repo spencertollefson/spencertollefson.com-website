@@ -9,9 +9,9 @@
 
 <body>
     {% block navhighlights %}
-        <li><a href="{% url 'post_list' %}" class="top-menu">Blog</a></li>
-        <li class="active"><a href="{% url 'about' %}" class="top-menu active">About</a></li>
-        <li><a href="{% url 'resume' %}" class="top-menu">Resume</a></li>
+        <li class="col"><a href="{% url 'post_list' %}" class="top-menu">Blog</a></li>
+        <li class="active col"><a href="{% url 'about' %}" class="top-menu active">About</a></li>
+        <li class="col"><a href="{% url 'resume' %}" class="top-menu">Resume</a></li>
     {% endblock navhighlights %}
 
     {% block content %}

@@ -2,15 +2,29 @@
 
 {% block title %} Post List {% endblock %}
 
+
+
+
 {% block content %}
-{% for post in posts %}
-    <div class="post">
-        <div class="date">
-            {{ post.published_date }}
+    <div class="container" id="main">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <h4>Blog Posts Go Here</h4>
+            </div>
         </div>
-        <h3><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
-        <p>{{ post.formatted_markdown|safe|truncatewords:15 }}</p>
-        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3" style="background-color: lightpink;">
+                {% for post in posts %}
+                    <div class="post">
+                        <div class="date">
+                            {{ post.published_date }} <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+                        </div>
+{#                        <h4><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>#}
+{#                        <p>{{ post.formatted_markdown|safe|truncatewords:15 }}</p>#}
+{#                        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>#}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-{% endfor %}
 {% endblock %}

@@ -2,6 +2,11 @@
     font-size: xx-large;
     white-space: nowrap;
 }
+
+.nav{
+    white-space: nowrap;
+}
+
 h1 a {
     color: mediumvioletred;
     font-family: 'Roboto', sans-serif;
@@ -53,7 +58,11 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .date {
-    color: #95378d;
+    color: #41150a;
+}
+
+.post {
+    margin-bottom: 5px;
 }
 
 .save {
@@ -71,10 +80,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 20px;
 }
 
-.post {
-    margin-bottom: 70px;
-}
-
 .post h1 a, .post h1 a:visited {
     color: #000000;
 }
@@ -83,12 +88,12 @@ h1, h2, h3, h4, h5, h6 {
     margin: 20px 0px 20px 20px;
 }
 
-.active {
+.col .active #thispage {
     text-decoration: underline;
     color: darkgray;
 }
 .rounded-circle {
     /*overflow: hidden;*/
-    width: 40%;
+    width: 80%;
 }
 
