@@ -29,8 +29,8 @@ class Post(models.Model):
     def approved_comments(self):
         return self.comments.filter(approved_comment=True)
 
-    def day_and_year(self):
-        return self.published_date
+    # def month_day_year(self):
+    #     return self.published_date.strftime("%B") + " " + self.published_date.day + ", " + self.published_date.year
 
 
 class Comment(models.Model):
