@@ -1,19 +1,17 @@
 {% extends 'blog/base.html' %}
 
-{% block title %} Post List {% endblock %}
-
-
+{% block title %}Post List{% endblock %}
 
 
 {% block content %}
     <div class="container" id="main">
         <div class="row">
-            <div class="col-sm-6 offset-sm-3">
-                <h4>Blog Posts Go Here</h4>
+            <div class="col-sm-6 offset-sm-3 py-5 text-center">
+                <h4>Blog Posts</h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 offset-sm-3" style="background-color: lightpink;">
+            <div class="col-sm-6 offset-sm-3 pb-1 text-left" style="background-color: lightpink;">
                 {% for post in posts %}
                     <div class="post">
                         <div class="date">

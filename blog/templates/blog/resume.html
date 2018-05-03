@@ -1,26 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Resume</title>
-</head>
-
 {% extends 'blog/base.html' %}
-    {% block navhighlights %}
-        <li class="col"><a href="{% url 'post_list' %}" class="top-menu">Blog</a></li>
-        <li class="col"><a href="{% url 'about' %}" class="top-menu">About</a></li>
-        <li class="active col"><a href="{% url 'resume' %}" class="top-menu active">Resume</a></li>
-    {% endblock navhighlights %}
 
-    {% block content %}
-        <h3>Resume</h3>
-        <br>
-        <p>This page is under construction. Come back later to see how qualified I am in everything!</p>
+{% block title %}Resume{% endblock %}
 
-        {% lorem 3 p %}
-    {% endblock %}
+{% block navhighlights %}
+    <div class="col"><a href="{% url 'post_list' %}" id="other-section">Blog</a></div>
+    <div class="col"><a href="{% url 'about' %}" id="other-section">About</a></div>
+    <div class="col"><a href="{% url 'resume' %}" id="current-section">Resume</a></div>
+{% endblock navhighlights %}
 
-</html>
-
-
-
+{% block content %}
+     <div class="container" id="main">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3 py-5 text-center">
+                <h4>Resume</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3 pb-1 text-left" style="background-color: lightblue;">
+                <p>This page is under construction. Come back later to see how qualified I am in everything!</p>
+                {% lorem 3 p %}
+            </div>
+        </div>
+     </div>
+{% endblock %}

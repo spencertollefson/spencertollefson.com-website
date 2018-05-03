@@ -98,8 +98,9 @@ h1, h2, h3, h4, h5, h6 {
 #other-section {
     color: black !important;
 }
-.rounded-circle {
-    /*overflow: hidden;*/
-    width: 80%;
-}
 
+
+.rounded-circle {
+    /*width: 80%;*/
+    /*max-width: 300px !important;*/
+}
