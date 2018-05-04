@@ -55,17 +55,17 @@
         {% endblock content %}
 
         {% block footer %}
-            <nav class="navbar fixed-bottom navbar-light bg-light footer">
-                <div class="col-3">
-                    <a class="navbar-brand" href="{% url 'about' %}"><small>Copyright C 2018 Spencer Tollefson</small></a>
-                </div>
-                <div class="col-2 offset-7">
-                    <a href="mailto:spencer@spencertollefson.com" target="_blank"><i class="fas fa-envelope-square"></i>
-                    <a href="https://twitter.com/TheSpencerT" target="_blank"><i class="fab fa-twitter-square"></i>
-                    <a href="https://www.linkedin.com/in/stollefson1" target="_blank"><i class="fab fa-linkedin"></i>
-                    <a href="https://github.com/spencertollefson" target="_blank"><i class="fab fa-github-square"></i>
-                 </div>
-           </nav>
+                <nav class="navbar fixed-bottom navbar-light align-items-end bg-light pt-0 pb-1">
+                    <div class="d-flex">
+                        <a class="navbar-brand" href="{% url 'about' %}"><small>Copyright © 2018 Spencer Tollefson</small></a>
+                    </div>
+                    <div class="d-flex navbar-footer">
+                        <a href="mailto:spencer@spencertollefson.com" target="_blank"><i class="icon-colors fas fa-envelope-square"></i></a>
+                        <a href="https://twitter.com/TheSpencerT" target="_blank"><i class="icon-colors fab fa-twitter-square"></i></a>
+                        <a href="https://www.linkedin.com/in/stollefson1" target="_blank"><i class="icon-colors fab fa-linkedin"></i></a>
+                        <a href="https://github.com/spencertollefson" target="_blank"><i class="icon-colors fab fa-github-square"></i></a>
+                    </div>
+               </nav>
         {% endblock footer %}
 
         <!-- Javascript and jquery plugins -->

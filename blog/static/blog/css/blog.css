@@ -10,12 +10,14 @@ body {
     flex-direction: column;
 }
 
-.footer {
-    font-style: italic;
-}
 
-i {
+.icon-colors {
     font-size: 2em;
     color: black;
-    text-align: right;
 }
+
+/*.navbar-footer {*/
+    /*display: inline-block;*/
+    /*text-align: right;*/
+/*}*/
+
