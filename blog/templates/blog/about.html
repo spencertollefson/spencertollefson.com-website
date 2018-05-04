@@ -3,9 +3,15 @@
 {% block title %}About{% endblock %}
 
 {% block navhighlights %}
-    <div class="col"><a href="{% url 'post_list' %}" id="other-section">Blog</a></div>
-    <div class="col"><a href="{% url 'about' %}" id="current-section">About</a></div>
-    <div class="col"><a href="{% url 'resume' %}" id="other-section">Resume</a></div>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'post_list' %}">Blog</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{% url 'about' %}">About<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'resume' %}">Resume</a>
+    </li>
 {% endblock navhighlights %}
 
 {% block content %}

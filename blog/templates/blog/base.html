@@ -22,34 +22,69 @@
     <body>
 
         {% block navbar %}
-            <div class="container-fluid" name="navHeader">
-                <div class="row align-items-center py-5" style="background-color: lightgray">
-                    <div class="col-sm-3 offset-sm-3">
-                        <a href="{% url 'post_list' %}">
-                            <img src="{% static "blog/images/spencer-ham.jpg" %}"  class="rounded-circle img-fluid" alt="Picture Not Loading!!!" title="That's Me!"></a>
-                    </div>
-                    <div class="col-sm-4 col-md-3 col-lg-2">
-                        <div class="row align-items-center py-3">
-                            <div class="col" id="MyName">
-                                <a href="{% url 'post_list' %}" class="text-center text-md-left"><h1>Spencer Tollefson</h1></a>
-                            </div>
-                        </div>
-                        <div class="row align-items-center text-center text-md-left">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                <div class="container" role="navigation">
+                    <a class="navbar-brand" href="{% url 'post_list' %}">Spencer Tollefson</a>
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="nav nav-tabs">
                             {% block navhighlights %}
-                                <div class="col-4"><a href="{% url 'post_list' %}" id="current-section">Blog</a></div>
-                                <div class="col-4"><a href="{% url 'about' %}" id="other-section">About</a></div>
-                                <div class="col-4"><a href="{% url 'resume' %}" id="other-section">Resume</a></div>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'post_list' %}">Blog<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'about' %}">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'resume' %}">Resume</a>
+                            </li>
                             {% endblock navhighlights %}
-                        </div>
+                        </ul>
                     </div>
-                </div>
-            </div>
+                </div><!-- /.container-fluid -->
+            </nav>
         {% endblock navbar %}
+        <div class="container">
+        </div>
+
+
+        {#        {% block navbar %}#}
+{#            <div class="container-fluid" name="navHeader">#}
+{#                <div class="row align-items-center py-5" style="background-color:palegreen">#}
+{#                    <div class="col-sm-3 offset-sm-3">#}
+{#                        <a href="{% url 'post_list' %}">#}
+{#                            <img src="{% static "blog/images/spencer-ham.jpg" %}"  class="rounded-circle img-fluid" alt="Picture Not Loading!!!" title="That's Me!"></a>#}
+{#                    </div>#}
+{#                    <div class="col-sm-4 col-md-3 col-lg-2">#}
+{#                        <div class="row align-items-center py-3">#}
+{#                            <div class="col" id="MyName">#}
+{#                                <a href="{% url 'post_list' %}" class="text-center text-md-left"><h1>Spencer Tollefson</h1></a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="row text-center text-md-left">#}
+{#                            {% block navhighlights %}#}
+{#                            <ui class="list-inline">#}
+{#                                <li class="list-inline-item"><a href="{% url 'post_list' %}" id="current-section">Blog</a></li>#}
+{#                                <li class="list-inline-item"><a href="{% url 'about' %}" id="other-section">About</a></li>#}
+{#                                <li class="list-inline-item"><a href="{% url 'resume' %}" id="other-section">Resume</a></li>#}
+{#                            </ui>#}
+{#                            {% endblock navhighlights %}#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        {% endblock navbar %}#}
 
         {% block content %}
         {% endblock content %}
 
         {% block footer %}
+            <nav class="navbar fixed-bottom navbar-light bg-light footer">
+              <a class="navbar-brand" href="{% url 'about' %}">Copyright C 2018 Spencer Tollefson</a>
+            </nav>
         {% endblock footer %}
 
         <!-- Javascript and jquery plugins -->
@@ -59,3 +94,33 @@
 
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
