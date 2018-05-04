@@ -8,8 +8,10 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+
         <!-- imports a font from elsewhere on the web -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+{#        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">#}
 
         <!--Font Awesome CSS -->
 {#        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">#}
@@ -25,50 +27,67 @@
     <body>
 
         {% block navbar %}
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-                <div class="container" role="navigation">
-                    <a class="navbar-brand" href="{% url 'post_list' %}">Spencer Tollefson</a>
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container" role="navigation">
+                <a class="navbar-brand" href="{% url 'post_list' %}">Spencer Tollefson</a>
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="nav nav-pills">
-                            {% block navhighlights %}
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{% url 'post_list' %}">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'about' %}">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'resume' %}">Resume</a>
-                            </li>
-                            {% endblock navhighlights %}
-                        </ul>
-                    </div>
-                </div><!-- /.container-fluid -->
-            </nav>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav nav-pills">
+                        {% block navhighlights %}
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'post_list' %}">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about' %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'resume' %}">Resume</a>
+                        </li>
+                        {% endblock navhighlights %}
+                    </ul>
+                </div>
+            </div><!-- /.container-fluid -->
+        </nav>
         {% endblock navbar %}
 
-        {% block content %}
-        {% endblock content %}
+        {% block header-setup %}
+         <div class="container" id="main">
+            <div class="row">
+                <div class="col d-flex justify-content-center py-2">
+                    <h1>
+                        {% block Page-Title %}
+                        Blog Posts
+                        {% endblock Page-Title %}
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-9 pb-1 text-left mx-auto" style="background-color: lightblue;">
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+            </div>
+         </div>
+        {% endblock header-setup %}
 
         {% block footer %}
-                <nav class="navbar navbar-light bg-light footer pt-0 pb-1">
-                    <div class="d-flex mx-auto">
-                        <a class="navbar-brand" href="{% url 'about' %}"><small>Copyright © 2018 Spencer Tollefson</small></a>
-                    </div>
-                    <div class="d-flex footer-icons mx-auto">
-                        <div class="btn-toolbar" role="group" aria-label="Basic example">
-                            <a href="mailto:spencer@spencertollefson.com" target="_blank"><i class="icon-colors fas fa-envelope-square btn"></i></a>
-                            <a href="https://twitter.com/TheSpencerT" target="_blank"><i class="icon-colors fab fa-twitter-square btn"></i></a>
-                            <a href="https://www.linkedin.com/in/stollefson1" target="_blank"><i class="icon-colors fab fa-linkedin btn"></i></a>
-                            <a href="https://github.com/spencertollefson" target="_blank"><i class="icon-colors fab fa-github-square btn"></i></a>
-                        </div>
-                    </div>
-               </nav>
+        <nav class="navbar navbar-light bg-light footer pt-0 pb-1">
+            <div class="d-flex mx-auto">
+                <a class="navbar-brand" href="{% url 'about' %}"><small>Copyright © 2018 Spencer Tollefson</small></a>
+            </div>
+            <div class="d-flex footer-icons mx-auto">
+                <div class="btn-toolbar" role="group" aria-label="Basic example">
+                    <a href="mailto:spencer@spencertollefson.com" target="_blank"><i class="icon-colors fas fa-envelope-square btn"></i></a>
+                    <a href="https://twitter.com/TheSpencerT" target="_blank"><i class="icon-colors fab fa-twitter-square btn"></i></a>
+                    <a href="https://www.linkedin.com/in/stollefson1" target="_blank"><i class="icon-colors fab fa-linkedin btn"></i></a>
+                    <a href="https://github.com/spencertollefson" target="_blank"><i class="icon-colors fab fa-github-square btn"></i></a>
+                </div>
+            </div>
+       </nav>
         {% endblock footer %}
 
         <!-- Javascript and jquery plugins -->

@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.utils import timezone
 from markdownx.models import MarkdownxField
@@ -28,10 +29,6 @@ class Post(models.Model):
 
     def approved_comments(self):
         return self.comments.filter(approved_comment=True)
-
-    # def month_day_year(self):
-    #     return self.published_date.strftime("%B") + " " + self.published_date.day + ", " + self.published_date.year
-
 
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', related_name='comments', on_delete=models.CASCADE)
