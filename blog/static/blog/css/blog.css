@@ -14,10 +14,14 @@ body {
 .icon-colors {
     font-size: 2em;
     color: black;
+    text-align: center;
 }
 
-/*.navbar-footer {*/
-    /*display: inline-block;*/
-    /*text-align: right;*/
-/*}*/
+.footer {
+    margin: auto auto 0 auto;
+}
+
+.footer-icons {
+    justify-content: center;
+}
 
