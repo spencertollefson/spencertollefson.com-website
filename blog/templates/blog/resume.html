@@ -3,15 +3,15 @@
 {% block title %}Resume{% endblock %}
 
 {% block navhighlights %}
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'post_list' %}">Blog</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'about' %}">About</a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="{% url 'resume' %}">Resume<span class="sr-only">(current)</span></a>
-    </li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'post_list' %}">Blog</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'about' %}">About</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="{% url 'resume' %}">Resume</a>
+</li>
 {% endblock navhighlights %}
 
 {% block content %}

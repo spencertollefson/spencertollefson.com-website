@@ -1,21 +1,18 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <div class="container">
-        <div class="post">
-            {% if post.published_date %}
-                <div class="date">
-                    {{ post.published_date }}
-                </div>
-            {% else %}
-                <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
-            {% endif %}
-
-            <h3>#{{ post.id }}: {{ post.title }}</h3>
-            <p>{{ post.formatted_markdown|safe }}</p>
-            <h4>Author: {{ post.author }}</h4>
-            <h5>Post #{{ post.pk }}</h5>
-        </div>
+    <div class="container" id="main">
+        <div class="row">
+            <div class="col">
+                <div class="post_title pt-4"><h2>#{{ post.id }}: {{ post.title }}</h2></div>
+                <br>
+                <div class="date"><h5>{{ post.published_date }}</h5></div>
+                <hr>
+                <p>{{ post.formatted_markdown|safe }}</p>
+                <h4>Author: {{ post.author }}</h4>
+                <h5>Post #{{ post.pk }}</h5>
+            </div>
+         </div>
         <hr>
         <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
         {% for comment in post.comments.all %}

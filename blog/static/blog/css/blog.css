@@ -4,7 +4,7 @@
 
 
 body {
-    background-color: lightslategray;
+    background-color: lightgrey;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -27,5 +27,13 @@ body {
 
 .navbar-collapse {
     display: inline-flex;
+
+}
+
+.post-title {
+
+}
+
+.date {
 
 }
