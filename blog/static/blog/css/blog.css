@@ -25,3 +25,7 @@ body {
     justify-content: center;
 }
 
+.navbar-collapse {
+    display: inline-flex;
+
+}

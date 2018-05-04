@@ -3,22 +3,22 @@
 {% block title %}Spencer Tollefson{% endblock %}
 
 {% block content %}
-    <div class="container" id="main">
-        <div class="row">
-            <div class="col-sm-6 offset-sm-3 py-5 text-center">
-                <h4>Blog Posts</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 offset-sm-3 pb-1 text-left" style="background-color: lightpink;">
-                {% for post in posts %}
-                    <div class="post">
-                        <div class="date">
-                            <a href="{% url 'post_detail' pk=post.pk %}">#{{ post.id }}: {{ post.title }}</a> - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
+<div class="container" id="main">
+    <div class="row">
+        <div class="col d-flex justify-content-center py-5">
+            <h4>Blog Posts</h4>
         </div>
     </div>
+    <div class="row">
+        <div class="col-9 col-sm-7 pb-1 text-left mx-auto" style="background-color: lightpink;">
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <a href="{% url 'post_detail' pk=post.pk %}">#{{ post.id }}: {{ post.title }}</a> - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
