@@ -16,9 +16,6 @@
                         <div class="date">
                             <a href="{% url 'post_detail' pk=post.pk %}">#{{ post.id }}: {{ post.title }}</a> - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}
                         </div>
-{#                        <h4><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>#}
-{#                        <p>{{ post.formatted_markdown|safe|truncatewords:15 }}</p>#}
-{#                        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>#}
                     </div>
                 {% endfor %}
             </div>

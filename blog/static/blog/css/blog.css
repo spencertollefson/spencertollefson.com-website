@@ -11,6 +11,11 @@ body {
 }
 
 .footer {
-    font-size: !important;
     font-style: italic;
+}
+
+i {
+    font-size: 2em;
+    color: black;
+    text-align: right;
 }

@@ -11,6 +11,9 @@
         <!-- imports a font from elsewhere on the web -->
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
+        <!--Font Awesome CSS -->
+{#        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">#}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
 
         <!--Leads to blog.css file for CSS styling -->
         <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
@@ -47,44 +50,22 @@
                 </div><!-- /.container-fluid -->
             </nav>
         {% endblock navbar %}
-        <div class="container">
-        </div>
-
-
-        {#        {% block navbar %}#}
-{#            <div class="container-fluid" name="navHeader">#}
-{#                <div class="row align-items-center py-5" style="background-color:palegreen">#}
-{#                    <div class="col-sm-3 offset-sm-3">#}
-{#                        <a href="{% url 'post_list' %}">#}
-{#                            <img src="{% static "blog/images/spencer-ham.jpg" %}"  class="rounded-circle img-fluid" alt="Picture Not Loading!!!" title="That's Me!"></a>#}
-{#                    </div>#}
-{#                    <div class="col-sm-4 col-md-3 col-lg-2">#}
-{#                        <div class="row align-items-center py-3">#}
-{#                            <div class="col" id="MyName">#}
-{#                                <a href="{% url 'post_list' %}" class="text-center text-md-left"><h1>Spencer Tollefson</h1></a>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="row text-center text-md-left">#}
-{#                            {% block navhighlights %}#}
-{#                            <ui class="list-inline">#}
-{#                                <li class="list-inline-item"><a href="{% url 'post_list' %}" id="current-section">Blog</a></li>#}
-{#                                <li class="list-inline-item"><a href="{% url 'about' %}" id="other-section">About</a></li>#}
-{#                                <li class="list-inline-item"><a href="{% url 'resume' %}" id="other-section">Resume</a></li>#}
-{#                            </ui>#}
-{#                            {% endblock navhighlights %}#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        {% endblock navbar %}#}
 
         {% block content %}
         {% endblock content %}
 
         {% block footer %}
             <nav class="navbar fixed-bottom navbar-light bg-light footer">
-              <a class="navbar-brand" href="{% url 'about' %}">Copyright C 2018 Spencer Tollefson</a>
-            </nav>
+                <div class="col-3">
+                    <a class="navbar-brand" href="{% url 'about' %}"><small>Copyright C 2018 Spencer Tollefson</small></a>
+                </div>
+                <div class="col-2 offset-7">
+                    <a href="mailto:spencer@spencertollefson.com" target="_blank"><i class="fas fa-envelope-square"></i>
+                    <a href="https://twitter.com/TheSpencerT" target="_blank"><i class="fab fa-twitter-square"></i>
+                    <a href="https://www.linkedin.com/in/stollefson1" target="_blank"><i class="fab fa-linkedin"></i>
+                    <a href="https://github.com/spencertollefson" target="_blank"><i class="fab fa-github-square"></i>
+                 </div>
+           </nav>
         {% endblock footer %}
 
         <!-- Javascript and jquery plugins -->
