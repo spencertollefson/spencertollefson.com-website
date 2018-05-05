@@ -60,15 +60,13 @@
          <div class="container" id="main">
             <div class="row">
                 <div class="col d-flex justify-content-center py-2">
-                    <h1>
-                        {% block Page-Title %}
-                        Blog Posts
-                        {% endblock Page-Title %}
-                    </h1>
+                    {% block Page-Header %}
+                        <h1>Blog Posts</h1>
+                    {% endblock Page-Header %}
                 </div>
             </div>
             <div class="row">
-                <div class="col-9 pb-1 text-left mx-auto">
+                <div class="col-11 col-md-9 pb-1 text-left mx-auto">
                     {% block content %}
                     {% endblock content %}
                 </div>
