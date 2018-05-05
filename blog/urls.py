@@ -9,4 +9,5 @@ urlpatterns = [
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
     path('resume/', views.resume, name='resume'),
+    path('sitemap.xml/', views.sitemap, name='sitemap'),
 ]

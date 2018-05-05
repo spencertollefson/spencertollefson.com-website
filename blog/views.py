@@ -33,6 +33,8 @@ def about(request):
 def resume(request):
     return render(request, 'blog/resume.html')
 
+def sitemap(request):
+    return render(request, 'blog/sitemap.xml')
 
 @login_required
 def post_draft_list(request):
