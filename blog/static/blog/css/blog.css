@@ -1,10 +1,5 @@
-/*.nav{*/
-    /*white-space: nowrap;*/
-/*}*/
-
-
 body {
-    background-color: lightgrey;
+    background-color: lightgray;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -17,8 +12,12 @@ body {
     text-align: center;
 }
 
+.footer a {
+    color: black;
+}
+
 .footer {
-    margin: auto auto 0 auto;
+    margin:  auto auto 0 auto;
 }
 
 .footer-icons {
@@ -27,13 +26,35 @@ body {
 
 .navbar-collapse {
     display: inline-flex;
-
 }
 
-.post-title {
-
+a {
+    color: firebrick;
 }
 
-.date {
-
+a:active {
+    color: yellow;
 }
+
+a:hover {
+    color: blue;
+}
+
+.nav-link {
+    color: white;
+}
+
+.list-group-item-action {
+    /*background-color: lightpink;*/
+}
+
+.list-box {
+    width: auto;
+}
+
+.abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+

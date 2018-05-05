@@ -28,14 +28,14 @@
 
         {% block navbar %}
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <div class="container" role="navigation">
+            <div class="mx-auto d-flex d-block flex-wrap justify-content-center" role="navigation">
                 <a class="navbar-brand" href="{% url 'post_list' %}">Spencer Tollefson</a>
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse text-center justify-content-center" id="navbarNav">
                     <ul class="nav nav-pills">
                         {% block navhighlights %}
                         <li class="nav-item">
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-9 pb-1 text-left mx-auto" style="background-color: lightblue;">
+                <div class="col-9 pb-1 text-left mx-auto">
                     {% block content %}
                     {% endblock content %}
                 </div>
@@ -75,7 +75,7 @@
         {% endblock header-setup %}
 
         {% block footer %}
-        <nav class="navbar navbar-light bg-light footer pt-0 pb-1">
+        <nav class="navbar footer pt-0 pb-1">
             <div class="d-flex mx-auto">
                 <a class="navbar-brand" href="{% url 'about' %}"><small>Copyright © 2018 Spencer Tollefson</small></a>
             </div>

@@ -10,15 +10,15 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-9 col-sm-7 pb-1 text-left mx-auto" style="background-color: lightpink;">
-            {% for post in posts %}
-                <div class="post">
-                    <div class="date">
-                        <a href="{% url 'post_detail' pk=post.pk %}">#{{ post.id }}: {{ post.title }}</a> - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}
-                    </div>
-                </div>
-            {% endfor %}
+{#        <div class="col-9 col-sm-5 pb-1 mx-auto">#}
+        <div class="col d-flex justify-content-center mx-auto list-box">
+            <div class="list-group">
+                {% for post in posts %}
+                    <a href="{% url 'post_detail' pk=post.pk %}" class="list-group-item list-group-item-action"><h5>#{{ post.id }}: {{ post.title }} - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5></a>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
 {% endblock %}
+
