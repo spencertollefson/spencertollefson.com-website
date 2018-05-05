@@ -3,9 +3,9 @@
 {% block title %}Spencer Tollefson - #{{ post.id }}: {{ post.title }}{% endblock %}
 
 {% block Page-Header %}
-    <div class="post_title text-center pt-4"><h1>#{{ post.id }}: {{ post.title }}</h1></div>
+    <h1>#{{ post.id }}: {{ post.title }}</h1>
     <br>
-    <div class="date text-center"><h5>{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5></div>
+    <h5>{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5>
     <hr>
 {% endblock Page-Header %}
 
@@ -14,37 +14,4 @@
     <p>{{ post.formatted_markdown|safe }}</p>
     <hr>
     <h4>~{{ post.author }}~</h4>
-{% endblock %}
-
-
-
-
-{% block header-setup %}
-<div class="container" id="main">
-    <div class="row">
-        <div class="col">
-            <div class="post_title text-center pt-4"><h1>#{{ post.id }}: {{ post.title }}</h1></div>
-            <div class="date text-center"><h5>{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5></div>
-            <hr>
-        </div>
-    </div>
-    <div class="col-11 col-md-9 pb-1 text-left mx-auto">
-        <p>{{ post.formatted_markdown|safe }}</p>
-        <hr>
-        <h4>~{{ post.author }}~</h4>
-    </div>
-{#    <hr>#}
-{#    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>#}
-{#    {% for comment in post.comments.all %}#}
-{#        <div class="comment">#}
-{#            <div class="date">#}
-{#                {{ comment.created_date }}#}
-{#            </div>#}
-{#            <strong>{{ comment.author }}</strong>#}
-{#            <p>{{ comment.text|linebreaks }}</p>#}
-{#        </div>#}
-{#    {% empty %}#}
-{#        <p>No comments here yet - be the first!</p>#}
-{#    {% endfor %}#}
-</div>
 {% endblock %}
