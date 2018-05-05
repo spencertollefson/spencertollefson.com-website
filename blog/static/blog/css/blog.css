@@ -8,7 +8,7 @@ body {
 
 .icon-colors {
     font-size: 2em;
-    color: black;
+    color: #007bff;
     text-align: center;
 }
 
@@ -37,16 +37,20 @@ a:active {
 }
 
 a:hover {
-    color: blue;
+    color: #007bff;
 }
 
 .nav-link {
     color: white;
 }
 
-.list-group-item-action {
-    /*background-color: lightpink;*/
-}
+/*.list-group-item {*/
+    /*&:active,*/
+    /*&:active {*/
+        /*color: #007bff !important;*/
+        /*background-color: #007bff !important;*/
+    /*}*/
+/*}*/
 
 .list-box {
     width: auto;
