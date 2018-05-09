@@ -24,11 +24,12 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
+    def pub_number(self):
+        return Post.objects.filter(published_date__lte=self.published_date).count()
+
     def __str__(self):
         return self.title
 
-    def approved_comments(self):
-        return self.comments.filter(approved_comment=True)
 
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', related_name='comments', on_delete=models.CASCADE)
@@ -40,3 +41,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.author + ' - ' + self.content[:60] + '...'
+
+    def approved_comments(self):
+        return self.comments.filter(approved_comment=True)
