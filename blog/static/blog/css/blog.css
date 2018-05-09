@@ -1,10 +1,20 @@
-body {
+/*html {*/
+  /*position: relative;*/
+  /*min-height: 100%;*/
+/*}*/
+
+html, body {
     background-color: lightgray;
-    min-height: 100vh;
+    /*min-height: 100vh;*/
+    height: 100%;
     display: flex;
     flex-direction: column;
+    /*position: relative;*/
 }
 
+.content {
+    flex: 1 0 auto;
+}
 
 .icon-colors {
     font-size: 2em;
@@ -12,16 +22,35 @@ body {
     text-align: center;
 }
 
-.footer a {
+.copyright-text {
     color: black;
+    flex-wrap: wrap;
 }
 
-.footer {
+#footer {
     margin:  auto auto 0 auto;
+    /*position: absolute;*/
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    /*height: 20px;*/
+    bottom: 0;
+}
+
+.footer-con {
+    flex-shrink: 0;
+}
+
+.copyright {
+    flex-wrap: wrap;
 }
 
 .footer-icons {
     justify-content: center;
+}
+
+.btn-toolbar {
+    flex-wrap: nowrap;
+    display: inline-flex;
 }
 
 .navbar-collapse {
@@ -54,12 +83,21 @@ a:hover {
 
 .list-box {
     width: auto;
+    /*margin-bottom: 10rem;*/
+
+}
+.posts-column {
+    /*margin-bottom: 10rem;*/
 }
 
 .abs-center-x {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.navbar {
+    min-height: 47px;
 }
 
 

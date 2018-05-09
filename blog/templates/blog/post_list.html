@@ -3,7 +3,7 @@
 {% block title %}Spencer Tollefson{% endblock %}
 
 {% block header-setup %}
-<div class="container" id="main">
+<div class="container content" id="main">
     <div class="row">
         <div class="col d-flex justify-content-center py-2">
             <h1>Blog Posts</h1>
@@ -14,7 +14,7 @@
         <div class="col d-flex justify-content-center mx-auto list-box">
             <div class="list-group">
                 {% for post in posts %}
-                    <a href="{% url 'post_detail' pk=post.pk %}" class="list-group-item list-group-item-action"><h5>#{{ post.id }}: {{ post.title }} - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5></a>
+                    <a href="{% url 'post_detail' pk=post.pk %}" class="list-group-item list-group-item-action">#{{ post.id }}: {{ post.title }} - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</a>
                 {% endfor %}
             </div>
         </div>
