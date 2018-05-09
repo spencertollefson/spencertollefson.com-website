@@ -97,7 +97,10 @@ a:hover {
 }
 
 .navbar {
-    min-height: 47px;
+    /*min-height: 50;*/
+    display: block;
 }
 
-
+.title-date {
+    /*display: inline-flex;*/
+}
