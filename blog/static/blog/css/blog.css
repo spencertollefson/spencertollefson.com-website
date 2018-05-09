@@ -1,15 +1,7 @@
-/*html {*/
-  /*position: relative;*/
-  /*min-height: 100%;*/
-/*}*/
-
 html, body {
     background-color: lightgray;
-    /*min-height: 100vh;*/
-    height: 100%;
     display: flex;
     flex-direction: column;
-    /*position: relative;*/
 }
 
 .content {
@@ -29,10 +21,7 @@ html, body {
 
 #footer {
     margin:  auto auto 0 auto;
-    /*position: absolute;*/
     width: 100%;
-    /* Set the fixed height of the footer here */
-    /*height: 20px;*/
     bottom: 0;
 }
 
@@ -73,22 +62,8 @@ a:hover {
     color: white;
 }
 
-/*.list-group-item {*/
-    /*&:active,*/
-    /*&:active {*/
-        /*color: #007bff !important;*/
-        /*background-color: #007bff !important;*/
-    /*}*/
-/*}*/
-
 .list-box {
     width: auto;
-    /*margin-bottom: 10rem;*/
-
-}
-.posts-column {
-    /*margin-bottom: 10rem;*/
-}
 
 .abs-center-x {
     position: absolute;
@@ -97,10 +72,5 @@ a:hover {
 }
 
 .navbar {
-    /*min-height: 50;*/
-    display: block;
-}
-
-.title-date {
-    /*display: inline-flex;*/
+    display: inline-block;
 }
