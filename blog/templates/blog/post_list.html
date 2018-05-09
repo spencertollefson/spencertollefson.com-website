@@ -14,7 +14,7 @@
         <div class="col d-flex justify-content-center mx-auto list-box">
             <div class="list-group">
                 {% for post in posts %}
-                    <a href="{% url 'post_detail' pk=post.pk %}" class="list-group-item list-group-item-action">#{{ post.id }}: {{ post.title }} - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</a>
+                    <a href="{% url 'post_detail' pk=post.pk %}" class="list-group-item list-group-item-action">#{{ post.pub_number }}: {{ post.title }} - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</a>
                 {% endfor %}
             </div>
         </div>
