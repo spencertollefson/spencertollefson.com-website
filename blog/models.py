@@ -4,6 +4,7 @@ from django.utils import timezone
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 
+post_type = ('journal', 'blog')
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -11,6 +12,10 @@ class Post(models.Model):
     content = MarkdownxField() # <-- This is the field I'm using for posts now
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    type = models.CharField(max_length=7,
+                            choices=(('journal', 'journal'), ('blog', 'blog')),
+                            default='journal',
+                            )
 
     @property
     def formatted_markdown(self): # <-- This is used in views
