@@ -1,5 +1,5 @@
-import datetime
 from django.db import models
+from django.db.models import Q
 from django.utils import timezone
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
@@ -31,6 +31,14 @@ class Post(models.Model):
 
     def pub_number(self):
         return Post.objects.filter(published_date__lte=self.published_date).count()
+
+    def journal_pub_number(self):
+        return Post.objects.filter(Q(published_date__lte=self.published_date)
+                                   & Q(type='journal')).count()
+
+    def blog_pub_number(self):
+        return Post.objects.filter(Q(published_date__lte=self.published_date)
+                                   & Q(type='blog')).count()
 
     def __str__(self):
         return self.title
