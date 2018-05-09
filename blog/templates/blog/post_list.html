@@ -10,12 +10,15 @@
         </div>
     </div>
     <div class="row">
-        <div class="col d-flex justify-content-center mx-auto list-box">
-            <div class="list-group">
-                {% for post in posts %}
-                    <a href="{% url 'post_detail' pk=post.pk %}" class="list-group-item list-group-item-action">#{{ post.pub_number }}: {{ post.title }} - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</a>
-                {% endfor %}
-            </div>
+        <div class="col-11 col-md-8 pb-1 d-flex justify-content-center mx-auto list-box">
+{#            <div class="list-group">#}
+{#                {% for post in posts %}#}
+{#                    <a href="{% url 'post_detail' pk=post.pk %}" class="list-group-item list-group-item-action">#{{ post.pub_number }}: {{ post.title }} - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</a>#}
+{#                {% endfor %}#}
+{#            </div>#}
+            <h5>Oh no! It's blank! I've been so busy making this website, I haven't gotten around
+                to writing any blog posts yet. Check out my Journal posts to
+                read some of my daily musings related to learning tech.</h5>
         </div>
     </div>
 </div>

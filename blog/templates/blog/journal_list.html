@@ -18,15 +18,21 @@
 
 {% block header-setup %}
 <div class="container content" id="main">
-    <div class="row">
-        <div class="col d-flex justify-content-center py-2">
-            {% block Page-Header %}
-                <h1>Journal</h1>
-            {% endblock Page-Header %}
+    <div class="row justify-content-center text-center">
+        <div class="col py-2">
+            <h1>Journal</h1>
+        </div>
+        <div class="w-100"></div>
+        <div class="col-11 col-md-8">
+            <p>
+                This is a collection of short diary-style entries that likely
+                are shorter in length and wander in subject more than
+                Blog posts. In a sense, it's my journal of learning tech.
+            </p>
         </div>
     </div>
     <div class="row">
-        <div class="col-11 col-md-8 d-flex justify-content-center mx-auto list-box">
+        <div class="col-11 col-md-8 pb-1 d-flex justify-content-center mx-auto list-box">
             <div class="list-group">
                 {% for post in posts %}
                     <a href="{% url 'post_detail' pk=post.pk %}" class="list-group-item list-group-item-action">
