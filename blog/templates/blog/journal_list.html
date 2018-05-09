@@ -1,0 +1,39 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Spencer Tollefson{% endblock %}
+
+{% block navhighlights %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'about' %}">About</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'post_list' %}">Blog</a>
+</li><li class="nav-item">
+    <a class="nav-link active" href="{% url 'journal' %}">Journal</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'resume' %}">Resume</a>
+</li>
+{% endblock navhighlights %}
+
+{% block header-setup %}
+<div class="container content" id="main">
+    <div class="row">
+        <div class="col d-flex justify-content-center py-2">
+            {% block Page-Header %}
+                <h1>Journal</h1>
+            {% endblock Page-Header %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center mx-auto list-box">
+            <div class="list-group">
+                {% for post in posts %}
+                    <a href="{% url 'post_detail' pk=post.pk %}" class="list-group-item list-group-item-action">#{{ post.pub_number }}: {{ post.title }} - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

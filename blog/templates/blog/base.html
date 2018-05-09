@@ -30,7 +30,7 @@
         {% block navbar %}
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="mx-auto d-flex d-block flex-wrap justify-content-center" role="navigation">
-                <a class="navbar-brand" href="{% url 'post_list' %}">Spencer Tollefson</a>
+                <a class="navbar-brand" href="{% url 'about' %}">Spencer Tollefson</a>
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -40,12 +40,14 @@
                     <ul class="nav nav-pills">
                         {% block navhighlights %}
                         <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'post_list' %}">Blog</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{% url 'about' %}">About</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'post_list' %}">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'journal' %}">Journal</a>
+                        </li><li class="nav-item">
                             <a class="nav-link" href="{% url 'resume' %}">Resume</a>
                         </li>
                         {% endblock navhighlights %}
@@ -66,7 +68,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-11 col-md-9 pb-1 text-left mx-auto">
+                <div class="col-11 col-md-7 pb-1 text-left mx-auto">
                     {% block content %}
                     {% endblock content %}
                 </div>
