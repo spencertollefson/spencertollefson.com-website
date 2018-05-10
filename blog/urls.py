@@ -4,8 +4,8 @@ from . import views
 urlpatterns = [
     # path('', views.post_list, name='post_list'),
     path('', views.about, name='about'),
-    path('posts/', views.post_list, name='post_list'),
-    path('journal/', views.journal, name='journal'),
+    path('blog/', views.post_list, name='post_list'),
+    path('journal/', views.journal_list, name='journal_list'),
     path('markdownx/', include('markdownx.urls')),
     path('posts/<int:pk>/', views.post_detail, name='post_detail'),
     path('resume/', views.resume, name='resume'),
