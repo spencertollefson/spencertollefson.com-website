@@ -68,3 +68,8 @@ a:hover {
 .navbar {
     display: inline-flex;
 }
+
+.about-photo {
+    justify-content: center;
+    align-content: center;
+}

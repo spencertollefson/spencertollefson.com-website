@@ -1,4 +1,6 @@
 {% extends 'blog/base.html' %}
+{% load static %}
+
 
 {% block title %}Spencer Tollefson - About{% endblock %}
 
@@ -19,6 +21,16 @@
 {% block Page-Header %}
     <h1>About</h1>
 {% endblock Page-Header %}
+
+{% block before-content %}
+    <div class="row">
+        <div class="col-9 col-sm-7 col-md-5 mx-auto about-photo">
+            <img src="{% static 'blog/images/spencer-field.jpg' %}" alt="A photo of me" title="That's me!" class="img-fluid img-thumbnail rounded-circle"/>
+        </div>
+    </div>
+    <br>
+{% endblock before-content %}
+
 
 {% block content %}
 <p>My name is Spencer Tollefson. My current job is Peace Corps
