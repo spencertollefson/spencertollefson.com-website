@@ -7,7 +7,8 @@ from markdownx.utils import markdownify
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    content = MarkdownxField() # <-- This is the field I'm using for posts now
+    content = MarkdownxField() # <-- This is the field I'm using for posts
+    # now. But I should refer to ".formatted_markdown|safe" in templates.
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     type = models.CharField(max_length=7,

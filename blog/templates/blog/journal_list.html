@@ -38,7 +38,7 @@
                     <a href="{% url 'post_detail' pk=post.pk %}" class="list-group-item list-group-item-action">
                         <h3>#{{ post.pub_number }}: {{ post.title }} - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h3>
                         <br>
-                        <p>{{ post.content|truncatewords:150 }}...</p>
+                        <p>{{ post.formatted_markdown|safe|truncatewords:150 }}...</p>
                     </a>
                 {% endfor %}
             </div>
