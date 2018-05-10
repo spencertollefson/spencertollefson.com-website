@@ -2,7 +2,7 @@ html {
     /*position: relative;*/
 }
 body {
-    background-color: lightgray;
+    background-color: #de8c3e;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -14,7 +14,7 @@ body {
 
 .icon-colors {
     font-size: 2em;
-    color: #007bff;
+    color: #2f2bff;
     text-align: center;
 }
 
@@ -72,4 +72,11 @@ a:hover {
 .about-photo {
     justify-content: center;
     align-content: center;
+}
+.container {
+    background-color: lightgrey;
+}
+
+.foot-nav {
+    background-color: #de8c3e;
 }
