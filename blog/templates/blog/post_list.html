@@ -3,7 +3,6 @@
 {% block title %}Spencer Tollefson{% endblock %}
 
 {% block header-setup %}
-<div class="container col-10 col-sm-9 col-md-7 col-lg-5 content" id="main">
     <div class="row">
         <div class="col d-flex justify-content-center py-2">
             <h1>Blog Posts</h1>
@@ -21,6 +20,16 @@
                 read some of my daily musings related to learning tech.</h5>
         </div>
     </div>
-</div>
 {% endblock %}
 
+
+
+
+{#BELOW - this is for a more complete way to list blogs than I did in journal#}
+
+
+{#<a href="{% url 'post_detail' pk=post.pk %}" class="journ-list">#}
+{#    <h5>#{{ post.pub_number }}: {{ post.title }} - {{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5>#}
+{#    <p>{{ post.formatted_markdown|safe|truncatewords:30 }}...</p>#}
+{#    <hr>#}
+{#</a>#}
