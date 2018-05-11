@@ -13,5 +13,8 @@
     <p>{{ post.formatted_markdown|safe }}</p>
     <hr>
     <h4>~{{ post.author }}~</h4>
+    {% if post.get_next_journ %}
+        <a href="{% url 'journal_detail' pk=post.get_next_journ.pk  %}">DOES THIS GO FORWARD?</a>
+    {% endif %}
 {% endblock %}
 

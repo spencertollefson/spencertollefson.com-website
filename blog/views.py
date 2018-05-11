@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
@@ -50,14 +51,17 @@ def sitemap(request):
 #     posts = Post.objects.filter(Q(published_date__isnull=True) | Q(published_date__gt=timezone.now())).order_by('created_date')
 #     return render(request, 'blog/post_draft_list.html', {'posts': posts})
 
-def get_next(self):
-    next_post = Post.get_next_by_date_published()
-    if next:
-        return next.first()
-    return False
 
-def get_next(self):
-    prev_post = Film.get_previous_by_date_published()
-    if prev:
-       return prev.first()
-    return False
+def journal_index(request):
+    journal_entries = User.objects.all()
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(user_list, 10)
+    try:
+        users = paginator.page(page)
+    except PageNotAnInteger:
+        users = paginator.page(1)
+    except EmptyPage:
+        users = paginator.page(paginator.num_pages)
+
+    return render(request, 'core/user_list.html', { 'users': users })
