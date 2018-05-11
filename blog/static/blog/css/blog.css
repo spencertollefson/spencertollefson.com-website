@@ -2,7 +2,7 @@ html {
     /*position: relative;*/
 }
 body {
-    background-color: #de8c3e;
+    background-color: #b7d7fa;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -14,7 +14,7 @@ body {
 
 .icon-colors {
     font-size: 2em;
-    color: #2f2bff;
+    color: #007bff;
     text-align: center;
 }
 
@@ -74,9 +74,9 @@ a:hover {
     align-content: center;
 }
 .container {
-    background-color: lightgrey;
+    background-color: white;
 }
 
 .foot-nav {
-    background-color: #de8c3e;
+    background-color: #343a40;
 }
