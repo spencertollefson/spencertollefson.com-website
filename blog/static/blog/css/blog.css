@@ -46,7 +46,8 @@ body {
 }
 
 a {
-    color: firebrick;
+    color: #e76327;
+    font-weight: bold;
 }
 
 a:active {
