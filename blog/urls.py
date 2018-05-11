@@ -8,6 +8,7 @@ urlpatterns = [
     path('journal/', views.journal_list, name='journal_list'),
     path('markdownx/', include('markdownx.urls')),
     path('posts/<int:pk>/', views.post_detail, name='post_detail'),
+    path('journal/<int:pk>/', views.journal_detail, name='journal_detail'),
     path('resume/', views.resume, name='resume'),
     path('sitemap.xml/', views.sitemap, name='sitemap'),
     # path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),

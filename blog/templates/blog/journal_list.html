@@ -40,7 +40,7 @@
                         <h6 class="journ-list">{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h6>
                     </td>
                     <td>
-                        <a href="{% url 'post_detail' pk=post.pk %}" class="">
+                        <a href="{% url 'journal_detail' pk=post.pk %}" class="">
                         <h6 class="journ-list">{{ post.title }}</h6>
                         </a>
                     </td>
