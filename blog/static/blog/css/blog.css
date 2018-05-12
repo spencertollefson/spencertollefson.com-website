@@ -85,3 +85,13 @@ a:hover {
 .journ-list {
     margin-bottom: 0;
 }
+
+.btn-outline-secondary {
+    color: #e76327;
+    background-color: white;
+    border-color: #e76327;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #e76327;
+}
