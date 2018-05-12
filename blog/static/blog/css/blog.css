@@ -95,3 +95,31 @@ a:hover {
 .btn-outline-secondary:hover {
     background-color: #e76327;
 }
+.resume-section{
+    color: gray;
+}
+
+.card {
+    border-color: #e76327;
+}
+
+.card-header {
+    text-align: center;
+}
+
+/*.card-body {*/
+    /*justify-content: center;*/
+/*}*/
+
+.trow {
+    text-align: center;
+    justify-content: center;
+    table;
+}
+
+.resume-table {
+    table-layout: fixed; }
+.resume-td {
+    width: 33%;
+    text-align: center;
+}
