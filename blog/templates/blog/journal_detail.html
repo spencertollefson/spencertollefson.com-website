@@ -16,103 +16,43 @@
 </li>
 {% endblock navhighlights %}
 
-
-
-{#{% block Page-Header %}#}
-{#    <h2>#{{ post.pub_number }}: {{ post.title }}</h2>#}
-{#    <div class="w-100"></div>#}
-{#    <h5>{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5>#}
-{#    <hr>#}
-{#{% endblock Page-Header %}#}
-
-{#{% block content %}#}
-{#    <p>{{ post.formatted_markdown|safe }}</p>#}
-{#    <hr>#}
-{#    <h4>~{{ post.author }}~</h4>#}
-{#    <hr>#}
-
-    {% block header-setup %}
-        <div class="row">
-            <div class="col text-center pt-2">
-                {% block Page-Header %}
-                    <h2>#{{ post.pub_number }}: {{ post.title }}</h2>
-                    <div class="w-100"></div>
-                    <h5>{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5>
-                    <hr>
-                {% endblock Page-Header %}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-11 pb-1 text-left mx-auto">
-                <p>{{ post.formatted_markdown|safe }}</p>
+{% block header-setup %}
+    <div class="row">
+        <div class="col text-center pt-2">
+            {% block Page-Header %}
+                <h2>#{{ post.pub_number }}: {{ post.title }}</h2>
+                <div class="w-100"></div>
+                <h5>{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5>
                 <hr>
-                <h4>~{{ post.author }}~</h4>
-                <hr>
-            </div>
+            {% endblock Page-Header %}
         </div>
-        <div class="row d-flex justify-content-between">
-            <div class="col-sm-6 text-center">
-                {% if post.get_back_journ %}
-                <a href="{% url 'journal_detail' pk=post.get_back_journ.pk %}">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" title="{{ post.get_back_journ.title }}">
-                        ↢ Prev Journal Entry
-                    </button>
-                </a>
-                {% endif %}
-            </div>
-            <div class="col-sm-6 text-center">
-                {% if post.get_next_journ %}
-                <a href="{% url 'journal_detail' pk=post.get_next_journ.pk %}">
-                    <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" title="{{ post.get_next_journ.title }}">
-                       Next Journal Entry ↣
-                    </button>
-                </a>
-                {% endif %}
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-11 pb-1 text-left mx-auto">
+            <p>{{ post.formatted_markdown|safe }}</p>
+            <hr>
+            <h4>~{{ post.author }}~</h4>
+            <hr>
         </div>
-        {% endblock header-setup %}
-
-
-
-
-
-
-{#    <div class="row justify-content-between">#}
-{#        <div class="col-4 text-left">#}
-{#            {% if post.get_next_journ %}#}
-{#            <a href="{% url 'journal_detail' pk=post.get_next_journ.pk %}">#}
-{#                <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" data-placement="left" title="{{ post.get_next_journ.title }}">#}
-{#                    ↢ {{ post.get_next_journ.title }}#}
-{#                </button>#}
-{#            </a>#}
-{#            {% endif %}#}
-{#        </div>#}
-{#        <div class="col-4 text-right">#}
-{#            {% if post.get_back_journ %}#}
-{#            <a href="{% url 'journal_detail' pk=post.get_back_journ.pk %}">#}
-{#                <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" data-placement="right" title="{{ post.get_back_journ.title }}">#}
-{#                    {{ post.get_back_journ.title }} ↣#}
-{#                </button>#}
-{#            </a>#}
-{#            {% endif %}#}
-{#        </div>#}
-{#    </div>#}
-
-
-{#    <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" data-placement="left" title="{{ post.get_next_journ.title }}">#}
-{#        < {{ post.get_next_journ.title }}#}
-{#    </button>#}
-
-
-{#    {% if post.get_next_journ %}#}
-{#        <a href="{% url 'journal_detail' pk=post.get_next_journ.pk  %}">THIS GOES FORWARD</a>#}
-{#    {% endif %}#}
-{#    <br>#}
-{#    {% if post.get_back_journ %}#}
-{#        <a href="{% url 'journal_detail' pk=post.get_back_journ.pk  %}">THIS GOES BACKWARD</a>#}
-{#    {% endif %}#}
-
-
-
-{#{% endblock %}#}
-
+    </div>
+    <div class="row d-flex justify-content-between">
+        <div class="col-sm-6 text-center">
+            {% if post.get_back_journ %}
+            <a href="{% url 'journal_detail' pk=post.get_back_journ.pk %}">
+                <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" title="{{ post.get_back_journ.title }}">
+                    ↢ Prev Journal Entry
+                </button>
+            </a>
+            {% endif %}
+        </div>
+        <div class="col-sm-6 text-center">
+            {% if post.get_next_journ %}
+            <a href="{% url 'journal_detail' pk=post.get_next_journ.pk %}">
+                <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" title="{{ post.get_next_journ.title }}">
+                   Next Journal Entry ↣
+                </button>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock header-setup %}
