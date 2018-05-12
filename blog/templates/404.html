@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Oh no! This page isn't working!</title>
-</head>
-<body>
+{% extends 'blog/base.html' %}
 
-Oh no! This page isn't loading.
+{% block title %} Whoops! Couldn't find that page {% endblock %}
 
-Please email spencer@spencertollefson.com to let him know so he can fix it.
+{% block Page-Header %}
+    <h1>Blog Posts</h1>
+{% endblock Page-Header %}
 
-Thank you!
-
-</body>
-</html>
+{% block content %}
+<h6>These are not the <del>droids</del> web pages you're looking for.</h6>
+<p>Sorry about that! Use the nav bar up top to get back on track.</p>
+<br>
+~~May the Force be with you~~
+{% endblock content %}
