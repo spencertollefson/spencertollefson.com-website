@@ -14,7 +14,11 @@
     <hr>
     <h4>~{{ post.author }}~</h4>
     {% if post.get_next_journ %}
-        <a href="{% url 'journal_detail' pk=post.get_next_journ.pk  %}">DOES THIS GO FORWARD?</a>
+        <a href="{% url 'journal_detail' pk=post.get_next_journ.pk  %}">THIS GOES FORWARD</a>
+    {% endif %}
+    <br>
+    {% if post.get_back_journ %}
+        <a href="{% url 'journal_detail' pk=post.get_back_journ.pk  %}">THIS GOES BACKWARD</a>
     {% endif %}
 {% endblock %}
 

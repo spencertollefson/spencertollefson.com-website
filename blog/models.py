@@ -40,23 +40,17 @@ class Post(models.Model):
                                    & Q(type='blog')).count()
 
     def get_next_journ(self):
-        # current_journ = Post.objects.get(self)
         next_journ = Post.objects.filter(Q(type='journal') & Q(published_date__gt=self.published_date)).order_by('published_date').first()
         if next_journ:
             return next_journ
         return False
 
-    def get_next(self):
-        next = Post.get_next_by_Post.objects.filter(type='journal')
-        if next:
-            return next.first()
+    def get_back_journ(self):
+        back_journ = Post.objects.filter(Q(type='journal') & Q(published_date__lt=self.published_date)).order_by('-published_date').first()
+        if back_journ:
+            return back_journ
         return False
 
-    def get_prev(self):
-        prev = Post.get_previous_by_published_date()
-        if prev:
-            return prev.first()
-        return False
 
 
     def __str__(self):
