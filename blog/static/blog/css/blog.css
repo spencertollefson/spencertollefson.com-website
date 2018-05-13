@@ -131,8 +131,8 @@ a:hover {
     align-items: center;
 }
 
-.ul-card {
-    /*padding-bottom: 0;*/
+.margin-for-ul {
+    margin-bottom: 0;
 }
 
 .lil-extra-padding-bullet {
