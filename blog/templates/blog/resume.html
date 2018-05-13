@@ -3,95 +3,233 @@
 {% block title %}Spencer Tollefson - Resume{% endblock %}
 
 {% block navhighlights %}
-<li class="nav-item">
-    <a class="nav-link" href="{% url 'about' %}">About</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{% url 'post_list' %}">Blog</a>
-</li><li class="nav-item">
-    <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link active" href="{% url 'resume' %}">Resume</a>
-</li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}">About</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'post_list' %}">Blog</a>
+    </li><li class="nav-item">
+        <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="{% url 'resume' %}">Resume</a>
+    </li>
 {% endblock navhighlights %}
 
 {% block header-setup %}
-<div class="row">
-    <div class="col text-center pt-2">
-        {% block Page-Header %}
-            <h1><i>Resumé</i></h1>
-        {% endblock Page-Header %}
-    </div>
-</div>
-<div class="row">
-    <div class="col-11 pb-1 text-left mx-auto resume-section">
-        <h2>Experience</h2>
-    </div>
-</div>
-<div class="row">
-    <div class="col-11 pb-1 text-left mx-auto">
-        <div class="card">
-            <h4 class="card-header">
-            RURAL ECONOMIC DEVELOPMENT VOLUNTEER
-            </h4>
-             <table class="card-body resume-table">
-                 <tbody>
-                    <tr class="trow">
-                        <td class="resume-td1"><b>Peace Corps</b></td>
-                        <td class="resume-td1"><a href="https://www.peacecorps.gov/">peacecorps.gov</a></td>
-                        <td class="resume-td2"><b>February 2017 - Present</b></td>
-                    </tr>
-                 </tbody>
-             </table>
-            <p class="card-title">
-                  <ul>
-                      <li>Independently dedicated an estimated 1000+ hours studying core data science competencies</li>
-                      <li>Created and instructed course based on student input that increased entrepreneurial skills of 8 local women</li>
-                      <li>Reported to supervisors and collaborated with peers to implement numerous community projects from remote location</li>
-                  </ul>
-            </p>
+    <div class="row">
+        <div class="col text-center pt-2">
+            {% block Page-Header %}
+                <h1><i>Resumé</i></h1>
+            {% endblock Page-Header %}
         </div>
-        <br>
-
-         <div class="card">
-            <h4 class="card-header">
-            RURAL ECONOMIC DEVELOPMENT VOLUNTEER
-            </h4>
-             <table class="card-body resume-table">
-                 <tbody>
-                    <tr class="trow">
-                        <td class="resume-td"><b>Peace Corps</b></td>
-                        <td class="resume-td"><a href="https://www.peacecorps.gov/">peacecorps.gov</a></td>
-                        <td class="resume-td"><b>February 2017 - Present</b></td>
-                    </tr>
-                 </tbody>
-             </table>
-            <p class="card-title">
-                  <ul>
-                      <li>Independently dedicated an estimated 1000+ hours studying core data science competencies</li>
-                      <li>Created and instructed course based on student input that increased entrepreneurial skills of 8 local women</li>
-                      <li>Reported to supervisors and collaborated with peers to implement numerous community projects from remote location</li>
-                  </ul>
-            </p>
-        </div>
-        <br>
-
-
-
-
-
     </div>
-</div>
+
+    <div class="row">
+        <div class="col-11 pb-1 text-left mx-auto resume-section">
+            <h2>Skills</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-11 pb-1 text-left mx-auto">
+            <div class="card">
+                 <table class="card-body resume-table">
+                     <tbody>
+                        <tr class="trow">
+                            <td class="resume-td"><b>SQL</b></td>
+                            <td class="resume-td"><b>Bash</b></td>
+                            <td class="resume-td"><b>Git</b></td>
+                        </tr>
+                        <tr class="trow">
+                            <td class="resume-td"><b>Jupyter</b></td>
+                            <td class="resume-td"><b>HTML/CSS</b></td>
+                            <td class="resume-td"><b>Excel</b></td>
+                        </tr>
+                     </tbody>
+                 </table>
+                <br>
+                 <p class="card-title pl-3">
+                     <b>Python:</b> pandas, numpy, scikitlearn, matplotlib, altair, django, pytest<br>
+                     <b>Statistical methods:</b> Bayesian, numerous linear/non-linear, continuous/categorical model methods
+                 </p>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="row">
+        <div class="col-11 pb-1 text-left mx-auto resume-section">
+            <h2>Projects</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-11 pb-1 text-left mx-auto">
+            <div class="card">
+                <h4 class="card-header">
+                PERSONAL WEBSITE
+                </h4>
+                 <p class="card-title">
+                      <ul>
+                          <li class="lil-extra-padding-bullet">Coded personal website that functions as a personal blog, portfolio, and increases personal SEO presence.</li>
+                          <li>Wrote back-end with Python Django framework, implemented Bootstrap CDN to deliver front-end content, created a PostgreSQL database for blog and journal portions, and initially deployed site via Heroku.</li>
+                      </ul>
+                 </p>
+            </div>
+            <br>
+
+            <div class="card">
+                <h4 class="card-header">
+                FORD F-150 GASOLINE LOG ANALYSIS
+                </h4>
+                 <p class="card-title">
+                      <ul>
+                          <li>Coming soon!</li>
+                      </ul>
+                 </p>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="row">
+        <div class="col-11 pb-1 text-left mx-auto resume-section">
+            <h2>Experience</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-11 pb-1 text-left mx-auto">
+            <div class="card">
+                <h4 class="card-header">
+                RURAL ECONOMIC DEVELOPMENT VOLUNTEER
+                </h4>
+                 <table class="card-body resume-table">
+                     <tbody>
+                        <tr class="trow">
+                            <td class="resume-td"><b>Peace Corps</b></td>
+                            <td class="resume-td"><a href="https://www.peacecorps.gov/">peacecorps.gov</a></td>
+                            <td class="resume-td"><b>Feb 2017-Present</b></td>
+                        </tr>
+                     </tbody>
+                 </table>
+                 <p class="card-title">
+                      <ul>
+                          <li>Independently dedicated an estimated 1000+ hours studying core data science competencies</li>
+                          <li>Created and instructed course based on student input that increased entrepreneurial skills of 8 local women</li>
+                          <li>Reported to supervisors and collaborated with peers to implement numerous community projects from remote location</li>
+                      </ul>
+                 </p>
+            </div>
+            <br>
+
+             <div class="card">
+                <h4 class="card-header">
+                MANAGEMENT CONSULTING ASSOCIATE
+                </h4>
+                 <table class="card-body resume-table">
+                     <tbody>
+                        <tr class="trow">
+                            <td class="resume-td"><b>PwC</b></td>
+                            <td class="resume-td"><a href="https://www.pwc.com/">pwc.com</a></td>
+                            <td class="resume-td"><b>Jan 2016-Jan 2017</b></td>
+                        </tr>
+                     </tbody>
+                 </table>
+                 <p class="card-title">
+                      <ul>
+                          <li>Managed internal and external stakeholder communications to maintain participant understanding and project vision for a cross-platform, enterprise system upgrade project at a F500 company</li>
+                          <li>Developed personal relationships with over fifty project stakeholders which led to better anticipation of the affects the project would make upon its stakeholders</li>
+                      </ul>
+                 </p>
+             </div>
+            <br>
+
+             <div class="card">
+                <h4 class="card-header">
+                TAX ASSOCIATE
+                </h4>
+                 <table class="card-body resume-table">
+                     <tbody>
+                        <tr class="trow">
+                            <td class="resume-td"><b>PwC</b></td>
+                            <td class="resume-td"><a href="https://www.pwc.com/">pwc.com</a></td>
+                            <td class="resume-td"><b>Oct 2014-Jan 2017</b></td>
+                        </tr>
+                     </tbody>
+                 </table>
+                 <p class="card-title">
+                      <ul class="ul-card">
+                          <li>Interacted with clients via email, telephone, and meetings in order to understand issues and concerns, ask questions, and convey tax rules in layman’s terms</li>
+                          <li>Cleaned messy data from clients’ accounting systems with VBA scripts to save team hundreds of hours of time</li>
+                      </ul>
+                 </p>
+             </div>
+             <br>
+
+             <div class="card">
+                <h4 class="card-header">
+                CORE TAX INTERN
+                </h4>
+                 <table class="card-body resume-table">
+                     <tbody>
+                        <tr class="trow">
+                            <td class="resume-td"><b>PwC</b></td>
+                            <td class="resume-td"><a href="https://www.pwc.com/">pwc.com</a></td>
+                            <td class="resume-td"><b>Jan 2013-Apr 2013</b></td>
+                        </tr>
+                     </tbody>
+                 </table>
+                 <p class="card-title">
+                      <ul class="ul-card">
+                          <li>Cleaned client information output by different data sources in order to be used in tax return preparation</li>
+                      </ul>
+                 </p>
+             </div>
+             <br>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-11 pb-1 text-left mx-auto resume-section">
+            <h2>Education</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-11 pb-1 text-left mx-auto">
+            <div class="card">
+                <h4 class="card-header">
+                    UNIVERSITY OF WASHINGTON - SEATTLE, WA
+                </h4>
+                 <p class="card-title">
+                      <ul>
+                          <li>Masters: Professional Accounting – Taxation - Graduated June 2014</li>
+                          <li>Bachelor of Arts: Business Administration | Accounting | Minor: Economics - Graduated August 2013</li>
+                      </ul>
+                 </p>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-11 pb-1 text-left mx-auto resume-section">
+            <h2>Additional Experience</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-11 pb-1 text-left mx-auto">
+            <div class="card">
+                 <p class="card-title">
+                      <ul>
+                          <li>Certified Public Accountant (CPA) – Inactive</li>
+                          <li>Spanish: Advanced-Low LPI score</li>
+                      </ul>
+                 </p>
+            </div>
+            <br>
+        </div>
+    </div>
+
 {% endblock header-setup %}
-
-
-
-
-
-
-
-
-
-
 

@@ -99,6 +99,10 @@ a:hover {
     color: gray;
 }
 
+*, ::before, ::after {
+    box-sizing: content-box;
+}
+
 .card {
     border-color: #e76327;
 }
@@ -118,8 +122,19 @@ a:hover {
 }
 
 .resume-table {
-    table-layout: fixed; }
+    table-layout: fixed;
+}
+
 .resume-td {
     width: 33%;
     text-align: center;
+    align-items: center;
+}
+
+.ul-card {
+    /*padding-bottom: 0;*/
+}
+
+.lil-extra-padding-bullet {
+    padding-right: 1rem;
 }
