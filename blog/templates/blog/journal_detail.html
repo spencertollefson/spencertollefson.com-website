@@ -2,6 +2,8 @@
 
 {% block title %}Spencer Tollefson - #{{ post.pub_number }}: {{ post.title }}{% endblock %}
 
+
+
 {% block navhighlights %}
 <li class="nav-item">
     <a class="nav-link" href="{% url 'about' %}">About</a>
@@ -28,15 +30,20 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-11 pb-1 text-left mx-auto">
+        <div class="col-11 pb-0 text-left mx-auto">
             <p>{{ post.formatted_markdown|safe }}</p>
             <hr>
             <h4>~{{ post.author }}~</h4>
+            <small>
+                Leave a comment via a
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="" data-text="@TheSpencerT" data-related="TheSpencerT" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                here!
+            </small>
             <hr>
         </div>
     </div>
     <div class="row d-flex justify-content-between pb-1">
-        <div class="col-sm-6 text-center">
+        <div class="col-sm-5.5 text-left pl-3">
             {% if post.get_back_journ %}
             <a href="{% url 'journal_detail' pk=post.get_back_journ.pk %}">
                 <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" title="{{ post.get_back_journ.title }}">
@@ -45,7 +52,7 @@
             </a>
             {% endif %}
         </div>
-        <div class="col-sm-6 text-center">
+        <div class="col-sm-5.5 text-right pr-3">
             {% if post.get_next_journ %}
             <a href="{% url 'journal_detail' pk=post.get_next_journ.pk %}">
                 <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" title="{{ post.get_next_journ.title }}">
