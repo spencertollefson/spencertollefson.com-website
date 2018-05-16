@@ -20,7 +20,7 @@ from django.urls import include, path
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('offlimits/', admin.site.urls, name='admin'),
     path('', include('blog.urls')),
     path('markdownx/', include('markdownx.urls')),
     path('bootstrap/', TemplateView.as_view(template_name='bootstrap/example.html')),
