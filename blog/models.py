@@ -23,6 +23,8 @@ class Post(models.Model):
     def __unicode__(self):
         return self.title
 
+    def __str__(self):
+        return self.title
 
     def publish(self):
         self.published_date = timezone.now()
@@ -53,20 +55,3 @@ class Post(models.Model):
 
 
 
-    def __str__(self):
-        return self.title
-
-
-class Comment(models.Model):
-    post = models.ForeignKey('blog.Post', related_name='comments', on_delete=models.CASCADE)
-    author = models.CharField(max_length=40)
-    text = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
-    approved_comment = models.BooleanField(default=False)
-
-
-    def __str__(self):
-        return self.author + ' - ' + self.content[:60] + '...'
-
-    def approved_comments(self):
-        return self.comments.filter(approved_comment=True)
