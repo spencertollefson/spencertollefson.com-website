@@ -17,7 +17,7 @@ class Post(models.Model):
                             choices=(('journal', 'journal'), ('blog', 'blog')),
                             default='journal',
                             )
-    slug = models.SlugField(unique=True)
+    # slug = models.SlugField(unique=True)
 
     @property
     def formatted_markdown(self): # <-- This is used in views
@@ -33,17 +33,17 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
-    @models.permalink
-    def get_absolute_url(self):
-        return ('post_detail', (),
-                {
-                    'slug' :self.slug,
-                })
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        super(Post, self).save(*args, **kwargs)
+    # @models.permalink
+    # def get_absolute_url(self):
+    #     return ('post_detail', (),
+    #             {
+    #                 'slug' :self.slug,
+    #             })
+    #
+    # def save(self, *args, **kwargs):
+    #     if not self.slug:
+    #         self.slug = slugify(self.title)
+    #     super(Post, self).save(*args, **kwargs)
 
     def pub_number(self):
         return Post.objects.filter(published_date__lte=self.published_date).count()

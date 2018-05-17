@@ -9,5 +9,4 @@ class PostForm(forms.ModelForm):
                   'content',
                   'created_date',
                   'published_date',
-                  'slug',
                   )
