@@ -1,4 +1,4 @@
-from django.urls import include, path
+from django.urls import include, path, re_path
 from . import views
 
 urlpatterns = [
@@ -12,4 +12,5 @@ urlpatterns = [
     path('resume/', views.resume, name='resume'),
     path('sitemap.xml/', views.sitemap, name='sitemap'),
     # path('drafts/', views.post_draft_list, name='post_draft_list'),
+    re_path(r'^blog/(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/(?P<day>[0-9]{1,2})/(?P<slug>[-\w]+)/$', views.post_detail, name='post_detail')
 ]

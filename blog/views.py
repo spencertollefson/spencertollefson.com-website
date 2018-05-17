@@ -15,9 +15,16 @@ def journal_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/journal_list.html', {'posts': posts})
 
-def post_detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+# def post_detail(request, pk):
+#     post = get_object_or_404(Post, pk=pk)
+#     return render(request, 'blog/post_detail.html', {'post': post})
+
+def post_detail(request, year, month, day, slug):
+    post = get_object_or_404(Post, published_date__year=year, published_date__month=month,
+                              published_date__day=day, slug=slug)
+    return render(request, 'blog/post_detail.html', {
+        'post': post
+    })
 
 def journal_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -36,18 +43,3 @@ def sitemap(request):
 # def post_draft_list(request):
 #     posts = Post.objects.filter(Q(published_date__isnull=True) | Q(published_date__gt=timezone.now())).order_by('created_date')
 #     return render(request, 'blog/post_draft_list.html', {'posts': posts})
-
-
-def journal_index(request):
-    journal_entries = User.objects.all()
-    page = request.GET.get('page', 1)
-
-    paginator = Paginator(user_list, 10)
-    try:
-        users = paginator.page(page)
-    except PageNotAnInteger:
-        users = paginator.page(1)
-    except EmptyPage:
-        users = paginator.page(paginator.num_pages)
-
-    return render(request, 'core/user_list.html', { 'users': users })
