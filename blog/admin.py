@@ -3,11 +3,14 @@ from markdownx.admin import MarkdownxModelAdmin
 from .models import Post
 
 @admin.register(Post)
-class PostAdmin(MarkdownxModelAdmin):
+class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'published_date'
     search_fields = ['title', 'content',]
     list_display = ('title','created_date','published_date', 'type')
     list_filter = ('type',)
+    prepopulated_fields = {
+        "slug": ("title",)
+    }
 
 
 
