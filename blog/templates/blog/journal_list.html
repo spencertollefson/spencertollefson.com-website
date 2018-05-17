@@ -35,16 +35,18 @@
         <table class="table table-hover ">
             <tbody>
                 {% for post in posts %}
-                 <tr>
-                    <td>
-                        <h6 class="journ-list">{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h6>
-                    </td>
-                    <td>
-                        <a href="{% url 'journal_detail' pk=post.pk %}" class="">
-                        <h6 class="journ-list">{{ post.title }}</h6>
-                        </a>
-                    </td>
-                 </tr>
+                     {% if post.type == 'journal' %}
+                         <tr>
+                                 <td>
+                                <h6 class="journ-list">{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h6>
+                            </td>
+                            <td>
+                                <a href="{% url 'journal_detail' pk=post.pk %}" class="">
+                                <h6 class="journ-list">{{ post.title }}</h6>
+                                </a>
+                            </td>
+                         </tr>
+                     {% endif %}
                 {% endfor %}
             </tbody>
         </table>
