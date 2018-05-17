@@ -69,6 +69,18 @@ class Post(models.Model):
             return back_journ
         return False
 
+    def get_next_blog(self):
+        next_blog = Post.objects.filter(Q(type='blog') & Q(published_date__gt=self.published_date)).order_by('published_date').first()
+        if next_blog:
+            return next_blog
+        return False
+
+    def get_back_blog(self):
+        back_blog = Post.objects.filter(Q(type='blog') & Q(published_date__lt=self.published_date)).order_by('-published_date').first()
+        if back_blog:
+            return back_blog
+        return False
+
 
 
 

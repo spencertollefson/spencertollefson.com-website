@@ -6,16 +6,63 @@
 <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 
 
-{% block Page-Header %}
-    <h2>{{ post.title }}</h2>
-    <div class="w-100"></div>
-    <h5>{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5>
-    <hr>
-{% endblock Page-Header %}
+{% block navhighlights %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'about' %}">About</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" href="{% url 'post_list' %}">Blog</a>
+</li><li class="nav-item">
+    <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'resume' %}">Resume</a>
+</li>
+{% endblock navhighlights %}
 
-{% block content %}
-    <p>{{ post.formatted_markdown|safe }}</p>
-    <hr>
-    <h4>~{{ post.author }}~</h4>
-{% endblock %}
+{% block header-setup %}
+    <div class="row">
+        <div class="col text-center pt-2">
+            {% block Page-Header %}
+                <h2>{{ post.title }}</h2>
+                <div class="w-100"></div>
+                <h5>{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5>
+                <hr>
+            {% endblock Page-Header %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-11 pb-0 text-left mx-auto">
+            <p>{{ post.formatted_markdown|safe }}</p>
+            <hr>
+            <h4>~{{ post.author }}~</h4>
+            <small>
+                Leave a comment via a
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="" data-text="@TheSpencerT" data-related="TheSpencerT" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                here!
+            </small>
+            <hr>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-between pb-1">
+        <div class="col-sm-5.5 text-left pl-3">
+            {% if post.get_back_journ %}
+            <a href="{% url 'post_detail' slug=post.get_back_blog.slug %}">
+                <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" title="{{ post.get_back_journ.title }}">
+                    ↢ Prev Journal Entry
+                </button>
+            </a>
+            {% endif %}
+        </div>
+        <div class="col-sm-5.5 text-right pr-3">
+            {% if post.get_next_journ %}
+            <a href="{% url 'post_detail' slug=post.get_next_blog.slug %}">
+                <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" title="{{ post.get_next_journ.title }}">
+                   Next Journal Entry ↣
+                </button>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock header-setup %}
 
