@@ -167,3 +167,9 @@ MARKDOWNX_UPLOAD_CONTENT_TYPES = ['image/jpeg', 'image/png', 'image/svg+xml']
 # Activate Django-Heroku.
 django_heroku.settings(locals())
 
+
+#This will parse the values of the DATABASE_URL environment variable and convert them to something Django can understand.
+# Got this per Heroku recommendations: https://devcenter.heroku.com/articles/heroku-postgresql#local-setup
+import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
