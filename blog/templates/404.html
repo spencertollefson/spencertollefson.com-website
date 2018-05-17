@@ -6,6 +6,20 @@
     <h1>Spencer Tollefson - Whoops! You shouldn't be here.</h1>
 {% endblock Page-Header %}
 
+{% block navhighlights %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'about' %}">About</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'post_list' %}">Blog</a>
+</li><li class="nav-item">
+    <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'resume' %}">Resume</a>
+</li>
+{% endblock navhighlights %}
+
 {% block content %}
 <div class="container text-center">
     <br>
