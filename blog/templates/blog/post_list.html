@@ -17,17 +17,20 @@
         </div>
     </div>
     <div class="row">
-        <table class="table table-hover ">
+        <table class="table table-hover blog-list-table">
             <tbody>
                 {% for post in posts %}
                      {% if post.type == 'blog' %}
                          <tr>
                              <td>
-                                 <h6 class="journ-list">{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h6>
+                                 <small><h6 class="journ-list blog-numbering">#{{ post.blog_pub_number }}:</h6></small>
+                             </td>
+                             <td>
+                                 <small><h6 class="journ-list">{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h6></small>
                              </td>
                              <td>
                                  <a href="{% url 'post_detail' slug=post.slug %}" class="">
-                                 <h6 class="journ-list">{{ post.title }}</h6>
+                                 <p class="journ-list">{{ post.title }}</p>
                                  </a>
                              </td>
                          </tr>
