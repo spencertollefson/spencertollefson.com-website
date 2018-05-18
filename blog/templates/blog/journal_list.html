@@ -58,18 +58,20 @@
     <div class="infinite-container">
         <div class="row">
             {% for post in posts %}
-                 <div class="col text-center pt-2">
-                    {% block Page-Header %}
-                        <h1 style="color: #e76327">{{ post.title }}</h1>
-                        <div class="w-100"></div>
-                        <h5 style="color: #e76327">{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5>
+{#                <div class="infinite-item"#}
+                    <div class="infinite-item col pt-2">
+                        {% block Page-Header %}
+                            <h1 class="text-center" style="color: #e76327">{{ post.title }}</h1>
+                            <div class="w-100"></div>
+                            <h5 class="text-center" style="color: #e76327">{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5>
+                            <hr>
+                        {% endblock Page-Header %}
+                    </div>
+                    <div class="infinite-item col-11 pb-0 text-left mx-auto">
+                        <p>{{ post.formatted_markdown|safe }}</p>
                         <hr>
-                    {% endblock Page-Header %}
-                </div>
-                <div class="col-11 pb-0 text-left mx-auto infinite-item">
-                    <p>{{ post.formatted_markdown|safe }}</p>
-                    <hr>
-                </div>
+                    </div>
+{#                </div>#}
             {% endfor %}
         </div>
     </div>

@@ -18,7 +18,7 @@ def post_list(request):
 def journal_list(request):
     numbers_list = Post.objects.filter(Q(published_date__lte=timezone.now()) & Q(type='journal')).order_by('-published_date')
     page = request.GET.get('page', 1)
-    paginator = Paginator(numbers_list, 3)
+    paginator = Paginator(numbers_list, 20)
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
