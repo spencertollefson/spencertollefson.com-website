@@ -4,19 +4,38 @@
 
 {% block title %}Spencer Tollefson{% endblock %}
 
-{% block navhighlights %}
-<li class="nav-item">
-    <a class="nav-link" href="{% url 'about' %}">About</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{% url 'post_list' %}">Blog</a>
-</li><li class="nav-item">
-    <a class="nav-link active" href="{% url 'journal_list' %}">Journal</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{% url 'resume' %}">Resume</a>
-</li>
-{% endblock navhighlights %}
+
+{% block navbar %}
+    <nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
+        <div class="mx-auto d-flex d-block flex-wrap justify-content-center" role="navigation">
+            <a class="navbar-brand" href="{% url 'about' %}">Spencer Tollefson</a>
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse text-center justify-content-center" id="navbarNav">
+                <ul class="nav nav-pills">
+                    {% block navhighlights %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'post_list' %}">Blog</a>
+                    </li><li class="nav-item">
+                        <a class="nav-link active" href="{% url 'journal_list' %}">Journal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'resume' %}">Resume</a>
+                    </li>
+                    {% endblock navhighlights %}
+                </ul>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+{% endblock navbar %}
+
+
 
 {% block header-setup %}
 <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
