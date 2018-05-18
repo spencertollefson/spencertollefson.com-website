@@ -11,20 +11,27 @@ def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
+# def journal_list(request):
+#     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+#     return render(request, 'blog/journal_list.html', {'posts': posts})
+
 def journal_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request, 'blog/journal_list.html', {'posts': posts})
+    numbers_list = Post.objects.filter(Q(published_date__lte=timezone.now()) & Q(type='journal')).order_by('-published_date')
+    page = request.GET.get('page', 1)
+    paginator = Paginator(numbers_list, 3)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    return render(request, 'blog/journal_list.html', {
+        'posts': posts
+    })
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     return render(request, 'blog/post_detail.html', {'post': post})
-
-# def post_detail(request, year, month, day, slug):
-#     post = get_object_or_404(Post, published_date__year=year, published_date__month=month,
-#                               published_date__day=day, slug=slug)
-#     return render(request, 'blog/post_detail.html', {
-#         'post': post
-#     })
 
 def journal_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)

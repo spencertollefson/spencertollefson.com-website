@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
 
+{% load static %}
+
 {% block title %}Spencer Tollefson{% endblock %}
 
 {% block navhighlights %}
@@ -17,6 +19,10 @@
 {% endblock navhighlights %}
 
 {% block header-setup %}
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/infinite.min.js' %}"></script>
+
     <div class="row justify-content-center text-center">
         <div class="col-11 py-2">
             <h1>Journal</h1>
@@ -30,26 +36,44 @@
             </p>
         </div>
     </div>
-    <div class="row">
-
-        <table class="table table-hover ">
-            <tbody>
-                {% for post in posts %}
-                     {% if post.type == 'journal' %}
-                         <tr>
-                             <td>
-                                 <h6 class="journ-list">{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h6>
-                             </td>
-                             <td>
-                                 <a href="{% url 'journal_detail' pk=post.pk %}" class="">
-                                 <h6 class="journ-list">{{ post.title }}</h6>
-                                 </a>
-                             </td>
-                         </tr>
-                     {% endif %}
-                {% endfor %}
-            </tbody>
-        </table>
+    <div class="infinite-container">
+        <div class="row">
+            {% for post in posts %}
+                 <div class="col text-center pt-2">
+                    {% block Page-Header %}
+                        <h1 style="color: #e76327">{{ post.title }}</h1>
+                        <div class="w-100"></div>
+                        <h5 style="color: #e76327">{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5>
+                        <hr>
+                    {% endblock Page-Header %}
+                </div>
+                <div class="col-11 pb-0 text-left mx-auto infinite-item">
+                    <p>{{ post.formatted_markdown|safe }}</p>
+                    <hr>
+                </div>
+            {% endfor %}
+        </div>
     </div>
+
+    {% if posts.has_next %}
+        <a class="infinite-more-link" href="?page={{ posts.next_page_number }}">More</a>
+    {% endif %}
+
+
+    <div class="loading" style="display: none;">
+     Loading...
+    </div>
+
+    <script>
+        var infinite = new Waypoint.Infinite({
+            element: $('.infinite-container')[0],
+            onBeforePageLoad: function () {
+                $('.loading').show();
+            },
+            onAfterPageLoad: function ($items) {
+                $('.loading').hide();
+            }
+        });
+    </script>
 {% endblock %}
 
