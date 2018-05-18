@@ -12,6 +12,10 @@ body {
     flex: 1 0 auto;
 }
 
+.navbar-dark {
+    
+}
+
 .icon-colors {
     font-size: 2em;
     color: #007bff;
@@ -92,7 +96,7 @@ a:hover {
     border-color: #e76327;
 }
 
-.btn-outline-secondary:hover {
+.btn-outline-secondary:hover    {
     background-color: #e76327;
 }
 .resume-section{

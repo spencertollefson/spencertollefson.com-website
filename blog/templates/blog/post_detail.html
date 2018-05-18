@@ -35,30 +35,29 @@
         <div class="col-11 pb-0 text-left mx-auto">
             <p>{{ post.formatted_markdown|safe }}</p>
             <hr>
-            <h4>~{{ post.author }}~</h4>
-            <small>
-                Leave a comment via a
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="" data-text="@TheSpencerT" data-related="TheSpencerT" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                here!
+            <h4>~ {{ post.author }} </h4>
+            <small class="mx-auto">
+                Comment via
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="" data-text="@TheSpencerT" data-related="TheSpencerT" data-show-count="false">   Tweet   </a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </small>
             <hr>
         </div>
     </div>
-    <div class="row d-flex justify-content-between pb-1">
-        <div class="col-sm-5.5 text-left pl-3">
-            {% if post.get_back_journ %}
-            <a href="{% url 'post_detail' slug=post.get_back_blog.slug %}">
+    <div class="row d-flex justify-content-sm-between justify-content-center pb-1">
+        <div class="col-sm-5.5 pr-2 pl-sm-3">
+            {% if post.get_prev_blog %}
+            <a href="{% url 'post_detail' slug=post.get_prev_blog.slug %}">
                 <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" title="{{ post.get_back_journ.title }}">
-                    ↢ Prev Journal Entry
+                    ↢ Prev Blog Entry
                 </button>
             </a>
             {% endif %}
         </div>
-        <div class="col-sm-5.5 text-right pr-3">
-            {% if post.get_next_journ %}
+        <div class="col-sm-5.5 pl-2 pr-sm-3">
+            {% if post.get_next_blog %}
             <a href="{% url 'post_detail' slug=post.get_next_blog.slug %}">
                 <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" title="{{ post.get_next_journ.title }}">
-                   Next Journal Entry ↣
+                   Next Blog Entry ↣
                 </button>
             </a>
             {% endif %}

@@ -43,8 +43,8 @@
     </div>
     <div class="row d-flex justify-content-between pb-1">
         <div class="col-sm-5.5 text-left pl-3">
-            {% if post.get_back_journ %}
-            <a href="{% url 'journal_detail' pk=post.get_back_journ.pk %}">
+            {% if post.get_prev_journ %}
+            <a href="{% url 'journal_detail' pk=post.get_prev_journ.pk %}">
                 <button type="button" class="btn btn-outline-secondary" data-toggle="tooltip" title="{{ post.get_back_journ.title }}">
                     ↢ Prev Journal Entry
                 </button>
