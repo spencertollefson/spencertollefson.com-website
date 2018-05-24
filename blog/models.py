@@ -5,6 +5,7 @@ from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
+from django.contrib.sitemaps import ping_google
 import uuid
 
 class Post(models.Model):
@@ -33,6 +34,12 @@ class Post(models.Model):
     def publish(self):
         self.published_date = timezone.now()
         self.save()
+        try:
+            ping_google()
+        except Exception:
+            # Bare 'except' because we could get a variety
+            # of HTTP-related exceptions.
+            pass
 
     # @models.permalink
     # def get_absolute_url(self):
