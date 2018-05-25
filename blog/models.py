@@ -41,12 +41,12 @@ class Post(models.Model):
             # of HTTP-related exceptions.
             pass
 
-    # @models.permalink
-    # def get_absolute_url(self):
-    #     return ('post_detail', (),
-    #             {
-    #                 'slug' :self.slug,
-    #             })
+    @models.permalink
+    def get_absolute_url(self):
+        return ('post_detail', (),
+                {
+                    'slug' :self.slug,
+                })
 
     # def save(self, *args, **kwargs):
     #     if not self.slug:
