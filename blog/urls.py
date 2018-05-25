@@ -21,9 +21,9 @@ urlpatterns = [
          name='django.contrib.sitemaps.views.sitemap'),
 
     # Let's Encrypt Challenge
-    path('well-known/', include('letsencrypt.urls')),
+    path('.well-known/', include('letsencrypt.urls')),
 
-    
+
     # path('drafts/', views.post_draft_list, name='post_draft_list'),
     # re_path(r'^blog/(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/(?P<day>[0-9]{1,2})/(?P<slug>[-\w]+)/$', views.post_detail, name='post_detail')
 ]

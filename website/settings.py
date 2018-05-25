@@ -177,3 +177,8 @@ django_heroku.settings(locals())
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 SITE_ID = 1 # For use with the django.contrib.sites within Installed Apps
+
+# For SSL / HTTPS
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
