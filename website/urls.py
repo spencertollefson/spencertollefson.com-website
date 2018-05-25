@@ -23,6 +23,10 @@ urlpatterns = [
     path('offlimits/', admin.site.urls, name='admin'),
     path('', include('blog.urls')),
     path('markdownx/', include('markdownx.urls')),
+
+    # Let's Encrypt Challenge
+    path('.well-known/', include('letsencrypt.urls')),
+
     path('bootstrap/', TemplateView.as_view(template_name='bootstrap/example.html')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
