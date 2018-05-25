@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'markdownx',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'letsencrypt'
 ]
 
 MIDDLEWARE = [
