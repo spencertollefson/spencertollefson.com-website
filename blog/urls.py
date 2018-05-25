@@ -17,7 +17,7 @@ urlpatterns = [
     path('resume/', views.resume, name='resume'),
 
     # SEO
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+    path('sitemap.xml/', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap')
     # path('drafts/', views.post_draft_list, name='post_draft_list'),
     # re_path(r'^blog/(?P<year>[0-9]{4})/(?P<month>[0-9]{1,2})/(?P<day>[0-9]{1,2})/(?P<slug>[-\w]+)/$', views.post_detail, name='post_detail')
