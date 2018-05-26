@@ -16,3 +16,4 @@ venv.bak/
 
 bash.exe.stackdump
 get-pip.py
+pg-db-backups/
