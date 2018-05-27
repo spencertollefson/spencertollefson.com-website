@@ -78,6 +78,11 @@
                     </div>
 {#                </div>#}
             {% endfor %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         </div>
     </div>
 
@@ -102,4 +107,24 @@
         });
     </script>
 {% endblock %}
+
+{% block footer %}
+
+<nav class="navbar fixed-bottom navbar-dark bg-dark pt-0 pb-0 foot-nav justify-contents-center">
+    <footer class="container d-flex footer-con foot-nav" id="footer">
+        <div class="col d-flex mx-auto text-center justify-content-center copyright">
+            <a class="navbar-brand footer copyright-text" href="{% url 'about' %}"><small>Copyright © 2018 Spencer Tollefson</small></a>
+        </div>
+        <div class="col d-flex footer-icons mx-auto">
+            <div class="btn-toolbar" role="group" aria-label="Basic example">
+                <a href="mailto:spencer@spencertollefson.com" target="_blank"><i class="icon-colors fas fa-envelope-square btn"></i></a>
+                <a href="https://twitter.com/TheSpencerT" target="_blank"><i class="icon-colors fab fa-twitter-square btn"></i></a>
+                <a href="https://www.linkedin.com/in/stollefson1" target="_blank"><i class="icon-colors fab fa-linkedin btn"></i></a>
+                <a href="https://github.com/spencertollefson" target="_blank"><i class="icon-colors fab fa-github-square btn"></i></a>
+            </div>
+        </div>
+    </footer>
+</nav>
+
+{% endblock footer %}
 
