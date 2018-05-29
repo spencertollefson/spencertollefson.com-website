@@ -165,6 +165,15 @@ MARKDOWNX_UPLOAD_MAX_SIZE = 50 * 1024 * 1024 # 50 MB in bytes
 
 MARKDOWNX_UPLOAD_CONTENT_TYPES = ['image/jpeg', 'image/png', 'image/svg+xml']
 
+MARKDOWNX_EDITOR_RESIZABLE = True
+
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
+
 
 
 # Activate Django-Heroku.
