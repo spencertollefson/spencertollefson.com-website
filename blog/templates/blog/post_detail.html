@@ -5,6 +5,10 @@
 {#Twitter JS#}
 <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 
+{% block metatags %}
+    <meta name="description" content="{{ post.content|truncatewords:45 }}">
+{% endblock metatags %}
+
 
 {% block navhighlights %}
 <li class="nav-item">
