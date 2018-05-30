@@ -6,31 +6,6 @@ from markdownx.utils import markdownify
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.contrib.sitemaps import ping_google
-from django.conf import settings
-import datetime
-import markdown
-
-
-
-def markdown_to_html(markdownText, images):
-    image_ref = ""
-
-    for image in images:
-        image_url = settings.MEDIA_URL + image.image.url
-        image_ref = "%s\n[%s]: %s" % (image_ref, image, image_url)
-
-    md = "%s\n%s" % (markdownText, image_ref)
-    html = markdown.markdown(md)
-
-    return html
-
-
-class Image(models.Model):
-    name = models.CharField( max_length=100)
-    image = models.ImageField(upload_to="image")
-
-    def __unicode__(self):
-        return self.name
 
 
 class Post(models.Model):
@@ -45,10 +20,7 @@ class Post(models.Model):
                             default='journal',
                             )
     slug = models.SlugField(default=title)
-    images = models.ManyToManyField(Image, blank=True)
 
-    def content_html(self):
-        return markdown_to_html(self.content, self.images.all())
 
     @property
     def formatted_markdown(self): # <-- This is used in views
@@ -64,10 +36,10 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
         try:
-            ping_google()
+            ping_google('/sitemap.xml')
         except Exception:
             # Bare 'except' because we could get a variety
-            # of HTTP-related exceptions.
+            # of HTTP-relatedf exceptions.
             pass
 
     @models.permalink

@@ -43,6 +43,9 @@ def about(request):
 def resume(request):
     return render(request, 'blog/resume.html')
 
+def robots(request):
+    return render(request, 'robots.txt')
+
 # @login_required
 # def post_draft_list(request):
 #     posts = Post.objects.filter(Q(published_date__isnull=True) | Q(published_date__gt=timezone.now())).order_by('created_date')
