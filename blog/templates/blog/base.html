@@ -1,16 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119263074-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
 
-            gtag('config', 'UA-119263074-1');
-        </script>
+    {% block head %}
+    <head>
+        {% block ga %}
+            {% include "snippets/ga.html" %}
+        {% endblock ga %}
 
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -35,7 +31,7 @@
             <meta name="description" content="Blog of (another) self-teaching computer programmer">
         {% endblock metatags %}
     </head>
-
+    {% endblock head %}
 
     <body>
 

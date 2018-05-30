@@ -1,15 +1,44 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119263074-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+{% block head %}
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119263074-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-  gtag('config', 'UA-119263074-1');
-</script>
+            gtag('config', 'UA-119263074-1');
+        </script>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+        <!--Font Awesome CSS -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+
+        <!--Leads to blog.css file for CSS styling -->
+        <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+
+        <title>{% block title %}Spencer Tollefson{% endblock title %}</title>
+
+
+        {% block metatags %}
+        <meta name="description" content="This is my personal website, created and maintained by me! In it you'll find a blog, journal, and get-to-me section. Most of my content will revolve around my journey of learning coding and related topics.">
+            <meta name="author" content="Spencer Tollefson Blog Website">
+            <meta property="og:description" content="Spencer Tollefson Blog Website">
+            <meta name="description" content="Blog of (another) self-teaching computer programmer">
+        {% endblock metatags %}
+    </head>
+{% endblock head %}
+
+
 
 {% block title %}Spencer Tollefson{% endblock %}
 
