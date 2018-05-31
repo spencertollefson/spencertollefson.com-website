@@ -1,9 +1,6 @@
 from django.urls import include, path
-from django.contrib.sitemaps.views import sitemap
 from . import views
-from website.sitemapxml import BlogSitemap, JournalSitemap, StaticSitemap
 
-sitemaps = {'static': StaticSitemap, 'dynamic': BlogSitemap, 'dynamic': JournalSitemap,}
 
 
 
@@ -16,9 +13,6 @@ urlpatterns = [
     path('journal/<slug:slug>/', views.journal_detail, name='journal_detail'),
     path('resume/', views.resume, name='resume'),
 
-    # SEO
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
-         name='django.contrib.sitemaps.views.sitemap'),
 
     #Robots
     path('robots.txt', views.robots, name='robots'),

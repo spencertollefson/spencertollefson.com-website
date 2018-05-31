@@ -18,6 +18,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import TemplateView
+from django.contrib.sitemaps.views import sitemap
+from website.sitemapxml import PostSitemap, StaticSitemap # JournalSitemap
+
+
+sitemaps = {'static': StaticSitemap, 'dynamic': PostSitemap,} # 'dynamic': JournalSitemap,}
+
 
 urlpatterns = [
     path('offlimits/', admin.site.urls, name='admin'),
@@ -28,5 +34,10 @@ urlpatterns = [
     path('.well-known/', include('letsencrypt.urls')),
 
     path('bootstrap/', TemplateView.as_view(template_name='bootstrap/example.html')),
+
+    # SEO
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

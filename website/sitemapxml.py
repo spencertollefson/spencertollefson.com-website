@@ -3,29 +3,29 @@ from django.urls import reverse
 from blog.models import Post
 
 
-class BlogSitemap(Sitemap):
+class PostSitemap(Sitemap):
     changefreq = "always"
     priority = 0.5
 
     def items(self):
-        return Post.objects.filter(type='blog')
+        return Post.objects.all()
 
     def lastmod(self, item):
         last_post = Post.objects.filter(title=item)
         if last_post:
             return sorted(last_post)[-1].published_date
 
-class JournalSitemap(Sitemap):
-    changefreq = "always"
-    priority = 0.5
-
-    def items(self):
-        return Post.objects.filter(type='journal')
-
-    def lastmod(self, item):
-        last_post = Post.objects.filter(title=item)
-        if last_post:
-            return sorted(last_post)[-1].published_date
+# class JournalSitemap(Sitemap):
+#     changefreq = "always"
+#     priority = 0.5
+#
+#     def items(self):
+#         return Post.objects.filter(type='journal')
+#
+#     def lastmod(self, item):
+#         last_post = Post.objects.filter(title=item)
+#         if last_post:
+#             return sorted(last_post)[-1].published_date
 
 
 class StaticSitemap(Sitemap):
