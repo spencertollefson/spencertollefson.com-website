@@ -30,11 +30,11 @@ def journal_list(request):
     })
 
 def post_detail(request, slug):
-    post = get_object_or_404(Post, slug=slug)
+    post = get_object_or_404(Post, slug=slug, type='blog')
     return render(request, 'blog/post_detail.html', {'post': post})
 
 def journal_detail(request, slug):
-    post = get_object_or_404(Post, slug=slug)
+    post = get_object_or_404(Post, slug=slug, type='journal')
     return render(request, 'blog/journal_detail.html', {'post': post})
 
 def about(request):
