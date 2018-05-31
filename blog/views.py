@@ -7,9 +7,9 @@ from .forms import PostForm
 from django.db.models import Q
 
 
-def post_list(request):
+def bloglist(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    return render(request, 'blog/bloglist.html', {'posts': posts})
 
 # def journal_list(request):
 #     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
@@ -29,9 +29,9 @@ def journal_list(request):
         'posts': posts
     })
 
-def post_detail(request, slug):
+def blogdetail(request, slug):
     post = get_object_or_404(Post, slug=slug, type='blog')
-    return render(request, 'blog/post_detail.html', {'post': post})
+    return render(request, 'blog/blogdetail.html', {'post': post})
 
 def journal_detail(request, slug):
     post = get_object_or_404(Post, slug=slug, type='journal')

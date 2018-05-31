@@ -1,16 +1,16 @@
 from django.urls import include, path
 from django.contrib.sitemaps.views import sitemap
 from . import views
-from website.sitemapxml import BlogSitemap, StaticSitemap
+from website.sitemapxml import BlogSitemap, JournalSitemap, StaticSitemap
 
-sitemaps = {'static': StaticSitemap, 'dynamic': BlogSitemap}
+sitemaps = {'static': StaticSitemap, 'dynamic': BlogSitemap, 'dynamic': JournalSitemap,}
 
 
 
 urlpatterns = [
     path('', views.about, name='about'),
-    path('blog/', views.post_list, name='post_list'),
-    path('blog/<slug:slug>/', views.post_detail, name='post_detail'),
+    path('blog/', views.bloglist, name='bloglist'),
+    path('blog/<slug:slug>/', views.blogdetail, name='blogdetail'),
     path('journal/', views.journal_list, name='journal_list'),
     path('markdownx/', include('markdownx.urls')),
     path('journal/<slug:slug>/', views.journal_detail, name='journal_detail'),

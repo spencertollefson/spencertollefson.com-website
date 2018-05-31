@@ -39,12 +39,12 @@ class Post(models.Model):
             ping_google('/sitemap.xml')
         except Exception:
             # Bare 'except' because we could get a variety
-            # of HTTP-relatedf exceptions.
+            # of HTTP-related exceptions.
             pass
 
     @models.permalink
     def get_absolute_url(self):
-        return ('post_detail', (),
+        return ('blogdetail', (),
                 {
                     'slug' :self.slug,
                 })
