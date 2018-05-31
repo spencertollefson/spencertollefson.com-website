@@ -66,9 +66,11 @@
 {#                <div class="infinite-item"#}
                     <div class="infinite-item col pt-2">
                         {% block Page-Header %}
+                            <a href="{% url 'journal_detail' slug=post.slug %}" class="">
                             <h1 class="text-center" style="color: #e76327">{{ post.title }}</h1>
                             <div class="w-100"></div>
                             <h5 class="text-center" style="color: #e76327">{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5>
+                            </a>
                             <hr>
                         {% endblock Page-Header %}
                     </div>

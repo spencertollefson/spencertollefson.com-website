@@ -33,8 +33,8 @@ def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     return render(request, 'blog/post_detail.html', {'post': post})
 
-def journal_detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
+def journal_detail(request, slug):
+    post = get_object_or_404(Post, slug=slug)
     return render(request, 'blog/journal_detail.html', {'post': post})
 
 def about(request):

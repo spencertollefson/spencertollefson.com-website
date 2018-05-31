@@ -13,7 +13,7 @@ urlpatterns = [
     path('blog/<slug:slug>/', views.post_detail, name='post_detail'),
     path('journal/', views.journal_list, name='journal_list'),
     path('markdownx/', include('markdownx.urls')),
-    path('journal/<int:pk>/', views.journal_detail, name='journal_detail'),
+    path('journal/<slug:slug>/', views.journal_detail, name='journal_detail'),
     path('resume/', views.resume, name='resume'),
 
     # SEO
