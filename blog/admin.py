@@ -15,6 +15,6 @@ class PostAdmin(admin.ModelAdmin):
 
 
 #Customizations to Admin site
-admin.site.site_header = "spencertollefson.com Admin"
+admin.site.site_header = "spencertollefson.com top secret"
 admin.site.site_title = "offlimits!"
 admin.site.index_title = ''
