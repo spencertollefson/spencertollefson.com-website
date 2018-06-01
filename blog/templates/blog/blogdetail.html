@@ -1,12 +1,17 @@
 {% extends 'blog/base.html' %}
 
-{% block title %}Spencer Tollefson - #{{ post.blog_pub_number }}: {{ post.title }}{% endblock %}
+{% block title %}Spencer Tollefson - Blog #{{ post.blog_pub_number }}: {{ post.title }}{% endblock %}
 
 {#Twitter JS#}
 <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 
 {% block metatags %}
     <meta name="description" content="{{ post.formatted_markdown|safe|truncate:20 }}">
+    <meta property="og:title" content="{{ post.title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ post.get_absolute_url }}" />
+    <meta property="og:description" content="{{ post.formatted_markdown|safe|truncate:20 }}">
+{#    <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" /> {% static 'blog/images/ %}{{ post.formatted_mark }}#}
 {% endblock metatags %}
 
 
