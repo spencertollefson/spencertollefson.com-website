@@ -59,11 +59,11 @@ In a sense, it's my journal of learning tech.">
             <h1>Journal</h1>
         </div>
         <div class="w-100"></div>
-        <div class="col-11">
+        <div class="col-11 text-justify">
             <p>
-                This is a collection of short diary-style entries that likely
-                are shorter in length and wander in subject more than
-                Blog posts. In a sense, it's my journal of learning tech.
+                Collection of diary-style entries that are short in length
+                and wander in subject In a sense, it's my journal of
+                learning tech.
             </p>
         </div>
     </div>
@@ -75,9 +75,9 @@ In a sense, it's my journal of learning tech.">
                         {% block Page-Header %}
                             <a href="{% url 'journal_detail' slug=post.slug %}" class="">
                             <h1 class="text-center" style="color: #e76327">{{ post.title }}</h1>
+                            </a>
                             <div class="w-100"></div>
                             <h5 class="text-center" style="color: #e76327">{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h5>
-                            </a>
                             <hr>
                         {% endblock Page-Header %}
                     </div>
