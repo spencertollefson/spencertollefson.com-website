@@ -5,7 +5,7 @@
     <meta property="og:title" content="{{ post.title }}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="http://www.spencertollefson.com{{ post.get_absolute_url }}" />
-    <meta property="og:description" content="{{ post.formatted_markdown|striptags|truncatewords:20 }}">
+    <meta property="og:description" content="{{ post.formatted_markdown|striptags|truncatewords:80 }}">
 
 {% endblock metatags %}
 
