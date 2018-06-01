@@ -21,13 +21,14 @@
         <!--Leads to blog.css file for CSS styling -->
         <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 
-        <title>{% block title %}Spencer Tollefson{% endblock title %}</title>
 
 
         {% block metatags %}
         <meta name="author" content="Spencer Tollefson">
-        <meta property="og:description" content="Spencer Tollefson's Website">
         {% endblock metatags %}
+
+
+        <title>{% block title %}Spencer Tollefson{% endblock title %}</title>
     </head>
     {% endblock head %}
 

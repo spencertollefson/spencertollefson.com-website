@@ -1,56 +1,14 @@
 {% extends 'blog/base.html' %}
-{#{% load staticfiles %}#}
 
-{#{% block title %}Spencer Tollefson - Blog #{{ post.blog_pub_number }}: {{ post.title }}{% endblock %}#}
-{##}
-{#Twitter JS#}
-{#<script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>#}
-{##}
-{#{% block metatags %}#}
-{#        <meta name="author" content="Spencer Tollefson">#}
-{#        <meta name="description" content="{{ post.formatted_markdown|safe|truncatewords_html:20 }}">#}
-{#        <meta property="og:title" content="{{ post.title }}">#}
-{#        <meta property="og:type" content="article">#}
-{#        <meta property="og:url" content="{{ post.get_absolute_url }}">#}
-{#        <meta property="og:description" content="{{ post.formatted_markdown|safe|truncatewords_html:20 }}">#}
-        {#<meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" /> {% static 'blog/images/ %}{{ post.formatted_mark }}#}
-{#{% endblock %}#}
+{% block metatags %}
+    <meta name="description" content="{{ post.formatted_markdown|truncatewords_html:20 }}"/>
+    <meta property="og:title" content="{{ post.title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://www.spencertollefson.com{{ post.get_absolute_url }}" />
+    <meta property="og:description" content="{{ post.formatted_markdown|truncatewords_html:20 }}"/>
+{% endblock %}
 
-{#{% block head %}#}
-{#    <head>#}
-{#        {% block ga %}#}
-{#            {% include "snippets/ga.html" %}#}
-{#        {% endblock ga %}#}
-{##}
-{#        <!-- Required meta tags -->#}
-{#        <meta charset="utf-8">#}
-{#        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">#}
-{##}
-{#        <!-- Bootstrap CSS -->#}
-{#        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">#}
-{##}
-{#        <!--Font Awesome CSS -->#}
-{#        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">#}
-{##}
-{#        <!--Leads to blog.css file for CSS styling -->#}
-{#        <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">#}
-{##}
-{#        <title>{% block title %}Spencer Tollefson - Blog #{{ post.blog_pub_number }}: {{ post.title }}{% endblock title %}</title>#}
-{##}
-        {#Twitter JS#}
-{#        <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>#}
-
-{#        {% block metatags %}#}
-{#                <meta name="author" content="Spencer Tollefson">#}
-{#                <meta name="description" content="{{ post.formatted_markdown|safe|truncatewords_html:20 }}">#}
-{#                <meta property="og:title" content="{{ post.title }}">#}
-{#                <meta property="og:type" content="article">#}
-{#                <meta property="og:url" content="{{ post.get_absolute_url }}">#}
-{#                <meta property="og:description" content="{{ post.formatted_markdown|safe|truncatewords_html:20 }}">#}
-                {#<meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" /> {% static 'blog/images/ %}{{ post.formatted_mark }}#}
-{#        {% endblock metatags %}#}
-{#    </head>#}
-{#{% endblock head %}#}
+{% block title %}Spencer Tollefson - Blog #{{ post.blog_pub_number }}: {{ post.title }}{% endblock %}
 
 
 {% block navhighlights %}

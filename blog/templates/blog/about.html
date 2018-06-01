@@ -20,14 +20,18 @@
         <!--Leads to blog.css file for CSS styling -->
         <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 
-        <title>{% block title %}Spencer Tollefson{% endblock title %}</title>
 
 
         {% block metatags %}
             <meta name="description" content="Hi I'm Spencer Tollefson. Welcome to my website! Here you can learn about some of my interests and what I'm currently working on.">
             <meta name="author" content="Spencer Tollefson">
-            <meta property="og:description" content="Spencer Tollefson's Website">
+            <meta property="og:description" content="Hi I'm Spencer Tollefson. Welcome to my website! Here you can learn about some of my interests and what I'm currently working on.">
+            <meta property="og:title" content="{{ post.title }}" />
+            <meta property="og:type" content="article" />
+            <meta property="og:url" content="http://www.spencertollefson.com" />
         {% endblock metatags %}
+
+        <title>{% block title %}Spencer Tollefson{% endblock title %}</title>
     </head>
 {% endblock head %}
 

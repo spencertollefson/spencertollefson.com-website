@@ -2,13 +2,20 @@
 
 {% load static %}
 
-{% block title %}Spencer Tollefson - Journal{% endblock %}
-
 {% block metatags %}
     <meta name="description" content="Collection of diary-style
-        entries that are short in length and wander in subject.
-        In a sense, it's my journal of learning tech.">
+entries that are short in length and wander in subject.
+In a sense, it's my journal of learning tech.">
+    <meta name="author" content="Spencer Tollefson">
+    <meta property="og:description" content="Collection of diary-style
+entries that are short in length and wander in subject.
+In a sense, it's my journal of learning tech.">
+    <meta property="og:title" content="Journal" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.spencertollefson.com/journal/" />
 {% endblock metatags %}
+
+<title>{% block title %}Spencer Tollefson - Journal{% endblock title %}</title>
 
 {% block navbar %}
     <nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">

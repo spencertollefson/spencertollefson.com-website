@@ -1,11 +1,17 @@
 {% extends 'blog/base.html' %}
 
-{% block title %}Spencer Tollefson - Resume{% endblock %}
-
-{% block metatags %}
-    <meta name="description" content="A browser-friendly, scrollable view of
-    Spencer Tollefson's resume.">
+ {% block metatags %}
+    <meta name="description" content="A browser-friendly, scrollable
+     view of Spencer Tollefson's resume.">
+    <meta name="author" content="Spencer Tollefson">
+    <meta property="og:description" content="A browser-friendly, scrollable
+     view of Spencer Tollefson's resume.">
+    <meta property="og:title" content="Resume" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.spencertollefson.com/resume/" />
 {% endblock metatags %}
+
+<title>{% block title %}Spencer Tollefson - Resume{% endblock title %}</title>
 
 {% block navhighlights %}
     <li class="nav-item">

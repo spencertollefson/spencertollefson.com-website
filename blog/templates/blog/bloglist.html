@@ -1,13 +1,20 @@
 {% extends 'blog/base.html' %}
 
-{% block title %}Spencer Tollefson{% endblock %}
-
 {% block metatags %}
-    <meta name="description" content="List of all blog posts. These tend to be
-    5-15 minute reads time and focus on one specific tech topic. Read away!
-    In lieu of commments, Twitter is the medium for conversation. Start a
-    conversation there or any of the manners listed on the Contact page.">
+    <meta name="description" content="List of all blog posts.
+    5-15 minute reads times that focus on one specific tech topic. Read away!
+    In lieu of comments, Twitter is the medium for conversation. Start a
+    conversation there.">
+    <meta name="author" content="Spencer Tollefson">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.spencertollefson.com/blog/" />
+    <meta property="og:description" content="List  of all blog posts. 5-15
+    minute read times that focus on one specific tech topic. Read away! In
+     of comments, Twitter is the medium for conversation. Start a conversation there.">
+    <meta property="og:title" content="Blog">
 {% endblock metatags %}
+
+<title>{% block title %}Spencer Tollefson - Blog{% endblock title %}</title>
 
 {% block header-setup %}
     <div class="row justify-content-center text-center">
