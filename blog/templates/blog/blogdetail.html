@@ -6,7 +6,7 @@
 <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 
 {% block metatags %}
-    <meta name="description" content="{{ post.content|truncatewords:45 }}">
+    <meta name="description" content="{{ post.formatted_markdown|safe|truncate:20 }}">
 {% endblock metatags %}
 
 

@@ -3,7 +3,7 @@
 {% block title %}Spencer Tollefson - #{{ post.journal_pub_number }}: {{ post.title }}{% endblock %}
 
 {% block metatags %}
-    <meta name="description" content="{{ post.content|truncatewords:45 }}">
+    <meta name="description" content="{{ post.formatted_markdown|safe|truncatewords:20 }}">
 {% endblock metatags %}
 
 {% block navhighlights %}
