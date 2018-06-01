@@ -6,6 +6,7 @@ from markdownx.utils import markdownify
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.contrib.sitemaps import ping_google
+import re
 
 
 class Post(models.Model):
@@ -49,7 +50,7 @@ class Post(models.Model):
                     {
                         'slug' :self.slug,
                     })
-        else:
+        elif self.type == 'journal':
             return ('journal_detail', (),
                         {
                             'slug' :self.slug,
@@ -94,6 +95,13 @@ class Post(models.Model):
         if back_blog:
             return back_blog
         return False
+
+    def return_img_rel_path(self):
+        # if "img src" in self.formatted_markdown:
+        image = re.search(r'"\/static\/(.*?)"', self.formatted_markdown)
+        if image == None:
+            return None
+        return image.group(0)
 
 
 

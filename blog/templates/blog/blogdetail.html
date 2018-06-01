@@ -6,6 +6,9 @@
     <meta property="og:type" content="article" />
     <meta property="og:url" content="http://www.spencertollefson.com{{ post.get_absolute_url }}" />
     <meta property="og:description" content="{{ post.formatted_markdown|striptags|truncatewords:80 }}"/>
+    {% if post.return_img_rel_path != None %}
+    <meta property="og:image" content="http://www.spencertollefson.com{{ post.return_img_rel_path }}"/>
+    {% endif %}
 {% endblock %}
 
 {% block title %}Spencer Tollefson - Blog #{{ post.blog_pub_number }}: {{ post.title }}{% endblock %}
