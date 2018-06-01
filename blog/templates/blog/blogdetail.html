@@ -1,11 +1,11 @@
 {% extends 'blog/base.html' %}
 
 {% block metatags %}
-    <meta name="description" content="{{ post.formatted_markdown|truncatewords:20 }}"/>
+    <meta name="description" content="{{ post.formatted_markdown|striptags|truncatewords:20 }}"/>
     <meta property="og:title" content="{{ post.title }}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="http://www.spencertollefson.com{{ post.get_absolute_url }}" />
-    <meta property="og:description" content="{{ post.formatted_markdown|truncatewords:20 }}"/>
+    <meta property="og:description" content="{{ post.formatted_markdown|striptags|truncatewords:20 }}"/>
 {% endblock %}
 
 {% block title %}Spencer Tollefson - Blog #{{ post.blog_pub_number }}: {{ post.title }}{% endblock %}
