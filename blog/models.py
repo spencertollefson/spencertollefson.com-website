@@ -97,11 +97,14 @@ class Post(models.Model):
         return False
 
     def return_img_rel_path(self):
-        # if "img src" in self.formatted_markdown:
+        """
+        Used for meta og:image
+        """
         image = re.search(r'"\/static\/(.*?)"', self.formatted_markdown)
         if image == None:
             return None
-        return image.group(0)
+        image_text = image.group(0)
+        return image_text[1:-1]
 
 
 
