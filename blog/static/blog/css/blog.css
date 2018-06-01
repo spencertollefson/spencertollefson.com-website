@@ -2,7 +2,7 @@ html {
     /*position: relative;*/
 }
 body {
-    background-color: #b7d7fa;
+    background-color: #27b7e7;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -18,7 +18,7 @@ body {
 
 .icon-colors {
     font-size: 2em;
-    color: #007bff;
+    color: #27b7e7;
     text-align: center;
 }
 
@@ -59,11 +59,15 @@ a:active {
 }
 
 a:hover {
-    color: #007bff;
+    color: #27b7e7;
 }
 
 .nav-link {
     color: white;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show >.nav-link {
+    background-color: #27b7e7;
 }
 
 .list-box {
