@@ -44,11 +44,12 @@ body {
     flex-wrap: nowrap;
     display: inline-flex;
 }
-.img-fluid {
+img.img-fluid {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 100%;
     height: auto
-    text-align: center;
-
 }
 
 .navbar-collapse {
