@@ -1,5 +1,3 @@
-#### NYC Subway Data, Grace Hopper Convention, and Recommendations 
-
 As part of the initial week at the [Metis](https://thisismetis.com) boot camp in Seattle this fall, my cohort was tasked to obtain public data set(s), analyze them, and procure a recommendation via a presentation all within the first 4 days. *Deep breath*. The scope of the assignment sounded jarring to hear about initially, but once we got into the swing of things the project fell into place.
 
 This post will cover the assignment overview and my team's approach to the challenge.
@@ -18,7 +16,7 @@ Our team used the MTA turnstile data and two other data sources:
 
   2. [List of top corporate donors to the 2017 Grace Hopper Convention.](https://ghc.anitab.org/2017-sponsorships/corporate-sponsors/) The annual convention bills itself as the "world's largest gathering of women technologists."
 
-We made the assumption that top donors of the Grace Hopper Convention also employ many women interested in empowering women in technology. Thus, these employees would be *prime targets* for our canvassing.
+We made the assumption that top corporate donors to the Grace Hopper Convention also employ many women interested in empowering women in technology. Thus, their employees would be *prime targets* for our canvassing.
 
 Considering the short amount of time allowed for this project, the cleaning needed on the **messy** turnstile data, and lack of ability to ask WTWY for more clarification, we decided on a simple 3-step approach.
 
@@ -29,7 +27,7 @@ Considering the short amount of time allowed for this project, the cleaning need
   3. Use turnstile data to create a schedule for WTWY to place canvassers by best times of day and days of the week.
 
 ## Process
-
+<br>
 #### Cleaning
 
 Not long into our first exploration of the turnstile data from the MTA website, we quickly realized it wasn't perfect. There were errors, serious errors. Some cumulative counts iterated in a negative direction. Bogus results. Different stations with the same name. Inconsistent time sampling intervals. You name it.
@@ -40,7 +38,9 @@ To reach the point of using this data for further analysis, we set about removin
 
 - **STEP 1:** Based on geographical coordinates, we narrowed our list of all subway stations down to those located within a one-half mile radius of one of the corporate offices.
 
-<img src="/static/blog/images/003-mta-turnstile-post/map-all-stations.png" class="img-fluid" alt="Manhattan map of top companies & their nearest subway stations" title="Top donor offices & subway stations in Manhattan" style="border:1px solid black;height:500px">
+<img src="/static/blog/images/003-mta-turnstile-post/map-all-stations.png" class="img-fluid" alt="Manhattan map of top companies & their nearest subway stations" title="Top donor offices & subway stations in Manhattan" style="border:1px solid black;height:450px">
+<p style="text-align: center;font-size:80%"><b>Red stars = subway stations. Blue circles = top companies.</b></p>
+
 
 - **STEP 2:** We then proceeded to create an algorithm to rank the remaining stations. The algorithm rewarded stations for high passenger throughput and for proximity to multiple companies, and it penalized stations the farther away they were from corporate offices. [(Details can be found here)](https://github.com/jason-sa/Toucans/blob/master/Station_to_company_scoring.ipynb).
 
@@ -51,10 +51,12 @@ To reach the point of using this data for further analysis, we set about removin
 Our process produced results! We ended up narrowing our suggestion to 6 unique subway stations, and finally produced a schedule recommending the best times to canvass those stations. In the Gantt chart below you will see that typically Tuesday, Wednesday, and Thursday during the evening was our recommended time to allocate resources.
 
 <img src="/static/blog/images/003-mta-turnstile-post/gantt-chart-schedule.jpg" class="img-fluid" alt="Gantt chart of recommended schedule for volunteers to canvass at stations" title="Take a long weekend and hit it hard Tuesday-Thursday!" style="border:1px solid black" >
+<p style="text-align: center;font-size:80%"><b>Gantt chart detailing recommended days of week and time of day.</b></p>
 
 It was quite clear to our group that although we arrived at an output, we had built it upon untested assumptions and used data which we could not vouch entirely for its validity. This is important to acknowledge and to improve upon in future analysis.
 
-<img src="/static/blog/images/003-mta-turnstile-post/map-final-6-stations.png" class="img-fluid" alt="Our recommended stations in red. The star size indicates its relative score based off our algorithm" title="Notice: Not all stations are near all the companies" style="border:1px solid black;height:500px">
+<img src="/static/blog/images/003-mta-turnstile-post/map-final-6-stations.png" class="img-fluid" alt="Our recommended stations in red. The star size indicates its relative score based off our algorithm" title="Notice: Not all stations are near all the companies" style="border:1px solid black;height:450px">
+<p style="text-align: center;font-size:80%"><b>The 6 selected stations (red) and top donating companies (blue).</b></p>
 
 ## Lessons Learned and Future Analysis
 
