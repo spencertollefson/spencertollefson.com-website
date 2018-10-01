@@ -26,23 +26,21 @@ Considering the short amount of time allowed for this project, the cleaning need
 
 ## Process
 
-### Cleaning
+#### Cleaning
 
 Not long into our first exploration of the turnstile data from the MTA website, we quickly realized it wasn't perfect. There were errors, serious errors. Some cumulative counts iterated in a negative direction. Bogus results. Different stations with the same name. Inconsistent time sampling intervals. You name it.
 
 To reach the point of using this data for further analysis, we set about removing "bad" data points, cleaning names and numbers that made sense, and then doing some simple math to convert cumulative passenger numbers into counts of passenger per interval.
 
-### Analyzing
+#### Analyzing
 
-**STEP 1:** Based on geographical coordinates, we narrowed our list of all subway stations down to those located within a one-half mile radius of one of the corporate offices.
+- **STEP 1:** Based on geographical coordinates, we narrowed our list of all subway stations down to those located within a one-half mile radius of one of the corporate offices.
 
 <img src="/static/blog/images/003-mta-turnstile-post/map-all-stations.png" class="img-fluid" alt="Manhattan map of top companies & their nearest subway stations" title="Top donor offices & subway stations in Manhattan" style="border:1px solid black">
 
+- **STEP 2:** We then proceeded to create an algorithm to rank the remaining stations. The algorithm rewarded stations for high passenger throughput and for proximity to multiple companies, and it penalized stations the farther away they were from corporate offices. [(Details can be found here)](https://github.com/jason-sa/Toucans/blob/master/Station_to_company_scoring.ipynb).
 
-
-**STEP 2:** We then proceeded to create an algorithm to rank the remaining stations. The algorithm rewarded stations for high passenger throughput and for proximity to multiple companies, and it penalized stations the farther away they were from corporate offices. [(Details can be found here)](https://github.com/jason-sa/Toucans/blob/master/Station_to_company_scoring.ipynb).
-
-**STEP 3:** Finally, we went back to the turnstile data to find the optimal times of day and days of the week to canvass the subway stations most highly rated by our algorithm. We created heat maps for each station that emphasize at what times the highest volume of passengers are passing through the turnstiles. Taking the raw numbers behind the heat maps, we ultimately created a Gantt chart of a mock weekly volunteer schedule as our hypothetical deliverable for WTWY.
+- **STEP 3:** Finally, we went back to the turnstile data to find the optimal times of day and days of the week to canvass the subway stations most highly rated by our algorithm. We created heat maps for each station that emphasize at what times the highest volume of passengers are passing through the turnstiles. Taking the raw numbers behind the heat maps, we ultimately created a Gantt chart of a mock weekly volunteer schedule as our hypothetical deliverable for WTWY.
 
 ## Results
 
@@ -58,11 +56,11 @@ It was quite clear to our group that although we arrived at an output, we had bu
 
 While this project has come and went and I am unlikely to expand on it anytime soon, the following lessons learned will be applicable to future projects.
 
-### Data
+- #### Data
 
 We learned quickly that the turnstile data had many issues. While we did a fair share of cleaning that a 4 day analysis + presentation allows, it was clear that more time could and should be spent on cleaning the data to increase confidence in using it for analysis. *Bad data = bad results.*
 
-### Finding the Target Audience
+- #### Finding the Target Audience
 
 While on the surface it seems that employees of corporate donors to the Grace Hopper Convention would make good targets, more analysis should be made to confirm this. Additionally, different metrics could factor into the equation including company employee demographics, number of employees, remotely working employees, and examining other potential likely donors to follow.
 
