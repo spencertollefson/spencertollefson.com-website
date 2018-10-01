@@ -36,7 +36,7 @@ To reach the point of using this data for further analysis, we set about removin
 
 - **STEP 1:** Based on geographical coordinates, we narrowed our list of all subway stations down to those located within a one-half mile radius of one of the corporate offices.
 
-<img src="/static/blog/images/003-mta-turnstile-post/map-all-stations.png" class="img-fluid" alt="Manhattan map of top companies & their nearest subway stations" title="Top donor offices & subway stations in Manhattan" style="border:1px solid black">
+<img src="/static/blog/images/003-mta-turnstile-post/map-all-stations.png" class="img-fluid" alt="Manhattan map of top companies & their nearest subway stations" title="Top donor offices & subway stations in Manhattan" style="border:1px solid black" text-align="center">
 
 - **STEP 2:** We then proceeded to create an algorithm to rank the remaining stations. The algorithm rewarded stations for high passenger throughput and for proximity to multiple companies, and it penalized stations the farther away they were from corporate offices. [(Details can be found here)](https://github.com/jason-sa/Toucans/blob/master/Station_to_company_scoring.ipynb).
 
@@ -46,11 +46,11 @@ To reach the point of using this data for further analysis, we set about removin
 
 Our process produced results! We ended up narrowing our suggestion to 6 unique subway stations, and finally produced a schedule recommending the best times to canvass those stations. In the Gantt chart below you will see that typically Tuesday, Wednesday, and Thursday during the evening was our recommended time to allocate resources.
 
-<img src="/static/blog/images/003-mta-turnstile-post/gantt-chart-schedule.jpg" class="img-fluid" alt="Gantt chart of recommended schedule for volunteers to canvass at stations" title="Take a long weekend and hit it hard Tuesday-Thursday!" style="border:1px solid black">
+<img src="/static/blog/images/003-mta-turnstile-post/gantt-chart-schedule.jpg" class="img-fluid" alt="Gantt chart of recommended schedule for volunteers to canvass at stations" title="Take a long weekend and hit it hard Tuesday-Thursday!" style="border:1px solid black" text-align="center">
 
 It was quite clear to our group that although we arrived at an output, we had built it upon untested assumptions and used data which we could not vouch entirely for its validity. This is important to acknowledge and to improve upon in future analysis.
 
-<img src="/static/blog/images/003-mta-turnstile-post/map-final-6-stations.png" class="img-fluid" alt="Our recommended stations in red. The star size indicates its relative score based off our algorithm" title="Notice: Not all stations are near all the companies" style="border:1px solid black">
+<img src="/static/blog/images/003-mta-turnstile-post/map-final-6-stations.png" class="img-fluid" alt="Our recommended stations in red. The star size indicates its relative score based off our algorithm" title="Notice: Not all stations are near all the companies" style="border:1px solid black" text-align="center">
 
 ## Lessons Learned and Future Analysis
 

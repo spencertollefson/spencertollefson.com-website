@@ -44,6 +44,12 @@ body {
     flex-wrap: nowrap;
     display: inline-flex;
 }
+.img-fluid {
+    max-width: 100%;
+    height: auto
+    text-align: center;
+
+}
 
 .navbar-collapse {
     display: inline-flex;
