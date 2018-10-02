@@ -1,4 +1,4 @@
-As part of the initial week at the [Metis](https://thisismetis.com) boot camp in Seattle this fall, my cohort was tasked to obtain public data set(s), analyze them, and procure a recommendation via a presentation all within the first 4 days. *Deep breath*. The scope of the assignment sounded jarring to hear about initially, but once we got into the swing of things the project fell into place.
+As part of the initial week at the [Metis](https://thisismetis.com) boot camp in Seattle this fall, my cohort was tasked to obtain public data set(s), analyze them, and procure a recommendation via a presentation --- all within the first 4 days. *Deep breath*. The scope of the assignment sounded jarring initially, but once we got into the swing of things the project fell into place.
 
 This post will cover the assignment overview and my team's approach to the challenge.
 
@@ -32,8 +32,8 @@ Considering the short amount of time allowed for this project, the cleaning need
 
 Not long into our first exploration of the turnstile data from the MTA website, we quickly realized it wasn't perfect. There were errors, serious errors. Some cumulative counts iterated in a negative direction. Bogus results. Different stations with the same name. Inconsistent time sampling intervals. You name it.
 
-<img src="/static/blog/images/003-mta-turnstile-post/mta-turnstile-raw-data.png" class="img-fluid" alt="Example of raw MTA turnstile data" title="So fresh, so pure." style="border:1px solid black;height:450px">
-<p style="text-align: center;font-size:80%"><b>Pre-cleaning: sample of the raw MTA turnstile data</b></p>
+<img src="/static/blog/images/003-mta-turnstile-post/mta-turnstile-raw-data.png" class="img-fluid" alt="Example of raw MTA turnstile data" title="So fresh, so pure." style="border:1px solid black">
+<p style="text-align: center;font-size:80%"><b>Pre-cleaning: sample of the raw MTA turnstile data.</b></p>
 
 
 To reach the point of using this data for further analysis, we set about removing "bad" data points, cleaning names and numbers that made sense, and then doing some simple math to convert cumulative passenger numbers into counts of passenger per interval.
@@ -42,11 +42,10 @@ To reach the point of using this data for further analysis, we set about removin
 
 - **STEP 1:** Based on geographical coordinates, we narrowed our list of all subway stations down to those located within a one-half mile radius of one of the corporate offices.
 
-<img src="/static/blog/images/003-mta-turnstile-post/map-all-stations.png" class="img-fluid" alt="Manhattan map of top companies & their nearest subway stations" title="Top donor offices & subway stations in Manhattan" style="border:1px solid black;height:450px">
+- **STEP 2:** We then proceeded to create an algorithm to rank the remaining stations. The algorithm rewarded stations for high passenger throughput and for proximity to multiple companies, and it penalized stations the farther away they were from corporate offices. [(Code for calculating score can be found here)](https://github.com/jason-sa/Toucans/blob/master/Station_to_company_scoring.ipynb).
+
+<img src="/static/blog/images/003-mta-turnstile-post/map-all-stations.png" class="img-fluid" alt="Manhattan map of top companies & their nearest subway stations" title="The larger the star the higher its score." style="border:1px solid black;height:450px">
 <p style="text-align: center;font-size:80%"><b>Red stars = subway stations. Blue circles = top companies.</b></p>
-
-
-- **STEP 2:** We then proceeded to create an algorithm to rank the remaining stations. The algorithm rewarded stations for high passenger throughput and for proximity to multiple companies, and it penalized stations the farther away they were from corporate offices. [(Details can be found here)](https://github.com/jason-sa/Toucans/blob/master/Station_to_company_scoring.ipynb).
 
 - **STEP 3:** Finally, we went back to the turnstile data to find the optimal times of day and days of the week to canvass the subway stations most highly rated by our algorithm. We created heat maps for each station that emphasize at what times the highest volume of passengers are passing through the turnstiles. Taking the raw numbers behind the heat maps, we ultimately created a Gantt chart of a mock weekly volunteer schedule as our hypothetical deliverable for WTWY.
 
