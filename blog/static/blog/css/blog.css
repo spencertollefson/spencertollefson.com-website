@@ -9,7 +9,7 @@ body {
 }
 
 .content {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
 }
 
 .navbar-dark {
@@ -155,14 +155,4 @@ a:hover {
 
 .far {
     color: #e76327;
-}
-
-@media screen and (max-width: 667px) {
-    body {
-        overflow-x: hidden !important;
-    }
-    .container {
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-    }
 }
