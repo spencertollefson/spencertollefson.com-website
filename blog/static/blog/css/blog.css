@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden !important;
 }
 
 .content {
@@ -153,14 +154,4 @@ a:hover {
     color: #e76327;
 }
 
-@media only screen and (max-width: 590px) {
-    #navbar {
-      max-height: fit-content;
-    }
-   /* And we even need to overwrite the overflow property*/
-    .navbar-collapse.in { 
-      overflow-y: hidden; 
-      overflow-x: hidden; 
-    }
-  
-  }
+@mobile
