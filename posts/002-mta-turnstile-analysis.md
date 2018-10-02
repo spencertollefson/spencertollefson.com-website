@@ -32,6 +32,10 @@ Considering the short amount of time allowed for this project, the cleaning need
 
 Not long into our first exploration of the turnstile data from the MTA website, we quickly realized it wasn't perfect. There were errors, serious errors. Some cumulative counts iterated in a negative direction. Bogus results. Different stations with the same name. Inconsistent time sampling intervals. You name it.
 
+<img src="/static/blog/images/003-mta-turnstile-post/mta-turnstile-raw-data.png" class="img-fluid" alt="Example of raw MTA turnstile data" title="So fresh, so pure." style="border:1px solid black;height:450px">
+<p style="text-align: center;font-size:80%"><b>Pre-cleaning: sample of the raw MTA turnstile data</b></p>
+
+
 To reach the point of using this data for further analysis, we set about removing "bad" data points, cleaning names and numbers that made sense, and then doing some simple math to convert cumulative passenger numbers into counts of passenger per interval.
 
 #### Analyzing
