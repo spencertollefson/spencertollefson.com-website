@@ -49,7 +49,7 @@ To reach the point of using this data for further analysis, we set about removin
 
 - **STEP 3:** Finally, we went back to the turnstile data to find the optimal times of day and days of the week to canvass the subway stations most highly rated by our algorithm. We created heat maps for each station that emphasize at what times the highest volume of passengers are passing through the turnstiles. Taking the raw numbers behind the heat maps, we ultimately created a Gantt chart of a mock weekly volunteer schedule as our hypothetical deliverable for WTWY.
 
-<img src="/static/blog/images/003-mta-turnstile-post/heatmap.png" class="img-fluid" alt="Heatmap of 34th and Herald Square station passenger traffic" title="It's that commute trafic." style="border:1px solid black;height:450px">
+<img src="/static/blog/images/003-mta-turnstile-post/heatmap.png" class="img-fluid" alt="Heatmap of 34th and Herald Square station passenger traffic" title="It's that commute trafic." style="border:1px solid black;">
 <p style="text-align: center;font-size:80%"><b>Darker areas indicate more passengers during that period.</b></p>
 
 ## Results
