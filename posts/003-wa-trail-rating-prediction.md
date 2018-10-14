@@ -4,24 +4,25 @@ For my second overall and first solo project at [Metis](https://thisismetis.com)
 [WTA.org](https://wta.org) is a website that has a database of 3,555 hikes (at the time of scraping) which includes hike details, trip reports, and a voting system allowing users to rate a hike on a scale of 1-5. The goal of this project was to use the given information in the database to create a model able to accurately predict a hike's rating based on its attributes. A good model potentially could aid trail planning authorities with the foresight to predict how well-liked a newly opened hike would be before they invested in creating the trail.
 
 ## Approach
-
-### 1. Scrape data from all 3,555 hike pages on [wta.org](https://wta.org)
-### 2. Clean data within a `pandas DataFrame` to be ready for model use
-### 3. Perform Linear Regression modeling
+  
+#####   1. Scrape data from all 3,555 hike pages on [wta.org](https://wta.org)
+#####   2. Clean "dirty" data to be ready for model use
+#####   3. Perform Linear Regression modeling
+<br>
 
 Although I originally hoped to use nearly all the scraped features as well as engineer some new ones, time constraints and incomplete data did not allow for it. Chiefly, the lat/long coordinates and sub-region (location) of the hikes both offered unique insights and were not incorporated in the models. Additionally, using other sources of data such as weather patterns/history and [alltrails.com](https://alltrails.com) were passed on due to time constraints.
 
 Initially, I wanted to create the model without using features that a trail planner would not have access to: such as how many times people had rated a trail and the number of trip reports that were left for a trail. After some simple linear regressions built with those features excluded, it became clear the model had little value. Thus, I decided to use all data available to me for this project.
 
 ## Process
-<br>
+-----
 
 ### Scraping
 
 This was my first foray into scraping. I think I'm hooked. I used the `requests` and `BeautifulSoup` python libraries to get the job done. I took a look at `selenium` as well, but then recognized the aforementioned tools would be just as good in this case. 
 
-<img src="/static/blog/images/003-wta-predict-post/wta_page.png" class="img-fluid" alt="Screenshot of a typical WTA hiking page" title="Every Seattleite's favorite: Rattlesnake Ledge" style="border:1px solid black;height:450px">
-<p style="text-align: center;font-size:80%"><b>Orange circles: hike attributes scraped. Blue box: the hike's rating</b></p>
+<img src="/static/blog/images/003-wta-predict-post/wta_page.png" class="img-fluid" alt="Screenshot of a typical WTA hiking page" title="Every Seattleite's favorite: Rattlesnake Ledge" style="border:1px solid black;height:700px">
+<p style="text-align: center;font-size:80%"><b>Orange circles: some of the hike attributes scraped -- Blue box: the hike's rating</b></p>
 
 The WTA pages had well labeled HTML tags consistent across the different hike pages. Once I thoroughly dissected a few pages and identified how the hike attributes (elevation gain, length of hike, region, and presence of coasts/lakes/mountains/etc) were encoded, I wrote a python script that found those features, pulled their information, and saved it to a table in a `pandas DataFrame`. In all, the script ran for over an hour and ended up accessing all 3,555 hike pages.
 
@@ -34,7 +35,7 @@ Upon combing through the table I had downloaded, I identified these errors and c
 As I began to prepare for modeling, I recognized that only a subset of hikes in my downloaded table had all features I would be comparing. Thus, I ultimately reduced my table to 1,015 hikes (of the original 3,555) that were suitable for modeling.
 
 <img src="/static/blog/images/003-wta-predict-post/pandas_df.png" class="img-fluid" alt="Sample table of scraped WTA data" title="Hikes aren't quite as fun when they're just words and numbers, huh?" style="border:1px solid black;">
-<p style="text-align: center;font-size:80%"><b>Small sample of the table containing all the hikes' data.</b></p>
+<p style="text-align: center;font-size:80%"><b>Small sample of the table containing all the hikes' data</b></p>
 
 ## Modeling
 
@@ -45,7 +46,7 @@ To begin, I used the customary method of randomly splitting my modeling data int
 I began by testing with a simple Ordinary Least Squares regression. This essentially tries to draw a "best-fit line" through all the data points. Unfortunately, but quite expectedly, this model performed poorly. The next approach was to transform the simple line model by viewing what happened if certain features were multiplied by each other. Essentially, this would help weight hikes if they had both a "Coast" and were "Kid friendly" at the same time, as opposed to the previous model **only** looking at "Coast" and "Kid friendly" individually.
 
 <img src="/static/blog/images/003-wta-predict-post/hike_bar.png" class="img-fluid" alt="Bar chart of number of hikes containing certain features" title="News alert: Washington has a lot of mountains." style="border:1px solid black;height:450px">
-<p style="text-align: center;font-size:80%"><b>Bar chart showing the number of hikes (out of 1,015) that contained these features.</b></p>
+<p style="text-align: center;font-size:80%"><b>Bar chart showing the number of hikes (out of 1,015) that contained these features</b></p>
 
 Ultimately, a 2nd degree polynomial transformation was used as well as a *regularization* technique called Elastic Net, which affectively dampens some of the features in the model and amplifies others based on how meaningful the model determines them to be.
 
@@ -56,7 +57,7 @@ This model scored an R<sup>2</sup> of 0.24 on the training data and 0.18 on the 
 * Secondly, the difference in R<sup>2</sup> values between test and training sets is relatively small. This indicates the model is not *overfitting* too greatly, and thus can be applied to hikes it has never seen before and still be of use.
 
 <img src="/static/blog/images/003-wta-predict-post/spencer_pondering.png" class="img-fluid" alt="Me on a hike, pondering what a perfect model looks like." title="Extra points for the view? Subtract points for the clouds?" style="border:1px solid black;height:450px">
-<p style="text-align: center;font-size:80%"><b>Pondering a perfect model to predict this hike's rating.</b></p>
+<p style="text-align: center;font-size:80%"><b>Pondering a perfect model to predict this hike's rating</b></p>
 
 ## Future Work
 
