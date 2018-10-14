@@ -20,7 +20,7 @@ Initially, I wanted to create the model without using features that a trail plan
 
 This was my first foray into scraping. I think I'm hooked. I used the `requests` and `BeautifulSoup` python libraries to get the job done. I took a look at `selenium` as well, but then recognized the aforementioned tools would be just as good in this case. 
 
-<img src="/static/blog/images/003-wta-predict-post/wta_page.png" class="img-fluid" alt="Screenshot of a typical WTA hiking page" title="Every Seattleite's favorite: Rattlesnake Ledge" style="border:1px solid black;">
+<img src="/static/blog/images/003-wta-predict-post/wta_page.png" class="img-fluid" alt="Screenshot of a typical WTA hiking page" title="Every Seattleite's favorite: Rattlesnake Ledge" style="border:1px solid black;height:450px">
 <p style="text-align: center;font-size:80%"><b>Orange circles: hike attributes scraped. Blue box: the hike's rating</b></p>
 
 The WTA pages had well labeled HTML tags consistent across the different hike pages. Once I thoroughly dissected a few pages and identified how the hike attributes (elevation gain, length of hike, region, and presence of coasts/lakes/mountains/etc) were encoded, I wrote a python script that found those features, pulled their information, and saved it to a table in a `pandas DataFrame`. In all, the script ran for over an hour and ended up accessing all 3,555 hike pages.
@@ -44,7 +44,7 @@ To begin, I used the customary method of randomly splitting my modeling data int
 
 I began by testing with a simple Ordinary Least Squares regression. This essentially tries to draw a "best-fit line" through all the data points. Unfortunately, but quite expectedly, this model performed poorly. The next approach was to transform the simple line model by viewing what happened if certain features were multiplied by each other. Essentially, this would help weight hikes if they had both a "Coast" and were "Kid friendly" at the same time, as opposed to the previous model **only** looking at "Coast" and "Kid friendly" individually.
 
-<img src="/static/blog/images/003-wta-predict-post/hike_bar.png" class="img-fluid" alt="Bar chart of number of hikes containing certain features" title="News alert: Washington has a lot of mountains." style="border:1px solid black;">
+<img src="/static/blog/images/003-wta-predict-post/hike_bar.png" class="img-fluid" alt="Bar chart of number of hikes containing certain features" title="News alert: Washington has a lot of mountains." style="border:1px solid black;height:450px">
 <p style="text-align: center;font-size:80%"><b>Bar chart showing the number of hikes (out of 1,015) that contained these features.</b></p>
 
 Ultimately, a 2nd degree polynomial transformation was used as well as a *regularization* technique called Elastic Net, which affectively dampens some of the features in the model and amplifies others based on how meaningful the model determines them to be.
@@ -55,7 +55,7 @@ This model scored an R<sup>2</sup> of 0.24 on the training data and 0.18 on the 
 
 * Secondly, the difference in R<sup>2</sup> values between test and training sets is relatively small. This indicates the model is not *overfitting* too greatly, and thus can be applied to hikes it has never seen before and still be of use.
 
-<img src="/static/blog/images/003-wta-predict-post/spencer_ponder.png" class="img-fluid" alt="Me on a hike, pondering what a perfect model looks like." title="Extra points for the view? Subtract points for the clouds?" style="border:1px solid black;">
+<img src="/static/blog/images/003-wta-predict-post/spencer_pondering.png" class="img-fluid" alt="Me on a hike, pondering what a perfect model looks like." title="Extra points for the view? Subtract points for the clouds?" style="border:1px solid black;height:450px">
 <p style="text-align: center;font-size:80%"><b>Pondering a perfect model to predict this hike's rating.</b></p>
 
 ## Future Work
@@ -71,3 +71,5 @@ Although time constraints and the pace of this [Metis](https://thisismetis.com) 
 4. More tuning of the models and attempting to use more models. After this project was completed, I spent a little bit of time using a Random Forest Regressor model, which prematurely was displaying better results than the Elastic Net model!
 
 I hope you enjoyed! Although a lot of my modeling process stands to be improved, it was a blast and an accomplishment to both scrape a website and use the data to create my first Linear Regression model.
+
+All code for this model may be found [here](https://github.com/spencertollefson/WA-trails-rating-prediction).
