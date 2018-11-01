@@ -35,13 +35,13 @@ I weighed which metrics to choose to compare the various models I would create. 
 
 * It accounts for all given probability thresholds, which allows whoever uses the model to choose their tolerance to false positives
 
-Next came modeling. I implemented a variety of different classifier models on the training data after conducting a standard train, test, and split procedure. I found that by upsampling the minority target class - individuals who did not want children - using the SMOTE technique provided better results. The AUC ROC scores for the various best models when used on unseen holdout data are below:
+Next came modeling. I implemented a variety of different classifier models on the training data after splitting the data into training set and a holdout test set. I found that by upsampling the minority target class - individuals who did not want children - using the SMOTE technique provided better results. The AUC ROC scores for the various best models when used on unseen holdout data are below:
 
 <img src="/static/blog/images/004-images/AUC_score_comparison.png" class="img-fluid" alt="Comparison of AUC scores among different models" title="While gradient boosting was best, it wasn't by much." style="width:100%">
 <p style="text-align: center;font-size:80%"><b>Comparison of model performed as measured by AUC ROC.</b></p>
 
 
-I plotted the best performing model, a Gradient Boosting implementation, below. For the uninitiated, the model is the pink curved line and is considered to generally score better the closer it hugs the top left corner. The grey dotted line is what one would expect from someone trying to classify if someone wants children randomly. [See here for a great explanation of the AUC ROC.](https://www.dataschool.io/roc-curves-and-auc-explained/)
+I plotted the best performing model, a Gradient Boosting implementation, below. For the uninitiated, the model is the pink curved line and is considered to generally score better the closer it hugs the top left corner. The grey dotted line is what one would expect from someone trying to classify if someone wants children randomly. Does model does fairly well; there's a sizable gap between it and the grey line. [See here for a great explanation of the AUC ROC.](https://www.dataschool.io/roc-curves-and-auc-explained/)
 
 <img src="/static/blog/images/004-images/best_gb_ROC_plot.png" class="img-fluid" alt="Plot of gradient boosting AUC" title="" style="width:100%">
 
@@ -54,11 +54,11 @@ Interestingly, training a separate model with this feature included resulted in 
 
 # Conclusion
 
-The model has some real value! The confusion matrix below shows how the model classified 1,395 people it had never seen before at a probability = 0.5 threshold. It correctly classified 648 "do not want children" and 438 "do want children" and had fairly balanced misclassifications.
+The model has some real value! The confusion matrix below shows how the model classified 1,395 people it had never seen before (probability = 0.5 threshold). It correctly classified 648 "do not want children" and 438 "do want children" and had fairly balanced misclassifications.
 
 <img src="/static/blog/images/004-images/ConfusionMatrixCount.png" class="img-fluid" alt="Confusion matrix of classifier applied to unseen data." title="Optical illusion?" style="width:100%">
 
-It must not be forgotten that it was built upon some rather heavy assumptions, including that everyone in the dataset is also someone who:
+It must not be forgotten that this model is built upon some rather heavy assumptions, including that everyone in the dataset is also someone who:
 
 * Is an OkCupid.com user, near San Francisco, in 2011
 
@@ -68,8 +68,8 @@ It must not be forgotten that it was built upon some rather heavy assumptions, i
 
 * Is certain about their child preferences
 
-Certainly there are more assumptions too. To improve upon the robustness of the model and its ability to generalize to a greater population, more work is needed. More data from different locations, time periods, and certainty in their honest would all aid in a better model.
+Certainly there are more assumptions too. To improve upon the robustness of the model and its ability to generalize to a greater population, more work is needed. Additional data from different locations, time periods, and certainty in their honest would all aid in a better model.
 
-NOTE: As of now, I have not created an environment for people to test out the model themselves. I hope to create a website which will allow people to apply the model. If so, this post will be updated.
+NOTE: As of now, I have not created an environment for people to test out the model themselves. I hope to create a website which will allow people to apply the model. If I do so, this post will be updated.
 
 Checkout all my code and more explanation [here.](https://github.com/spencertollefson/okcupid_classification)
