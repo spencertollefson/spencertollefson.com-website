@@ -3,19 +3,19 @@ I love the NBA. Evening time and I'm at home? Flip on a basketball game. Out wit
 <img src="/static/blog/images/005-lebron-images/lebron_shorts_suit.jpg" class="img-fluid" alt="LeBron James." title="" style="width:750px;max-width:96%">
 <p style="text-align: center;font-size:80%">
 
-LeBron lives under a microscope. His tweets, post-game interviews, family outings, nightly basketball performances, choice of sneakers, and other rudimentary activities are all discussed by pundits on television, on internet forums, and by people everywhere on a 24/7 basis. Knowing this, I decided I wanted to use machine learning techniques to see what kind of insights I could pry from **what people are discussing when they discuss LeBron**.  I got my hands on LeBron-centered reddit comments and put Natural Language Processing (NLP) techniques to the task at hand.
+LeBron lives under a microscope. His tweets, post-game interviews, family outings, nightly basketball performances, choice of suit (see his "shorts suit", above), and other rudimentary activities are all discussed by television talking heads, in internet forums, and by people in casual conversation everywhere on a 24/7 basis. Knowing this, I decided I wanted to use machine learning techniques to see what kind of insights I could pry from **what people are discussing when they discuss LeBron**.  I got my hands on LeBron-centered reddit comments and put Natural Language Processing (NLP) techniques to the task at hand.
 
 Continue reading for my exploration of the types of words, language, and topics that  internet denizens discuss when they're talking about LeBron.
 
 ## Data
 
-While I heavily considered Twitter due to the quantity of and ease of accessing its data, I chose to pull comments from [reddit.com/r/nba](https://www.reddit.com/r/nba) as my data source. I have a good intuition for the data as I often read and occasionally post on the platform. The r/nba subreddit is quite popular with over 1.42 million subscribers at the time of writing - making it the most subscribed to subreddit. 
+While I heavily considered analyzing Twitter tweets about LeBron due to the quantity of and ease of accessing its data, I chose to pull comments from [reddit.com/r/nba](https://www.reddit.com/r/nba) as my data source. I have a good intuition for the data as I often read and occasionally post on the platform. The r/nba subreddit is quite popular with over 1.42 million subscribers at the time of writing - making it the most subscribed to sports subreddit.
 
-People discuss all things NBA related on the subreddit, and unsurprisingly that means LeBron is discussed often. Using some awesome tools which I reference in the [github repo](https://github.com/spencertollefson/lebron_james_nlp) for this project, I pulled over 45,000 reddit comments to analyze. The comments selected were the most highly upvoted (a reddit user-based scoring system) for submissions for posts with "LeBron", a variation of his name, or a nickname in the title. I intended for this heuristic of selecting comments to be a proxy for the general pulse of the entire r/nba community.
+People discuss all things NBA related on the subreddit, and unsurprisingly that means LeBron is discussed often. Using some awesome tools which I reference in the [github repo](https://github.com/spencertollefson/lebron_james_nlp) for this project, I pulled over 45,000 reddit comments to analyze. The comments selected were the most highly "upvoted" comments (a reddit user-based scoring system) from submissions with "LeBron", a variation of his name, or one of his nickname's in the title. I intended for this method of selecting comments to be a proxy of the general pulse of how the entire r/nba community feels about LeBron.
 
 ## Topic Modeling
 
-After obtaining the data, the next step was to transform it into a suitable format for NLP techniques. This is referred to as *preprocessing*. The text is all converted to lowercase, most punctuation removed, limited to English language words, removing non-important words dubbed *stop words*, then *lemmatized* and *stemmed*. Lemmatization and stemming essentially boil a word down into it's root form. *Running*, *ran*, and *runs* all are destilled into *run* for consistency.
+After obtaining the data, the next step was to transform it into a suitable format for NLP techniques. This is referred to as *preprocessing*. Convert all text to lowercase, remove most punctuation, limit to English language words, ignore non-important words (dubbed *stop words*), then *lemmatize* and *stem* all remaining words. Lemmatization and stemming essentially boil a word down to its root form. *Running*, *ran*, and *runs* all are distilled into *run* for consistency.
 
 #### Latent Dirichlict Allocation (LDA)
 
@@ -42,7 +42,7 @@ Continuing with the topical modeling approach, I applied **NMF**, a linear algeb
 To keep going with this unsupervised learning tear, I went back to my LDA output and applied a K-Means clustering to the probability distribution. This categorized each of my reddit comments into one of 17 categories. Upon looking at various comments from each categories - I again was able to clearly find themes for some categories, but garbage for the others. Interestingly, *jokes/puns/quips* type of comments made up a sizable chunk of all comments.
 
 <img src="/static/blog/images/005-lebron-images/dark_annual_kmeans_proportion.png" class="img-fluid" alt="K-Means cluster comparison time series." title="Redditors love to joke." style="width:750px;max-width:95%">
-<p style="text-align: center;font-size:80%"><b>KMeans clusters and their frequency of comments on an annual basis.</b></p>
+<p style="text-align: center;font-size:80%"><b>5 of the 17 K-Means clusters and their frequency of comments on an annual basis.</b></p>
 
 ## Sentiment Analysis
 
@@ -57,7 +57,7 @@ Finally, I wanted to take a different approach than topic modeling and was curio
 
 ## Conclusion
 
- It was fun to get my hands on some of the reddit data I frequently read myself. While I initially dove into this project thinking that NLP techniques would be simple to apply, I found that was not the case! It took some wrangling, munging, cursing, exasperated hand waving, and clever techniques to eventually get the text data into a format that played nicely with NLP. Even then, tweaking with different *stop words*, stemming techniques, and the number of LDA topics was a difficult process that often resulted in partially but not fully satisfying results.
+ It was fun to get my hands on some of the reddit data I frequently read myself. While I initially dove into this project thinking that NLP techniques would be simple to apply, I found that was not the case! It took some wrangling, munging, cursing, exasperated hand waving, and clever techniques to eventually get the text data into a format that played nicely with NLP. Even then, tweaking different *stop words*, stemming techniques, and the number of LDA topics was a time consuming process that often resulted in partially but not fully satisfying results.
 
  In the future I would like to improve upon some of the aforementioned technicalities in implementing NLP techniques with topic modeling. Additionally, limiting my data to longer comments would likely reduce the number of jokes and increase the ratio of insightful comments. My heuristic of choosing posts with "LeBron" in the title isn't entirely representative of how the r/nba community feels about LeBron, and it would behoove the generalization value of my models to look at all r/nba posts - not LeBron only ones - and then focus on comments referencing LeBron.
 
