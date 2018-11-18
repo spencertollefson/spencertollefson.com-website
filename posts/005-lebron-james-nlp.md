@@ -1,6 +1,8 @@
-I love the NBA. Evening time and I'm at home? Flip on a basketball game. Out with friends on a weekend? Let's watch a game. It's a hobby. And why shouldn't it be? I don't think I'm over reaching when I say the NBA has never been more marketable and has more recognizable players than ever before. Heads and shoulders above all the other current players when it comes to stardom, however, is LeBron James. I admire the man for what he demonstrates on the court night after night, but also for the way he, generally (but not without exceptions),  tastefully and impactfully wields his voice to weigh in on issues outside of basketball.
+<<< IMAGE OF LEBRON>>>
 
-LeBron lives under a microscope. His tweets, post-game interviews, family outings, nightly basketball performances, choice of sneakers, are all discussed by pundits on television, on internet forums, and by people everywhere on a 24/7 basis. knowing this, I decided I wanted to use machine learning techniques to see what kind of insights I could pry from **what people are discussing when they discuss LeBron**.  I got my hands on LeBron-centered reddit comments and put Natural Language Processing (NLP) techniques to the task at hand.
+I love the NBA. Evening time and I'm at home? Flip on a basketball game. Out with friends on a weekend? Let's watch a game. Visiting a city that ACTUALLY HAS an NBA team (rip Sonics, I'll never forget you)? See if I can score tickets. It's a hobby. And why shouldn't it be? I don't think I'm over reaching when I say the NBA has never been more marketable and has more recognizable players than ever before. Heads and shoulders above all the other current players when it comes to stardom, however, is LeBron James. I admire the man for what he demonstrates on the court night after night, but also for the way he, generally (but not without exceptions),  tastefully and impactfully wields his voice to weigh in on issues outside of basketball.
+
+LeBron lives under a microscope. His tweets, post-game interviews, family outings, nightly basketball performances, choice of sneakers, and other rudimentary activities are all discussed by pundits on television, on internet forums, and by people everywhere on a 24/7 basis. Knowing this, I decided I wanted to use machine learning techniques to see what kind of insights I could pry from **what people are discussing when they discuss LeBron**.  I got my hands on LeBron-centered reddit comments and put Natural Language Processing (NLP) techniques to the task at hand.
 
 Continue reading for my exploration of the types of words, language, and topics that  internet denizens discuss when they're talking about LeBron.
 
@@ -14,19 +16,23 @@ People discuss all things NBA related on the subreddit, and unsurprisingly that 
 
 After obtaining the data, the next step was to transform it into a suitable format for NLP techniques. This is referred to as *preprocessing*. The text is all converted to lowercase, most punctuation removed, limited to English language words, removing non-important words dubbed *stop words*, then *lemmatized* and *stemmed*. Lemmatization and stemming essentially boil a word down into it's root form. *Running*, *ran*, and *runs* all are destilled into *run* for consistency.
 
-Next, the data is converted into a document-term matrix of numbers in a *bag of words* friendly-format. Numbers means we can model it! I applied the popular generative statistical model **Latent Dirichlict Allocation (LDA)** to the matrix to squeeze out the best results. LDA, in a simplified sense, discovers topics within text. I liked the explanation of LDA [here]().  After supplying my LDA model with all of the reddit comments and the number of topics I am seeking, I eventually got some meaningful (and not meaningful) topics out of it:
+Next, the data is converted into a document-term matrix of numbers in a *bag of words* friendly-format. Numbers means we can model it! I applied the popular generative statistical model **Latent Dirichlict Allocation (LDA)** to the matrix to squeeze out the best results. LDA, in a simplified sense, discovers topics within text. I liked the explanation of LDA [by Edwin Chen in his post here](http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/).  After supplying my LDA model with all of the reddit comments and the number of topics I am seeking, I eventually got some meaningful (and not meaningful... aka garbage) topics:
 
-<<<<<<LDA TOPICS HERE>>>>>>
+<img src="/static/blog/images/005-images/all_lda_cluster_counts.png" class="img-fluid" alt="Plot of LDA topics vs time" title="Too. Many. Lines." style="width:300px;max-width:88%">
+<p style="text-align: center;font-size:80%"><b>Sum of the number of reddit comments of the 16 LDA-derived topics grouped by month.</b></p>
 
-This is prety cool! You can see some of the comments prescribed to a few of the topics like this:
+<<<<<<LDA TOPICS HERE and COMMENTS>>>>>>
+
+This is pretty cool! As you can see there are some of the key topic words and a few example comments that correspond.
+
+Since I have data from about a 7 year period, I wanted to see how the proportion of topics discussed changed over time. Plotted below is a comparison proportion of the volume of comments by topics - grouped monthly - over time:
+
+<TIME PLOT OF TOPICS HERE>
+
+Nothing terribly exciting to see there. Truthfully I was hoping to find an increase or decrease in some topics over time, but nothing to see here.
 
 
-
-I applied non-negative matrix factorization (NMF), a linear algebra based approach, to my vector of words as well to gather topics. The results weren't bad either:
-
-
-NMF RESULTS
-
+Continuing with the topical modeling approach, I applied non-negative matrix factorization (NMF), a linear algebra based approach, to my vector of words as well to gather topics. The results weren't bad either, but nothing more interpretable than the LDA.
 
 To keep going with this unsupervised learning tear, I went back to my LDA output and applied a K-Means clustering to the probability distribution. This categorized each of my reddit comments into one of 17 categories. Upon looking at various comments from each categories - I again was able to clearly find themes for some categories, but garbage for the others. Interestingly, *jokes/puns/quips* type of comments made up a large majority of all comments. These things scored highly among other redditors.
 
