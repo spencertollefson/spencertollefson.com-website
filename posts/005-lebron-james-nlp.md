@@ -18,16 +18,15 @@ After obtaining the data, the next step was to transform it into a suitable form
 
 Next, the data is converted into a document-term matrix of numbers in a *bag of words* friendly-format. Numbers means we can model it! I applied the popular generative statistical model **Latent Dirichlict Allocation (LDA)** to the matrix to squeeze out the best results. LDA, in a simplified sense, discovers topics within text. I liked the explanation of LDA [by Edwin Chen in his post here](http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/).  After supplying my LDA model with all of the reddit comments and the number of topics I am seeking, I eventually got some meaningful (and not meaningful... aka garbage) topics:
 
-<img src="/static/blog/images/005-lebron-images/all_lda_cluster_counts.png" class="img-fluid" alt="Plot of LDA topics vs time" title="Too. Many. Lines." style="width:300px;max-width:88%">
-<p style="text-align: center;font-size:80%"><b>Sum of the number of reddit comments of the 16 LDA-derived topics grouped by month.</b></p>
+<img src="/static/blog/images/005-lebron-images/lda_topics_list.png" class="img-fluid" alt="List of a few example LDA topics and documents" title="GOAT = Greatest of All Time" style="width:750px;max-width:88%">
+<p style="text-align: center;font-size:80%"><b>A few sample topic keywords paired with a examples of reddit comments that matched. These match pretty well!</b></p>
 
-<<<<<<LDA TOPICS HERE and COMMENTS>>>>>>
+As you can see there are some of the key topic words and a few example comments that correspond. Also, to be fair, there were 12 other topics. Half of them were meaningful, but 6 of them did not make sense at all. This leaves room for future improvement.
 
-This is pretty cool! As you can see there are some of the key topic words and a few example comments that correspond.
+Since I have data from about a 7 year period, I wanted to see how the proportion of topics discussed changed over time. Plotted below is a comparative proportion of the volume of comments on the 4 topics - grouped annually - over time:
 
-Since I have data from about a 7 year period, I wanted to see how the proportion of topics discussed changed over time. Plotted below is a comparison proportion of the volume of comments by topics - grouped monthly - over time:
-
-<TIME PLOT OF TOPICS HERE>
+<img src="/static/blog/images/005-lebron-images/lda_cluster_proportion.png" class="img-fluid" alt="Comparison of the proportion of different topics of posts over time" title="" style="width:750px;max-width:88%">
+<p style="text-align: center;font-size:80%"><b>Annual proportional comparison of the frequency of these 4 topics having comments.</b></p>
 
 Nothing terribly exciting to see there. Truthfully I was hoping to find an increase or decrease in some topics over time, but nothing to see here.
 
