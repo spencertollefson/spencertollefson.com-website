@@ -25,7 +25,7 @@ As you can see there are some of the key topic words and a few example comments 
 
 Since I have data from about a 7 year period, I wanted to see how the proportion of topics discussed changed over time. Plotted below is a comparative proportion of the volume of comments on the 4 topics - grouped annually - over time:
 
-<img src="/static/blog/images/005-lebron-images/lda_cluster_proportion.png" class="img-fluid" alt="Comparison of the proportion of different topics of posts over time" title="" style="width:750px;max-width:88%">
+<img src="/static/blog/images/005-lebron-images/black_yearly_cluster_proportion.png" class="img-fluid" alt="Comparison of the proportion of different topics of posts over time" title="" style="width:750px;max-width:88%">
 <p style="text-align: center;font-size:80%"><b>Annual proportional comparison of the frequency of these 4 topics having comments.</b></p>
 
 Nothing terribly exciting to see there. Truthfully I was hoping to find an increase or decrease in some topics over time, but nothing to see here.
