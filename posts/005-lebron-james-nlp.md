@@ -1,6 +1,6 @@
 I love the NBA. Evening time and I'm at home? Flip on a basketball game. Out with friends on a weekend? Let's watch a game. Visiting a city that ACTUALLY HAS an NBA team (rip Sonics, I'll never forget you)? See if I can score tickets. It's a hobby. And why shouldn't it be? I don't think I'm over reaching when I say the NBA has never been more marketable and has more recognizable players than ever before. Heads and shoulders above all the other current players when it comes to stardom, however, is LeBron James. I admire the man for what he demonstrates on the court night after night, but also for the way he, generally (but not without exceptions), tastefully and impactfully wields his voice to weigh in on issues outside of basketball.
 
-<img src="/static/blog/images/005-lebron-images/lebron_shorts_suit.jpg" class="img-fluid" alt="LeBron James." title="" style="width:750px;max-width:96%">
+<img src="/static/blog/images/005-lebron-images/lebron_shorts_suit.jpg" class="img-fluid" alt="LeBron James." title="" style="width:1000px;max-width:98%">
 <p style="text-align: center;font-size:80%">
 
 LeBron lives under a microscope. His tweets, post-game interviews, family outings, nightly basketball performances, choice of suit (see his "shorts suit", above), and other rudimentary activities are all discussed by television talking heads, in internet forums, and by people in casual conversation everywhere on a 24/7 basis. Knowing this, I decided I wanted to use machine learning techniques to see what kind of insights I could pry from **what people are discussing when they discuss LeBron**.  I got my hands on LeBron-centered reddit comments and put Natural Language Processing (NLP) techniques to the task at hand.
@@ -21,14 +21,14 @@ After obtaining the data, the next step was to transform it into a suitable form
 
 Next, the data is converted into a document-term matrix of numbers in a *bag of words* friendly-format. Numbers means we can model it! I applied the popular generative statistical model **LDA** to the matrix to squeeze out the best results. LDA, in a simplified sense, discovers topics within text. I liked the explanation of LDA [by Edwin Chen in his post here](http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/).  After supplying my LDA model with all of the reddit comments and the number of topics I am seeking, I eventually got some meaningful (and not meaningful... aka garbage) topics:
 
-<img src="/static/blog/images/005-lebron-images/lda_topics_list.png" class="img-fluid" alt="List of a few example LDA topics and documents" title="GOAT = Greatest of All Time" style="width:750px;max-width:88%">
+<img src="/static/blog/images/005-lebron-images/lda_topics_list.png" class="img-fluid" alt="List of a few example LDA topics and documents" title="GOAT = Greatest of All Time" style="width:1000px;max-width:98%">
 <p style="text-align: center;font-size:80%"><b>4 topics with sample keywords and sample reddit comments. These match pretty well!</b></p>
 
 As you can see there are some of the key topic words and a few example comments that correspond. Also, to be fair, there were 12 other topics. Half of them were meaningful, but 6 of them did not make sense at all. This leaves room for future improvement.
 
 Since I have data from about a 7 year period, I wanted to see how the proportion of topics discussed changed over time. Plotted below is a comparative proportion of the volume of comments on the 4 topics - grouped annually - over time:
 
-<img src="/static/blog/images/005-lebron-images/dark_annual_lda_proportion.png" class="img-fluid" alt="Comparison of the proportion of different topics of posts over time" title="" style="width:750px;max-width:95%">
+<img src="/static/blog/images/005-lebron-images/dark_annual_lda_proportion.png" class="img-fluid" alt="Comparison of the proportion of different topics of posts over time" title="" style="width:1000px;max-width:98%">
 <p style="text-align: center;font-size:80%"><b>Annual proportional comparison of the frequency of these 4 topics having comments.</b></p>
 
 Nothing terribly exciting to see there. Truthfully I was hoping to find an increase or decrease in some topics over time, but alas - you don't always get what you want.
@@ -41,14 +41,14 @@ Continuing with the topical modeling approach, I applied **NMF**, a linear algeb
 
 To keep going with this unsupervised learning tear, I went back to my LDA output and applied a K-Means clustering to the probability distribution. This categorized each of my reddit comments into one of 17 categories. Upon looking at various comments from each categories - I again was able to clearly find themes for some categories, but garbage for the others. Interestingly, *jokes/puns/quips* type of comments made up a sizable chunk of all comments.
 
-<img src="/static/blog/images/005-lebron-images/dark_annual_kmeans_proportion.png" class="img-fluid" alt="K-Means cluster comparison time series." title="Redditors love to joke." style="width:750px;max-width:95%">
+<img src="/static/blog/images/005-lebron-images/dark_annual_kmeans_proportion.png" class="img-fluid" alt="K-Means cluster comparison time series." title="Redditors love to joke." style="width:1000px;max-width:98%">
 <p style="text-align: center;font-size:80%"><b>5 of the 17 K-Means clusters and their frequency of comments on an annual basis.</b></p>
 
 ## Sentiment Analysis
 
 Finally, I wanted to take a different approach than topic modeling and was curious to gauge the general sentiment of commenters over time. I used a pre-trained sentiment analyzer model, vader, to gauge the **positive, neutral, and negative** content within each comment. The chart below shows the average sentiment for the comments grouped by week.
 
-<img src="/static/blog/images/005-lebron-images/dark_weekly_sentiment.png" class="img-fluid" alt="Sentiment polarity analysis of the comments on a weekly basis" title="Notice the two positive peaks in 2012: that's when LeBron won his first championship." style="width:750px;max-width:95%">
+<img src="/static/blog/images/005-lebron-images/dark_weekly_sentiment.png" class="img-fluid" alt="Sentiment polarity analysis of the comments on a weekly basis" title="Notice the two positive peaks in 2012: that's when LeBron won his first championship." style="width:1000px;max-width:98%">
 <p style="text-align: center;font-size:80%"><b>Sentiment Polarity Analysis Time Series</b></p>
 
  At any given week, the 3 lines will sum to a value of 1. As you can see, most weeks the comments tend to be about 80% neutral, meaning they don't have much positive nor negative expression in them. They also tend to be generally a little more positive than negative.
