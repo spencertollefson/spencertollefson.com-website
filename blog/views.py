@@ -89,6 +89,10 @@ def tsa_claim(request):
     featuredir = './web_app/featurelists'
     airports = sorted(joblib.load(f'{featuredir}/airports.joblib'))
     airlines = sorted(joblib.load(f'{featuredir}/airlines.joblib'))
+    airlines.remove('USAir')
+    airlines.remove('Northwest Airlines')
+    airlines.remove('AirTran Airlines')
+    airlines.remove('Continental Airlines')
     claim_types = sorted(joblib.load(f'{featuredir}/claim_types.joblib'))
     claim_sites = sorted(joblib.load(f'{featuredir}/claim_sites.joblib'))
     item_cats = sorted(joblib.load(f'{featuredir}/item_category.joblib'))
