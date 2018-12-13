@@ -21,18 +21,18 @@ function makePlot(selector, list_of_probs){
           "field": "Days", 
           "type": "ordinal",
           "axis": {
-            "orient": "bottom",
+            "orient": "black",
             "domain": true,
-            "domainColor": "white",
+            "domainColor": "black",
             "domainWidth": 3,
             "ticks": true,
-            "tickColor": "white",
+            "tickColor": "black",
             "title": "Days Waited After Incident To File Claim",
-            "titleColor": "white",
+            "titleColor": "black",
             "titleFont": "Roboto",
             "titleFontSize": 20,
             "labels": true,
-            "labelColor": "white",
+            "labelColor": "black",
             "labelAngle": 0
           
           }    
@@ -43,18 +43,18 @@ function makePlot(selector, list_of_probs){
           "axis": {
             "orient": "left",
             "domain": true,
-            "domainColor": "white",
+            "domainColor": "black",
             "domainWidth": 3,
             "ticks": true,
-            "tickColor": "white",
+            "tickColor": "black",
             "title": "Probability",
             "titlePadding": 50,
             "titleAngle": 0,
-            "titleColor": "white",
+            "titleColor": "black",
             "titleFont": "Roboto",
             "titleFontSize": 20,
             "labels": true,
-            "labelColor": "white"
+            "labelColor": "black"
 
         }
       },

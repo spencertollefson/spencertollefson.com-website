@@ -6,33 +6,30 @@ function processResult(result){
 
 function makePlot(selector, list_of_probs){
     const yourVlSpec = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+      "$schema": "https://vega.github.io/schema/vega-lite/v3.0.0-rc0.json",
       "description": "A simple line chart with embedded data.",
       "data": {
         "values": list_of_probs.map((prob, index) => {return {'Days': index + 1, 'Probability': prob}; })
       },
       // Properties for any single view specifications
-      // "width": ...,
-      // "height": ...,
       "mark": {"type": "line", "point": true},
       "encoding": {
-        // "size": 10,
         "x": {
           "field": "Days", 
-          "type": "ordinal",
+          "type": "nominal",
           "axis": {
             "orient": "bottom",
             "domain": true,
-            "domainColor": "white",
+            "domainColor": "#27b7e7",
             "domainWidth": 3,
             "ticks": true,
-            "tickColor": "white",
+            "tickColor": "black",
             "title": "Days Waited After Incident To File Claim",
-            "titleColor": "white",
+            "titleColor": "#27b7e7",
             "titleFont": "Roboto",
             "titleFontSize": 20,
             "labels": true,
-            "labelColor": "white",
+            "labelColor": "black",
             "labelAngle": 0
           
           }    
@@ -43,18 +40,18 @@ function makePlot(selector, list_of_probs){
           "axis": {
             "orient": "left",
             "domain": true,
-            "domainColor": "white",
+            "domainColor": "#27b7e7",
             "domainWidth": 3,
             "ticks": true,
-            "tickColor": "white",
+            "tickColor": "#27b7e7",
             "title": "Probability",
             "titlePadding": 50,
             "titleAngle": 0,
-            "titleColor": "white",
+            "titleColor": "#27b7e7",
             "titleFont": "Roboto",
             "titleFontSize": 20,
             "labels": true,
-            "labelColor": "white"
+            "labelColor": "black"
 
         }
       },

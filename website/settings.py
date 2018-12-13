@@ -174,7 +174,7 @@ MARKDOWNX_EDITOR_RESIZABLE = False
 
 # FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
-SECURE_SSL_REDIRECT = False
+SECURE_SSL_REDIRECT = True
 
 
 

@@ -49,8 +49,12 @@
             </div>
                 {% block before-content %}
                 {% endblock before-content %}
-            <div class="row">
-                <div class="col-11 pb-1 text-left mx-auto">
+            <!-- <div class="row">
+                <div class="col-11 pb-1 text-left mx-auto"> -->
+
+
+
+
                     {% block content %}
 
 <body>
@@ -145,11 +149,12 @@
       </tr>
   </table>
   </div>
-<br>
 
+</div>
+<div class="container col-12 text-center justify-content-center" id="plot">
+    <div id="vis"></div>
+</div>
 
-<br>
-<div id="vis"></div>
 
 </body>
 
@@ -199,7 +204,7 @@
   </script>
   
 {% endblock content %}
-                </div>
+                
             </div>
         {% endblock header-setup %}
         </div>

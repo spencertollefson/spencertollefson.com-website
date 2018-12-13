@@ -154,4 +154,9 @@ a:hover {
     color: #e76327;
 }
 
+.plot{
+    justify-content: center;
+    background-color: red,
+}
+
 @mobile
