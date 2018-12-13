@@ -1,4 +1,5 @@
 from django.urls import include, path
+from django.views.decorators.csrf import csrf_exempt
 from . import views
 
 
@@ -12,6 +13,9 @@ urlpatterns = [
     path('markdownx/', include('markdownx.urls')),
     path('journal/<slug:slug>/', views.journal_detail, name='journal_detail'),
     path('resume/', views.resume, name='resume'),
+    path('tsa-claim-outcome-prediction/', views.tsa_claim, name='tsa_claim'),
+    path('do_prediction_multiple_days/', csrf_exempt(views.do_prediction_multiple_days), name='do_prediction_multiple_days'),
+
 
 
     #Robots

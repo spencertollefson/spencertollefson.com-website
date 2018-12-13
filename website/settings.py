@@ -174,7 +174,7 @@ MARKDOWNX_EDITOR_RESIZABLE = False
 
 # FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
 
 
@@ -188,4 +188,4 @@ django_heroku.settings(locals())
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 SITE_ID = 1 # For use with the django.contrib.sites within Installed Apps
-### THIS IS NEEDED FOR ADMIN PAEGE TO FUNCTION
+### THIS IS NEEDED FOR ADMIN PAGE TO FUNCTION

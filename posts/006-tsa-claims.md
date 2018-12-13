@@ -1,6 +1,6 @@
 TSA. The much aligned TSA. The organization doesn't have the best reputation. People don't arrive at their destination then exclaim how *fantastic* of a time they had passing through airport security. Rather, people grumble about security wait lines, how they watched their dignity stripped away from their eyes, or perhaps what they think is pointless "security theater" that isn't serving any *real* purpose. It's less frequent that someone's carry-on or checked items are damaged or lost (maybe stolen?) at some point in the TSA screening processes. But when it does happen, what do they do?
 
-<img src="/static/blog/images/006-tsa-claims/tsa-claims-form.png" class="img-fluid" alt="Form SF-95: the TSA Tort Claims Package" title="Receipts? Appraisal values? Insurance information? That's a lot to ask for." style="width:1000px;max-width:98%">
+<img src="/static/blog/images/006-tsa-claims/tsa-claims-form.png" class="img-fluid" alt="Form SF-95: the TSA Tort Claims Package" title="Receipts? Appraisal values? Insurance information? That's a lot to ask for." style="width:800px; max-width:98%; border:1px solid black;">
 <p style="text-align: center;font-size:80%"><b>The 5 page TSA claims form.</b></p>
 
 When a passenger suspects TSA is at fault for damaged or lost luggage, there is a formal claims process entailing completing a 5-page document and sending to TSA for a verdict. (Ignoring the obvious bias issue in that TSA is judge, jury, and executioner in this role, let's move on). The claims form requests standard contact information, a description of the incident and damaged/lost item(s), and how much money the claimant is seeking as compensation. But that's not all. The TSA also inquires about names and contact information of any witnesses (if there were some), the claimant's personal insurance information, purchase receipts of the property, as well as appraisal values of said items. That's a lot!  The TSA claims office then reviews the claim and either **denies** it, **approves it in full**, or **settles** it by granting a payout less than what was asked.
@@ -14,10 +14,6 @@ The *U.S. Department of Homeland Security*, TSA's parent organization, [publicly
 After some exploratory analysis, I decided to parse down the 370+ airports, 190+ item categories, and 170+ airlines. Most of the claims consisted of only small subset of each of these. I pulled data from the [Federal Aviation Authority (FAA)](https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/) to prioritize the airports with most passenger boardings in 2017. I then selected the top 14 airports in the TSA dataset and consolidated similar item categories down into a list of 140.
 
 With this slimmer set of data, I defined a **successful** claim as one where the claimant won the **amount in full** or *settled* amount of compensation. This simplified the outcomes into a binary case. After cleaning the dataset with these constraints, I ended up with about 90,000 claim requests ready for modeling.
-
-
-<<< SOME KIND OF IMAGE OR PLOT OF THE DATA I HAVE>>>
-
 
 ## Modeling
 

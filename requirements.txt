@@ -18,3 +18,7 @@ pytz==2018.4
 six==1.11.0
 whitenoise==3.3.1
 newrelic
+numpy
+pandas
+joblib
+sklearn

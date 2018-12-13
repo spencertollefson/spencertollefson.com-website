@@ -1,8 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
+import json
 from .forms import PostForm
 from django.db.models import Q
 
@@ -45,6 +47,60 @@ def resume(request):
 
 def robots(request):
     return render(request, 'robots.txt')
+
+# def tsa_claim(request):
+#     return render(request, 'blog/tsa_claims_predictor.html')
+
+#from flask import Flask, abort, render_template, jsonify, request
+import joblib
+
+from .api import make_prediction, make_prediction_over_n_days
+
+#app = Flask('TSA-app')
+
+month_dictionary = {
+                    'January': '1',
+                    'February': '2',
+                    'March': '3',
+                    'April': '4',
+                    'May': '5',
+                    'June': '6',
+                    'July': '7',
+                    'August': '8',
+                    'September': '9',
+                    'October': '10',
+                    'November': '11',
+                    'December': '12' 
+}
+
+# @app.route('/predict_multiple', methods=['POST'])
+def do_prediction_multiple_days(request):
+    if not request.is_ajax():
+            print('error')
+    data = json.loads(request.body)
+    data['Month_inc_date'] = month_dictionary[data['Month_inc_date']]
+
+    response = make_prediction_over_n_days(data, 50)
+    return JsonResponse(response)
+
+
+# #@app.route('/', methods=['GET'])
+def tsa_claim(request):
+    featuredir = './web_app/featurelists'
+    airports = sorted(joblib.load(f'{featuredir}/airports.joblib'))
+    airlines = sorted(joblib.load(f'{featuredir}/airlines.joblib'))
+    claim_types = sorted(joblib.load(f'{featuredir}/claim_types.joblib'))
+    claim_sites = sorted(joblib.load(f'{featuredir}/claim_sites.joblib'))
+    item_cats = sorted(joblib.load(f'{featuredir}/item_category.joblib'))
+    days = list(range(1, 61))
+    months = ['January', 'February', 'March', 'April', 'May', 'June',
+              'July', 'August', 'September', 'October', 'November', 'December']
+    return render(request, 'blog/tsa_claim_outcome_prediction.html', {'airports':airports, 'airlines':airlines,
+                           'claim_types':claim_types, 'claim_sites':claim_sites,
+                           'item_cats':item_cats, 'days':days, 'months':months})
+
+
+    
 
 # @login_required
 # def post_draft_list(request):
