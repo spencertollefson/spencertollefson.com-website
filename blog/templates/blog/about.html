@@ -37,10 +37,10 @@
 
     {% block navhighlights %}
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">About</a>
+            <a class="nav-link active" href="{% url 'about' %}">About</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="{% url 'bloglist' %}">Blog</a>
+            <a class="nav-link" href="{% url 'bloglist' %}">Blog</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
@@ -49,7 +49,7 @@
             <a class="nav-link" href="{% url 'resume' %}">Resume</a>
         </li>
         <li class="nav-item">
-                <a class="nav-link" href="{% url 'do_prediction_multiple_days' %}">TSA App</a>
+                <a class="nav-link" href="{% url 'tsa_claim' %}">TSA App</a>
         </li>
     {% endblock navhighlights %}
 
