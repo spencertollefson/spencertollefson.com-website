@@ -1,69 +1,217 @@
 {% extends 'blog/base.html' %}
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <body>
+<html>
+<head>
+  <!-- <title>TSA Claim Outcome Prediction</title> -->
+    
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script> 
+</head>
 
-        
+{% block navbar %}
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="mx-auto d-flex d-block flex-wrap justify-content-center" role="navigation">
+                <a class="navbar-brand" href="{% url 'about' %}">Spencer Tollefson</a>
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse text-center justify-content-center" id="navbarNav">
+                    <ul class="nav nav-pills">
+{% block navhighlights %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about' %}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'bloglist' %}">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
+                        </li><li class="nav-item">
+                            <a class="nav-link" href="{% url 'resume' %}">Resume</a>
+                        </li>
+                        {% endblock navhighlights %}
+                    </ul>
+                </div>
+            </div><!-- /.container-fluid -->
+        </nav>
+        {% endblock navbar %}
+
+        <div class="container col-10 col-sm-10 col-md-9 col-lg-8 col-xl-6 content" id="main">
+        {% block header-setup %}
+            <div class="row">
+                <div class="col text-center pt-2">
+                    {% block Page-Header %}
+                        <h1>TSA Claim Outcome Prediction</h1>
+                    {% endblock Page-Header %}
+                </div>
+            </div>
+                {% block before-content %}
+                {% endblock before-content %}
             <div class="row">
                 <div class="col-11 pb-1 text-left mx-auto">
                     {% block content %}
-                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-                    <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
-                    <script src="https://cdn.jsdelivr.net/npm/vega@4.3.0"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc0"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.24.1"></script>
-                  
-                    <!-- <script src="https://vega.github.io/datalib/datalib.min.js"></script> -->
-                    <script src="../../static/js/plot.js"></script>
 
-                    <script>
+<body>
+<hr>
 
-                        $('#submit').click( () => { cool(); } );
-                        
-                        function cool(){
-                            let features = {
-                            'airport_code': $('select[name=airports]').val(),
-                            'airline': $('select[name=airlines]').val(),
-                            'claim_type': $('select[name=claim_types]').val(),
-                            'claim_site': $('select[name=claim_sites]').val(),
-                            'item_category': $('select[name=item_cats]').val(),
-                            'days_waited_to_file_claim': '3',
-                            'Month_inc_date': $('select[name=months]').val()
-                            }
-                            console.log(features);
-                        
-                        
-                            $.ajax({
-                            type: "POST",
-                            contentType: "application/json; charset=utf-8",
-                            url: "/do_prediction_multiple_days/",  // Replace with URL of POST handler
-                            dataType: "json",
-                            async: true,
-                            data: JSON.stringify(features),
-                            success: (result) => processResult(result),
-                            error: (result) => {
-                                alert('Error. Check the source code.');
-                            }
-                            });
-                        }
-                        </script>
+<table class="tabsettings">
+    <tr>
+      <td>
+          <div class="cat">Airport:</div>
+      </td>
+      <td>
+          <select class="dd" name = airports method="GET" action="/">
+            {% for airport in airports %}
+            <option value= "{{airport}}" SELECTED>{{ airport }}</option>"
+            {% endfor %}
+        </select>
+      </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="cat">Airline:</div>
+        </td>
+        <td>
+            <select class="dd" name = airlines method="GET" action="/">
+              {% for airline in airlines %}
+              <option value= "{{airline}}" SELECTED>{{ airline }}</option>"
+              {% endfor %}
+          </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="cat">Claim Type:</div>
+        </td>
+        <td>
+            <select class="dd" name = claim_types method="GET" action="/">
+              {% for claim_type in claim_types %}
+              <option value= "{{claim_type}}" SELECTED>{{ claim_type }}</option>"
+              {% endfor %}
+          </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="cat">Location of Incident:</div>
+        </td>
+        <td>
+            <select class="dd" name = claim_sites method="GET" action="/">
+              {% for claim_site in claim_sites %}
+              <option value= "{{claim_site}}" SELECTED>{{ claim_site }}</option>"
+              {% endfor %}
+          </select>
+        </td>
+    </tr>
+    <tr>
+      <td>
+          <div class="cat">Month Incident Occurred:</div>
+      </td>
+      <td>
+          <select class="dd" name = months method="GET" action="/">
+            {% for month in months %}
+            <option value= "{{month}}" SELECTED>{{ month }}</option>"
+            {% endfor %}
+        </select>
+      </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="cat">Item Category:</div>
+        </td>
+        <td>
+            <select class="dd" name = item_cats method="GET" action="/">
+              {% for item_cat in item_cats %}
+              <option value= "{{item_cat}}" SELECTED>{{ item_cat }}</option>"
+              {% endfor %}
+          </select>
+        </td>
+    </tr>
 
-                    {% endblock content %}
+</table>
+
+<hr>
+<br>
+  <div>
+    <button class="button" id="submit">Make prediction</button>
+    <br>
+    <br>
+      <table>
+    <tr><td class = "compensation"></td>
+        <bold><td class="compensation" id="hard_predict"></td></bold>
+        
+      </tr>
+  </table>
+  </div>
+<br>
+
+
+<br>
+<div id="vis"></div>
+
+</body>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@4.3.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.24.1"></script>
+
+  <!-- <script src="https://vega.github.io/datalib/datalib.min.js"></script> -->
+  <script src="../../static/js/plot.js"></script>
+
+  <script>
+
+  $('#submit').click( () => { cool(); } );
+
+  function cool(){
+    let features = {
+      'airport_code': $('select[name=airports]').val(),
+      'airline': $('select[name=airlines]').val(),
+      'claim_type': $('select[name=claim_types]').val(),
+      'claim_site': $('select[name=claim_sites]').val(),
+      'item_category': $('select[name=item_cats]').val(),
+      'days_waited_to_file_claim': '3',
+      'Month_inc_date': $('select[name=months]').val()
+    }
+    console.log(features);
+
+
+    $.ajax({
+      type: "POST",
+      contentType: "application/json; charset=utf-8",
+      url: "/do_prediction_multiple_days/",  // Replace with URL of POST handler
+      dataType: "json",
+      async: true,
+      data: JSON.stringify(features),
+      success: (result) => processResult(result),
+      error: (result) => {
+        alert('Error. Check the source code.');
+      }
+    });
+
+  }
+
+
+  </script>
+  
+{% endblock content %}
                 </div>
             </div>
         {% endblock header-setup %}
         </div>
 
-        
 
-        {% block plugins %}
+
+{% block plugins %}
         <!-- Javascript and jquery plugins -->
         <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
         {% endblock plugins %}
-    </body>
-</html>
 
+</html>
