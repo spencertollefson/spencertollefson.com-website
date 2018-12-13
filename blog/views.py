@@ -46,7 +46,7 @@ def about(request):
 #     return render(request, 'blog/resume.html')
 
 def resume(request):
-    file = open('2018.12.07-data-science.pdf', "w+b")
+    file = open('2018.12.07-data-science.pdf', 'rb')
     file.seek(0)
     pdf = file.read()
     file.close()
