@@ -35,19 +35,23 @@
     </head>
 {% endblock head %}
 
-{% block navhighlights %}
-<li class="nav-item">
-    <a class="nav-link active" href="{% url 'about' %}">About</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{% url 'bloglist' %}">Blog</a>
-</li><li class="nav-item">
-    <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{% url 'resume' %}">Resume</a>
-</li>
-{% endblock navhighlights %}
+    {% block navhighlights %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'bloglist' %}">Blog</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'resume' %}">Resume</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="{% url 'do_prediction_multiple_days' %}">TSA App</a>
+        </li>
+    {% endblock navhighlights %}
 
 {% block Page-Header %}
     <h1>About</h1>
@@ -71,8 +75,13 @@
     <h5>Who: Spencer Tollefson</h5>
     <p>
     Who is Spencer Tollefson? He's a human being aspiring to land a data scientist job.
-    Previously working for the Peace Corps in Costa Rica (Pura Vida!), he is now a student at
-    <a href="https://thisismetis.com">Metis</a> - a data science bootcamp. Attributes and
+    Previously working for the Peace Corps in Costa Rica (Pura Vida!), he returned and completed a data science
+    bootcamp with
+    <a href="https://thisismetis.com">Metis</a>. You can check out projects from that bootcamp in the
+    <a href=https://spencertollefson.com/blog/">Blog</a> section. Relatedly, you can try out a model he
+    created to predict likelihood of filing a successful TSA claim for damaged or lost property in the
+    the <a href=https://spencertollefson.com/tsa-claim-outcome-prediction/">TSA claim prediction app</a>.
+    Attributes and
     preferences include: he's a Seattle-ite, big into craft beer, doesn't mind the rain too much,
     and as demonstrated by this website, he's into tech. But hang on, honesty first policy here:
     Spencer only began learning to code in October 2017 (He's decent at Excel
