@@ -15,18 +15,22 @@
 
 
 {% block navhighlights %}
-<li class="nav-item">
-    <a class="nav-link" href="{% url 'about' %}">About</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link active" href="{% url 'bloglist' %}">Blog</a>
-</li><li class="nav-item">
-    <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{% url 'resume' %}">Resume</a>
-</li>
-{% endblock navhighlights %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'bloglist' %}">Blog</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% static "2018.12.07-data-science.pdf" %}" target="_blank">Resume</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" href="{% url 'tsa_claim' %}">TSA App</a>
+        </li>
+    {% endblock navhighlights %}
 
 {% block header-setup %}
     <div class="row">
