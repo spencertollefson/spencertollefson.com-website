@@ -45,15 +45,15 @@ def about(request):
 # def resume(request):
 #     return render(request, 'blog/resume.html')
 
-# def resume(request):
-#     redirect('download_resume', permanent=True)
+def resume(request):
+    redirect('download_resume', permanent=True)
 
-# def download_resume(request):
-#     file = open('2018.12.07-data-science.pdf', 'rb')
-#     file.seek(0)
-#     pdf = file.read()
-#     file.close()
-#     # return HttpResponse(pdf, 'application/pdf')
+def download_resume(request):
+    file = open('Spencer_Tollefson_resume.pdf', 'rb')
+    file.seek(0)
+    pdf = file.read()
+    file.close()
+    return HttpResponse(pdf, 'application/pdf')
 #     return FileResponse(pdf, as_attachment=True, filename='Spencer_Tollefson_Resume.pdf')   
 
 def robots(request):
