@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, FileResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 import json
@@ -46,11 +46,15 @@ def about(request):
 #     return render(request, 'blog/resume.html')
 
 def resume(request):
+    redirect('download_resume', permanent=True)
+
+def download_resume(request):
     file = open('2018.12.07-data-science.pdf', 'rb')
     file.seek(0)
     pdf = file.read()
     file.close()
-    return HttpResponse(pdf, 'application/pdf')
+    # return HttpResponse(pdf, 'application/pdf')
+    return FileResponse(pdf, as_attachment=True, filename='Spencer_Tollefson_Resume.pdf')
 
 def robots(request):
     return render(request, 'robots.txt')
