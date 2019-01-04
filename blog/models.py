@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import Q
 from django.utils import timezone
+from django.urls import reverse
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 from django.template.defaultfilters import slugify
@@ -43,16 +44,15 @@ class Post(models.Model):
             # of HTTP-related exceptions.
             pass
 
-    @models.permalink
     def get_absolute_url(self):
         if self.type == 'blog':
-            return ('blogdetail', (),
-                    {
+            return reverse('blogdetail', (),
+                    args={
                         'slug' :self.slug,
                     })
         elif self.type == 'journal':
-            return ('journal_detail', (),
-                        {
+            return reverse('journal_detail', (),
+                        args={
                             'slug' :self.slug,
                         })
 
