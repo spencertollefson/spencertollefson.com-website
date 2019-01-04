@@ -60,7 +60,7 @@ def resume(request):
 
 
 def download_resume(request):
-    file_path = 'static/Spencer_Tollefson_Resume.pdf'
+    file_path = 'blog/static/Spencer_Tollefson_Resume.pdf'
     if os.path.exists(file_path):
         with open(file_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/pdf")
