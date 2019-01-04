@@ -46,16 +46,10 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         if self.type == 'blog':
-            return reverse('blogdetail', (),
-                    args={
-                        'slug' :self.slug,
-                    })
+            return reverse('blogdetail', args=[self.slug])
         elif self.type == 'journal':
-            return reverse('journal_detail', (),
-                        args={
-                            'slug' :self.slug,
-                        })
-
+            return reverse('journal_detail', args=[self.slug])
+            
     # def save(self, *args, **kwargs):
     #     if not self.slug:
     #         self.slug = slugify(self.title)
