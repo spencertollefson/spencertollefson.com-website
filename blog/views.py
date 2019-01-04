@@ -54,11 +54,13 @@ def resume(request):
     file_path = 'Spencer_Tollefson_Resume.pdf'
     print('the current working dir is:')
     print(os.getcwd())
+    print('items in the dir are:')
+    print(os.listdir(os.getcwd())
     if os.path.exists(file_path):
         print('it exists!')
         with open(file_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/pdf")
-            response['Content-Disposition'] = 'attachment; filename="Spencer_Tollefson_Resume.pdf"'
+            response['Content-Disposition'] = 'inline; filename="Spencer_Tollefson_Resume.pdf"'
             return response
     print('CANONT FIND FILE')
     raise Http404 
