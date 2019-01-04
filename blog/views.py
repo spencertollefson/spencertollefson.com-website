@@ -7,7 +7,7 @@ from .models import Post
 import json
 from .forms import PostForm
 from django.db.models import Q
-import os
+import os, sys
 from django.conf import settings
 
 
@@ -49,17 +49,8 @@ def about(request):
 #     return render(request, 'blog/resume.html')
 
 def resume(request):
-    redirect('download_resume', permanent=True)
-
-# def download_resume(request):
-#     file = open('Spencer_Tollefson_resume.pdf', 'rb')
-#     file.seek(0)
-#     pdf = file.read()
-#     file.close()
-#     return HttpResponse(pdf, 'application/pdf')
-
-
-def download_resume(request):
+    print('hello world')
+    sys.stdout.flush()
     file_path = 'Spencer_Tollefson_Resume.pdf'
     print('the current working dir is:')
     print(os.getcwd())
@@ -71,6 +62,27 @@ def download_resume(request):
             return response
     print('CANONT FIND FILE')
     raise Http404 
+
+# def download_resume(request):
+#     file = open('Spencer_Tollefson_resume.pdf', 'rb')
+#     file.seek(0)
+#     pdf = file.read()
+#     file.close()
+#     return HttpResponse(pdf, 'application/pdf')
+
+
+# def download_resume(request):
+#     file_path = 'Spencer_Tollefson_Resume.pdf'
+#     print('the current working dir is:')
+#     print(os.getcwd())
+#     if os.path.exists(file_path):
+#         print('it exists!')
+#         with open(file_path, 'rb') as fh:
+#             response = HttpResponse(fh.read(), content_type="application/pdf")
+#             response['Content-Disposition'] = 'attachment; filename="Spencer_Tollefson_Resume.pdf"'
+#             return response
+#     print('CANONT FIND FILE')
+#     raise Http404 
     
 
 def robots(request):
