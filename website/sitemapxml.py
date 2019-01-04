@@ -35,7 +35,7 @@ class StaticSitemap(Sitemap):
 
     def items(self):
         # Return list of url names for views to include in sitemap
-        return ['about', 'bloglist', 'journal_list',]
+        return ['about', 'bloglist', 'journal_list', 'resume']
 
     def location(self, item):
         return reverse(item)
