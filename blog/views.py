@@ -1,12 +1,15 @@
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
-from django.http import JsonResponse, HttpResponse, FileResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 import json
 from .forms import PostForm
 from django.db.models import Q
+import os
+from django.conf import settings
+
 
 
 def bloglist(request):
@@ -48,13 +51,23 @@ def about(request):
 def resume(request):
     redirect('download_resume', permanent=True)
 
+# def download_resume(request):
+#     file = open('Spencer_Tollefson_resume.pdf', 'rb')
+#     file.seek(0)
+#     pdf = file.read()
+#     file.close()
+#     return HttpResponse(pdf, 'application/pdf')
+
+
 def download_resume(request):
-    file = open('Spencer_Tollefson_resume.pdf', 'rb')
-    file.seek(0)
-    pdf = file.read()
-    file.close()
-    return HttpResponse(pdf, 'application/pdf')
-#     return FileResponse(pdf, as_attachment=True, filename='Spencer_Tollefson_Resume.pdf')   
+    file_path = 'Spencer_Tollefson_resume.pdf'
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/pdf")
+            response['Content-Disposition'] = 'inline; filename="Spencer_Tollefson_Resume"'
+            return response
+    raise Http404 
+    
 
 def robots(request):
     return render(request, 'robots.txt')
