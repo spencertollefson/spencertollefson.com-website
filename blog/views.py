@@ -55,7 +55,7 @@ def resume(request):
     print('the current working dir is:')
     print(os.getcwd())
     print('items in the dir are:')
-    print(os.listdir(os.getcwd())
+    print(os.listdir(os.getcwd()))
     if os.path.exists(file_path):
         print('it exists!')
         with open(file_path, 'rb') as fh:
