@@ -49,20 +49,13 @@ def about(request):
 #     return render(request, 'blog/resume.html')
 
 def resume(request):
-    print('hello world')
-    sys.stdout.flush()
-    file_path = 'Spencer_Tollefson_Resume.pdf'
-    print('the current working dir is:')
-    print(os.getcwd())
-    print('items in the dir are:')
-    print(os.listdir(os.getcwd()))
+    file_path = './static/Spencer_Tollefson_Resume.pdf'
     if os.path.exists(file_path):
         print('it exists!')
         with open(file_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/pdf")
             response['Content-Disposition'] = 'inline; filename="Spencer_Tollefson_Resume.pdf"'
             return response
-    print('CANONT FIND FILE')
     raise Http404 
 
 # def download_resume(request):
