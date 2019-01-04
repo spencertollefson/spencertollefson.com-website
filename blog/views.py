@@ -67,7 +67,7 @@ def download_resume(request):
         print('it exists!')
         with open(file_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/pdf")
-            response['Content-Disposition'] = 'inline; filename="Spencer_Tollefson_Resume.pdf"'
+            response['Content-Disposition'] = 'attachment; filename="Spencer_Tollefson_Resume.pdf"'
             return response
     print('CANONT FIND FILE')
     raise Http404 
