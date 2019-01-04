@@ -60,11 +60,11 @@ def resume(request):
 
 
 def download_resume(request):
-    file_path = 'Spencer_Tollefson_resume.pdf'
+    file_path = 'static/Spencer_Tollefson_Resume.pdf'
     if os.path.exists(file_path):
         with open(file_path, 'rb') as fh:
             response = HttpResponse(fh.read(), content_type="application/pdf")
-            response['Content-Disposition'] = 'inline; filename="Spencer_Tollefson_Resume"'
+            response['Content-Disposition'] = 'inline; filename="Spencer_Tollefson_Resume.pdf"'
             return response
     raise Http404 
     
