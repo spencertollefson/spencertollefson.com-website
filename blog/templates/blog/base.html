@@ -2,148 +2,134 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    {% block head %}
-    <head>
-        {% block ga %}
-            {% include "snippets/ga.html" %}
-        {% endblock ga %}
+{% block head %}
 
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    {% block ga %}
+    {% include "snippets/ga.html" %}
+    {% endblock ga %}
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!--Font Awesome CSS -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
-        <!--Leads to blog.css file for CSS styling -->
-        <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+    <!--Font Awesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
+        integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
 
-
-
-        {% block metatags %}
-        <meta name="author" content="Spencer Tollefson">
-        {% endblock metatags %}
+    <!--Leads to blog.css file for CSS styling -->
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 
 
-        <title>{% block title %}Spencer Tollefson{% endblock title %}</title>
-    </head>
-    {% endblock head %}
 
-    <body>
+    {% block metatags %}
+    <meta name="author" content="Spencer Tollefson">
+    {% endblock metatags %}
 
-        {% block navbar %}
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <div class="mx-auto d-flex d-block flex-wrap justify-content-center" role="navigation">
-                <a class="navbar-brand" href="{% url 'about' %}">Spencer Tollefson</a>
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse text-center justify-content-center" id="navbarNav">
-                    <ul class="nav nav-pills">
-                            {% block navhighlights %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'about' %}">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{% url 'bloglist' %}">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% static "2018.12.07-data-science.pdf" %}" target="_blank">Resume</a>
-                            </li>
-                            <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'tsa_claim' %}">TSA App</a>
-                            </li>
-                        {% endblock navhighlights %}
-                    </ul>
-                </div>
-            </div><!-- /.container-fluid -->
-        </nav>
-        {% endblock navbar %}
+    <title>{% block title %}Spencer Tollefson{% endblock title %}</title>
+</head>
+{% endblock head %}
 
-        <div class="container col-10 col-sm-10 col-md-9 col-lg-8 col-xl-6 content" id="main">
+<body>
+
+    {% block navbar %}
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="mx-auto d-flex d-block flex-wrap justify-content-center" role="navigation">
+            <a class="navbar-brand" href="{% url 'about' %}">Spencer Tollefson</a>
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse text-center justify-content-center" id="navbarNav">
+                <ul class="nav nav-pills">
+                    {% block navhighlights %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'bloglist' %}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% static "2018.12.07-data-science.pdf" %}" target="_blank">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'tsa_claim' %}">TSA App</a>
+                    </li>
+                    {% endblock navhighlights %}
+                </ul>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    {% endblock navbar %}
+
+    <div class="container col-10 col-sm-10 col-md-9 col-lg-8 col-xl-6 content" id="main">
         {% block header-setup %}
-            <div class="row">
-                <div class="col text-center pt-2">
-                    {% block Page-Header %}
-                        <h1>Blog Posts</h1>
-                    {% endblock Page-Header %}
-                </div>
+        <div class="row">
+            <div class="col text-center pt-2">
+                {% block Page-Header %}
+                <h1>Blog Posts</h1>
+                {% endblock Page-Header %}
             </div>
-                {% block before-content %}
-                {% endblock before-content %}
-            <div class="row">
-                <div class="col-11 pb-1 text-left mx-auto">
-                    {% block content %}
-                    {% endblock content %}
-                </div>
-            </div>
-        {% endblock header-setup %}
         </div>
+        {% block before-content %}
+        {% endblock before-content %}
+        <div class="row">
+            <div class="col-11 pb-1 text-left mx-auto">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+        {% endblock header-setup %}
+    </div>
 
-        {% block footer %}
+    {% block footer %}
 
-        <nav class="navbar navbar-dark bg-dark pt-0 pb-0 foot-nav justify-contents-center">
-            <footer class="container d-flex footer-con foot-nav" id="footer">
-                <div class="col d-flex mx-auto text-center justify-content-center copyright">
-                    <a class="navbar-brand footer copyright-text" href="{% url 'about' %}"><small>Copyright © 2019 Spencer Tollefson</small></a>
+    <nav class="navbar navbar-dark bg-dark pt-0 pb-0 foot-nav justify-contents-center">
+        <footer class="container d-flex footer-con foot-nav" id="footer">
+            <div class="col d-flex mx-auto text-center justify-content-center copyright">
+                <a class="navbar-brand footer copyright-text" href="{% url 'about' %}"><small>Copyright © 2020 Spencer
+                        Tollefson</small></a>
+            </div>
+            <div class="col d-flex footer-icons mx-auto">
+                <div class="btn-toolbar" role="group" aria-label="Basic example">
+                    <a href="mailto:spencer@spencertollefson.com" target="_blank"><i
+                            class="icon-colors fas fa-envelope-square btn"></i></a>
+                    <a href="https://twitter.com/TheSpencerT" target="_blank"><i
+                            class="icon-colors fab fa-twitter-square btn"></i></a>
+                    <a href="https://www.linkedin.com/in/stollefson1" target="_blank"><i
+                            class="icon-colors fab fa-linkedin btn"></i></a>
+                    <a href="https://github.com/spencertollefson" target="_blank"><i
+                            class="icon-colors fab fa-github-square btn"></i></a>
                 </div>
-                <div class="col d-flex footer-icons mx-auto">
-                    <div class="btn-toolbar" role="group" aria-label="Basic example">
-                        <a href="mailto:spencer@spencertollefson.com" target="_blank"><i class="icon-colors fas fa-envelope-square btn"></i></a>
-                        <a href="https://twitter.com/TheSpencerT" target="_blank"><i class="icon-colors fab fa-twitter-square btn"></i></a>
-                        <a href="https://www.linkedin.com/in/stollefson1" target="_blank"><i class="icon-colors fab fa-linkedin btn"></i></a>
-                        <a href="https://github.com/spencertollefson" target="_blank"><i class="icon-colors fab fa-github-square btn"></i></a>
-                    </div>
-                </div>
-            </footer>
-        </nav>
+            </div>
+        </footer>
+    </nav>
 
-        {% endblock footer %}
+    {% endblock footer %}
 
-        {% block plugins %}
-        <!-- Javascript and jquery plugins -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    {% block plugins %}
+    <!-- Javascript and jquery plugins -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
 
-        {% endblock plugins %}
-    </body>
+    {% endblock plugins %}
+</body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
