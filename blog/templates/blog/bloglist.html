@@ -2,92 +2,95 @@
 {% load static %}
 
 {% block metatags %}
-    <meta name="description" content="List of all blog posts.
-    5-15 minute reads times that focus on one specific tech topic. Read away!
-    In lieu of comments, Twitter is the medium for conversation. Start a
-    conversation there.">
-    <meta name="author" content="Spencer Tollefson">
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://www.spencertollefson.com/blog/" />
-    <meta property="og:description" content="List  of all blog posts. 5-15
-    minute read times that focus on one specific tech topic. Read away! In lieu
-     of comments, Twitter is the medium for conversation. Start a conversation there.">
-    <meta property="og:title" content="Blog">
+<meta name="description" content="List of all blog posts. 5-15 minute reads times that focus on one specific tech topic.
+    If you have any questions - please contact using one of the links at the bottom.">
+<meta name="author" content="Spencer Tollefson">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://www.spencertollefson.com/blog/" />
+<meta property="og:description" content="List of all blog posts. 5-15 minute read times that focus on one specific 
+    tech topic.If you have any questions - please contact using one of the links at the bottom.">
+<meta property="og:title" content="Blog">
 {% endblock metatags %}
 
 <title>{% block title %}Spencer Tollefson - Blog{% endblock title %}</title>
 
-        {% block navbar %}
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <div class="mx-auto d-flex d-block flex-wrap justify-content-center" role="navigation">
-                <a class="navbar-brand" href="{% url 'about' %}">Spencer Tollefson</a>
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+{% block navbar %}
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="mx-auto d-flex d-block flex-wrap justify-content-center" role="navigation">
+        <a class="navbar-brand" href="{% url 'about' %}">Spencer Tollefson</a>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <div class="collapse navbar-collapse text-center justify-content-center" id="navbarNav">
-                    <ul class="nav nav-pills">
-                            {% block navhighlights %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'about' %}">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{% url 'bloglist' %}">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'resume' %}" target="_blank">Resume</a>
-                            </li>
-                            <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'tsa_claim' %}">TSA App</a>
-                            </li>
-                        {% endblock navhighlights %}
-                    </ul>
-                </div>
-            </div><!-- /.container-fluid -->
-        </nav>
-        {% endblock navbar %}
+        <div class="collapse navbar-collapse text-center justify-content-center" id="navbarNav">
+            <ul class="nav nav-pills">
+                {% block navhighlights %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'bloglist' %}">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'resume' %}" target="_blank">Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'tsa_claim' %}">TSA App</a>
+                </li>
+                {% endblock navhighlights %}
+            </ul>
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
+{% endblock navbar %}
 
 {% block header-setup %}
-    <div class="row justify-content-center text-center">
-        <div class="col-11 py-2">
-            <h1>Blog</h1>
-        </div>
-        <div class="w-100"></div>
-        <div class="col-11 text-justify">
-            <p>
-                List  of all blog posts. 5-15
-                minute read times that focus on one specific tech topic. Read away! In lieu
-                of comments, Twitter is the medium for conversation. Start a conversation there.
-            </p>
-        </div>
+<div class="row justify-content-center text-center">
+    <div class="col-11 py-2">
+        <h1>Blog</h1>
     </div>
-    <div class="row">
-        <table class="table table-hover blog-list-table">
-            <tbody>
-                {% for post in posts %}
-                     {% if post.type == 'blog' %}
-                         <tr>
-                             <td>
-                                 <small><h6 class="journ-list blog-numbering">#{{ post.blog_pub_number }}:</h6></small>
-                             </td>
-                             <td>
-                                 <small><h6 class="journ-list">{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}</h6></small>
-                             </td>
-                             <td>
-                                 <a href="{% url 'blogdetail' slug=post.slug %}" class="">
-                                 <p class="journ-list">{{ post.title }}</p>
-                                 </a>
-                             </td>
-                         </tr>
-                     {% endif %}
-                {% endfor %}
-            </tbody>
-        </table>
+    <div class="w-100"></div>
+    <div class="col-11 text-justify">
+        <p>
+            List of all blog posts. 5-15
+            minute read times that focus on one specific tech topic. Read away! In lieu
+            of comments, Twitter is the medium for conversation. Start a conversation there.
+        </p>
     </div>
+</div>
+<div class="row">
+    <table class="table table-hover blog-list-table">
+        <tbody>
+            {% for post in posts %}
+            {% if post.type == 'blog' %}
+            <tr>
+                <td>
+                    <small>
+                        <h6 class="journ-list blog-numbering">#{{ post.blog_pub_number }}:</h6>
+                    </small>
+                </td>
+                <td>
+                    <small>
+                        <h6 class="journ-list">{{ post.published_date|date:'F j' }}, {{ post.published_date|date:'Y' }}
+                        </h6>
+                    </small>
+                </td>
+                <td>
+                    <a href="{% url 'blogdetail' slug=post.slug %}" class="">
+                        <p class="journ-list">{{ post.title }}</p>
+                    </a>
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
 
 

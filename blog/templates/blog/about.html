@@ -2,158 +2,114 @@
 {% load static %}
 
 {% block head %}
-    <head>
-        {% block ga %}
-            {% include "snippets/ga.html" %}
-        {% endblock ga %}
 
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    {% block ga %}
+    {% include "snippets/ga.html" %}
+    {% endblock ga %}
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!--Font Awesome CSS -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
-        <!--Leads to blog.css file for CSS styling -->
-        <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+    <!--Font Awesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
+        integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+
+    <!--Leads to blog.css file for CSS styling -->
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 
 
 
-        {% block metatags %}
-            <meta name="description" content="Hi I'm Spencer Tollefson. Welcome to my website! Here you can learn about some of my interests and what I'm currently working on.">
-            <meta name="author" content="Spencer Tollefson">
-            <meta property="og:description" content="Hi I'm Spencer Tollefson. Welcome to my website! Here you can learn about some of my interests and what I'm currently working on.">
-            <meta property="og:title" content="{{ post.title }}" />
-            <meta property="og:type" content="article" />
-            <meta property="og:url" content="http://www.spencertollefson.com" />
-        {% endblock metatags %}
+    {% block metatags %}
+    <meta name="description"
+        content="Hi I'm Spencer Tollefson. Welcome to my website! Here you can learn about some of my interests and what I'm currently working on.">
+    <meta name="author" content="Spencer Tollefson">
+    <meta property="og:description"
+        content="Hi I'm Spencer Tollefson. Welcome to my website! Here you can learn about some of my interests and what I'm currently working on.">
+    <meta property="og:title" content="{{ post.title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://www.spencertollefson.com" />
+    {% endblock metatags %}
 
-        <title>{% block title %}Spencer Tollefson{% endblock title %}</title>
-    </head>
+    <title>{% block title %}Spencer Tollefson{% endblock title %}</title>
+</head>
 {% endblock head %}
 
-    {% block navhighlights %}
-        <li class="nav-item">
-            <a class="nav-link active" href="{% url 'about' %}">About</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'bloglist' %}">Blog</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'resume' %}" target="_blank">Resume</a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" href="{% url 'tsa_claim' %}">TSA App</a>
-        </li>
-    {% endblock navhighlights %}
+{% block navhighlights %}
+<li class="nav-item">
+    <a class="nav-link active" href="{% url 'about' %}">About</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'bloglist' %}">Blog</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'journal_list' %}">Journal</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'resume' %}" target="_blank">Resume</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'tsa_claim' %}">TSA App</a>
+</li>
+{% endblock navhighlights %}
 
 {% block Page-Header %}
 {% endblock Page-Header %}
 
 {% block before-content %}
-    <div class="row">
-        <div class="col-11 col-sm-10 col-md-10 col-lg-10 mx-auto about-photo">
-            <img src="{% static 'blog/images/spencer-winnipeg.jpg' %}"
-            alt="Spencer Tollefson - A photo of me" 
-            title="That's me!"
-            class="img-fluid img-thumbnail rounded-circle"
-            />
-        </div>
+<div class="row">
+    <div class="col-11 col-sm-10 col-md-10 col-lg-10 mx-auto about-photo">
+        <img src="{% static 'blog/images/spencer-winnipeg.jpg' %}" alt="Spencer Tollefson - A photo of me"
+            title="That's me!" class="img-fluid img-thumbnail rounded-circle" />
     </div>
-    <br>
+</div>
+<br>
 {% endblock before-content %}
 
 
 {% block content %}
-    <h5>Who: Spencer Tollefson</h5>
-    <p>
-    Who is Spencer Tollefson? He's a human being aspiring to land a data scientist job.
-    Previously working for the Peace Corps in Costa Rica (Pura Vida!), he returned and completed a data science
-    bootcamp with
-    <a href="https://thisismetis.com">Metis</a>. You can check out projects from that bootcamp in the
-    <a href="https://www.spencertollefson.com/blog/">Blog</a> section. Relatedly, you can try out a model he
-    created to predict likelihood of filing a successful TSA claim for damaged or lost property in the
-    the <a href="https://www.spencertollefson.com/tsa-claim-outcome-prediction/">TSA claim prediction app</a>.
-    Attributes and
-    preferences include: he's a Seattle-ite, big into craft beer, doesn't mind the rain too much,
-    and as demonstrated by this website, he's into tech. But hang on, honesty first policy here:
-    Spencer only began learning to code in October 2017 (He's decent at Excel
-    though, that counts for something right?!) To help him learn any and
-    everything about data science, he has been chowing down on blogs, podcasts,
-    tutorials, videos, and more as if they were sweet Costa Rican rambutans.
+<p>
+    Hello! I'm Spencer. Welcome to my website! I built this site as a project when I began teaching myself Python. It
+    came to be a perfect medium for me to blog and write about my learnings and projects I did while attending the Metis
+    Data Science Bootcamp. Enjoy browsing around! But first, some more about me:
     <br><br>
-    Non-tech stuff? Dabbles in body weight fitness exercises and loves long walks - not kidding!
-    Watches, analyzes, and debates NBA (Continually hoping for the return of the Sonics!). Subscribes to the
-    <a href="https://www.youtube.com/user/crashcourse">Crash Course</a> YouTube channel.
-    Reads non-fiction and <a href="https://www.wikipedia.org/">Wikipedia</a> for pleasure.
-    Eats mostly "unprocessed" plants. Finally, Spencer organizes his life by
-    maintaining lists on <a href="https://keep.google.com">Google Keep</a> of
-    everything he can quantify.
-    </p>
+    I previously worked for the Peace Corps in Costa Rica (Pura Vida!), and then returned and completed a data science
+    bootcamp with <a href="https://thisismetis.com">Metis</a>. You can check out projects from that bootcamp in the
+    <a href="https://www.spencertollefson.com/blog/">Blog</a> section. For my final project, you can try out a model I
+    created to predict the likelihood of filing a successful TSA claim for damaged or lost property in the
+    the <a href="https://www.spencertollefson.com/tsa-claim-outcome-prediction/">TSA claim prediction app</a>.
 
-    <h6>Currently Reading:</h6>
-    <ul>
-        <li><a href="https://www.amazon.com/Inverting-Pyramid-History-Soccer-Tactics/dp/1568587384?pldnSite=1">
-            Inverting the Pyramid: The History of Soccer Tactics</a>
-            by Jonathan Wilson
-        </li>
-    </ul>
-    <h6>Recently Finished:</h6>
-        <ul>
-            <li><a href="http://shop.oreilly.com/product/0636920034919.do">
-                Python Data Science Handbook: Essential Tools for Working with Data</a>
-                by Jake VanderPlas
-            </li>
-            <li><a href="https://www.amazon.com/Introduction-Statistical-Learning-Applications-Statistics/dp/1461471370">
-                An Introduction to Statistical Learning: with Applications in R</a>
-                by James, Witten, Hastie, and Tibshirani
-            </li>
-        </ul>
-
-    <h5>You</h5>
-    <p>
-    The more the merrier! Spencer intends to mainly write about Python and data
-    science related topics here, so if that is your kind of thing that's great!
-    If not, well he has a bunch of other interests as well - but he won't be
-    writing about them much here. The target audience of this site consists
-    of fellow coders, data scientists, potential employers, friends, family
-    pets - why not?
-    </p>
-
-    <h5>The Site</h5>
-    <p>
-    So what is this website and why did Spencer make it? Not going to beat around the
-    bush here - his primary reason for building this site is for himself. He is
-    using it for motivation, to track what he's learned, to keep a tech journal,
-    and to expand on topics that capture his attention. Of course
-    that's not the only reason though. The site in itself is a project - Spencer's first
-    (and perhaps last) web dev project - and he's learned a ton every step
-    of creating this baby. Additionally, Spencer wants to connect with like-minded
-    people and maintain a portfolio for <i>potential</i> opportunities.
+</p>
+<h5>The Site</h5>
+<p>
+    So what is this website and why did I create it? As mentioned earlier, the primary reason for building this site was
+    as a learning and motivation tool. I used it to track what I learned, to keep a tech journal,
+    and to expand on my projects. Please note, the **resume** linked in the menu above was last updated at the end of
+    2018!
     <br><br>
     He built this site in Python using the <a href="https://djangoproject.com">Django</a>
     framework for architecture and the <a href="https://getbootstrap.com">Bootstrap</a>
     Content Delivery Network for support in the layout. It's deployed via <a href="https://heroku.com">Heroku</a>.
-    It was quite the challenge, and Spencer doubts he'll ever make money being a web dev,
-    but hey, besides what he learned he has something to show for it as well!
-    </p>
+    It was challenging and rewarding to create at the time. I doubt I'll be doing much more of this, but it's fun to
+    have something to show for it!
+    <br><br>
+    FYI, I do not expect I will be spending more time contributing to this website.
+</p>
 
-    <h5>Get in Touch</h5>
-    <p>
-    You may notice there isn't commenting anywhere on the site. Twitter and
-    email are the best ways to contact Spencer. Whether about something
-    specific he wrote or anything else - he'd love to connect.
-    </p>
-    <ul>
+<h5>Get in Touch</h5>
+<p>
+    You may notice there isn't commenting anywhere on the site. I encourage you to contact me using one of the contact
+    links below.
+</p>
+<ul>
     <li><a href="mailto:spencer@spencertollefson.com" target="_blank">spencer@spencertollefson.com</a></li>
     <li><a href="https://twitter.com/TheSpencerT" target="_blank">Twitter</a></li>
     <li><a href="https://www.linkedin.com/in/stollefson1" target="_blank">LinkedIn</a></li>
     <li><a href="https://github.com/spencertollefson" target="_blank">Github</a></li>
-    </ul>
+</ul>
 {% endblock %}
