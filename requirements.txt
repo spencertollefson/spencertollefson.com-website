@@ -18,8 +18,8 @@ pytz==2018.4
 six==1.11.0
 whitenoise==3.3.1
 newrelic
-numpy==1.15.4
-pandas==0.23.4
+numpy
+pandas
 joblib==0.13.0
-scikit-learn==0.24.1
-catboost==0.24.4
+scikit-learn
+catboost
