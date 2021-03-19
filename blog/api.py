@@ -9,7 +9,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import MultiLabelBinarizer, OneHotEncoder, StandardScaler
 
 # model = joblib.load(open('./web_app/stat_models/catboost_month_incident_20181206_updated_pkl_v_on_20210319.joblib', 'rb'))
-model = joblib.load(open('./web_app/stat_models/catboost_month_incident_12.06.2018.joblib', 'rb'))
+# model = joblib.load(open('./web_app/stat_models/catboost_month_incident_12.06.2018.joblib', 'rb'))
+model = joblib.load(open('./web_app/stat_models/catboost_month_incident_12.06.2018_v2.joblib', 'rb'))
 
 
 
