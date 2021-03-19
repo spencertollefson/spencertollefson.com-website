@@ -1,14 +1,16 @@
+import pickle
+
+import joblib
 import numpy as np
 import pandas as pd
-import joblib
-
-import pickle
-from sklearn.preprocessing import StandardScaler, MultiLabelBinarizer, OneHotEncoder
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.externals import joblib
-model = joblib.load(open('./stat_models/catboost_month_incident_12.06.2018.joblib', 'rb'))
+from sklearn.preprocessing import MultiLabelBinarizer, OneHotEncoder, StandardScaler
 
-import joblib
+# from sklearn.externals import joblib
+# model = joblib.load(open('./stat_models/catboost_month_incident_12.06.2018.joblib', 'rb'))
+model = joblib.load(open('./stat_models/catboost_month_incident_20181206_updated_pkl_v_on_20210319.joblib', 'rb'))
+
+
 
 def make_prediction(features):
     '''
