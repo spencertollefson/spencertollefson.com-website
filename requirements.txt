@@ -15,7 +15,8 @@ py==1.5.3
 pytest==3.5.0
 pytest-django==3.2.1
 pytz==2018.4
-whitenoise>=5.0.1
+six==1.11.0
+whitenoise==3.3.1
 newrelic>=6.2.0.156
 numpy>=1.20.1
 pandas>=1.2.3
